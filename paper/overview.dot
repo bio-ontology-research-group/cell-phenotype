@@ -1,0 +1,39 @@
+digraph overview{
+	"Abnormality of X" -> "Abnormal X morphology";
+	"Abnormality of X" -> "Abnormal X physiology";
+	edge[style=dotted];
+	"Abnormal X physiology" -> "Abnormality of\nP(X)";
+	edge[style=""];
+	 subgraph cluster1 {
+	 label="Process phenotypes";
+	 clusterrank="local";
+	 "Abnormality of\nP(X)" -> "Abnormality of\n P(X) occurrence";
+	 "Abnormality of\nP(X)" -> "Abnormality of\n P(X) regulation";
+	 subgraph cluster2 {
+	 style=filled;
+	 color=mistyrose;
+	 label="Abnormality of single process occurrence";
+	 clusterrank="local";
+	 "Abnormality of\n P(X) occurrence" -> "Abnormal duration\n of P(X)";
+	 "Abnormal duration\n of P(X)" -> "Increased duration\n of P(X)";
+	 "Abnormal duration\n of P(X)" -> "Decreased duration\n of P(X)";
+	 "Abnormality of\n P(X) occurrence" -> "Abnormality of\nI(P(X)) in P(X)";
+	 "Abnormality of\nI(P(X)) in P(X)" -> "Decreased amount\n of I(P(X)) in P(X)";
+	 "Abnormality of\nI(P(X)) in P(X)" -> "Increased amount\n of I(P(X)) in P(X)";
+	 "Abnormality of\n P(X) occurrence" -> "Abnormality of\nO(P(X)) in P(X)";
+	 "Abnormality of\nO(P(X)) in P(X)" -> "Decreased amount\n of O(P(X)) in P(X)";
+	 "Abnormality of\nO(P(X)) in P(X)" -> "Increased amount\n of O(P(X)) in P(X)";
+	 }
+	 subgraph cluster3 {
+	 style=filled;
+	 color=lightgray;
+	 label="Abnormality of regulation of process occurrence";
+	 "Abnormality of\n P(X) regulation" -> "Abnormal frequency\n of P(X)";
+	 "Abnormal frequency\n of P(X)" -> "Decreased frequency\n of P(X)";
+	 "Abnormal frequency\n of P(X)" -> "Increased frequency\n of P(X)";
+	 "Abnormality of\n P(X) regulation" -> "Abnormal onset\n of P(X)";
+	 "Abnormal onset\n of P(X)" -> "Early onset\n of P(X)";
+	 "Abnormal onset\n of P(X)" -> "Late onset\n of P(X)";
+	 }
+	 }
+}
