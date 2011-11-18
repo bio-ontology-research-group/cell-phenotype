@@ -280,23 +280,23 @@ inactivity.
 % [Regulation of X vs. X: regulation modulates the number/amount of
 % occurrence...]
 
-In English language, we may say that an object has a {\em frequency}
-or {\em rate} as if these were attributes of objects at time
-points. For example, that my heart {\em now} beats with a frequency of
-80 beats per minute, or that a car is moving with a speed of 280
-kilometres per minute {\em at a particular point in time} (e.g., as
-observed with a speed camera) may be considered attributes of the
-objects, not attributes of processes. In our analysis, rates as
-attributes of objects can be explicitly defined using rates of
-processes. For example, the heart beating frequency of a particular
-heart $h$ at a time point $t$ is the frequency of heart beating
-processes in which $h$ participates at an infinitesimally small
-process around $t$ and within a reference process. The reference
-process is necessary in order to obtain a value for a frequency or
-rate even if the process in question is not occurring. For example, a
-rate of cardiac muscle contraction can be determined even when no
-cardiac muscle contraction is occurring in virtue of a reference
-process with a rate of cardiac muscle contraction.
+We may say that an object has a {\em frequency} or {\em rate} as if
+these were attributes of objects at time points. For example, that my
+heart {\em now} beats with a frequency of 80 beats per minute, or that
+a car is moving with a speed of 280 kilometres per minute {\em at a
+  particular point in time} (e.g., as observed with a speed camera)
+may be considered attributes of the objects, not attributes of
+processes. In our analysis, rates as attributes of objects can be
+explicitly defined using rates of processes. For example, the heart
+beating frequency of a particular heart $h$ at a time point $t$ is the
+frequency of heart beating processes in which $h$ participates at an
+infinitesimally small process around $t$ and within a reference
+process. The reference process is necessary in order to obtain a value
+for a frequency or rate even if the process in question is not
+occurring. For example, a rate of cardiac muscle contraction can be
+determined even when no cardiac muscle contraction is occurring in
+virtue of a reference process with a rate of cardiac muscle
+contraction.
 
 The reference process for an object at a time point $t$ is uniquely
 determined for continuous processes (the infinitesimally small process
@@ -484,7 +484,7 @@ We use PATO's {\em frequency} class to define {\em Abnormal frequency
 
 
 
-\subsection{Cell Phenotype Ontology: implementation and evaluation}
+\subsection{Cell Phenotype Ontology: implementation}
 We were faced with two choices for implementing the CPO: we could
 either implement a pre-composed ontology in which all classes and
 their definitions are pre-generated according to the patterns we
@@ -510,17 +510,30 @@ with subsequent versions of the GO, we must ensure to keep identifiers
 stable in subsequent versions of CPO. Therefore, we use the
 identifiers for GO classes to generate CPO class identifiers.
 
-In the CPO, identifiers are of the form {\tt CPO:XXGGGGGGG}, where
-{\tt GGGGGGG} is the seven-digit identifier of the GO class on which
-the CPO class is based, and {\tt XX} is a prefix that identifies the
-type of pattern we applied to the GO class. For example, based on the
-class {\em Apoptotis} ({\tt GO:0006915}), we generate the CPO classes
-{\em Abnormality of Apoptosis}, {\em Abnormality of single occurrence
-  of apoptosis} and {\em Abnormality of regulation of apoptosis}.
-We use the prefixes {\tt 12}, {\tt 14} and {\tt 15} for each of the
-corresponding phenotype patterns, and consequently generate the class
-identifiers {\tt CPO:120006915}, {\tt CPO:140006915} and {\tt
-  CPO:150006915}. 
+In the CPO, identifiers contain two components and are of the form
+{\tt CPO:XXGGGGGGG}, where {\tt GGGGGGG} is the seven-digit identifier
+of the GO class on which the CPO class is based, and {\tt XX} is a
+prefix that identifies the type of phenotype pattern that is applied
+to the GO class. For example, based on the class {\em Apoptosis} ({\tt
+  GO:0006915}), we generate the CPO classes {\em Abnormality of
+  Apoptosis}, {\em Abnormality of single occurrence of apoptosis} and
+{\em Abnormality of regulation of apoptosis}.  We use the prefixes
+{\tt 12}, {\tt 14} and {\tt 15} for each of the corresponding
+phenotype patterns, and consequently generate the class identifiers
+{\tt CPO:120006915}, {\tt CPO:140006915} and {\tt CPO:150006915}. As
+long as the GO maintains its identifier for the {\em Apoptosis} class,
+the identifiers in the CPO will remain stable even when it is
+regenerated.
+
+We use the labels of GO classes to automatically generate class labels
+for phenotype classes as well as textual definitions for classes in
+the CPO. For example, the label of the class for increased number of
+occurrences of {\em Apoptosis} is {\em Increased frequency of
+  occurrences of Apoptosis}, and its textual definition states:
+``An increased frequency of occurrences of Apoptosis is a phenotype of
+entities in which the number of occurrences of Apoptosis within a
+given time period is increased in comparison to a reference
+process.''
 
 \section{Discussion}
 \subsection{Implementation as pre-composed ontology}
