@@ -1,0 +1,584 @@
+\documentclass{bioinfo}
+\copyrightyear{2005}
+\pubyear{2005}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+\usepackage{pifont}
+% Load packages
+\usepackage{cite} % Make references as [1-4], not [1,2,3,4]
+\usepackage{url}  % Formatting web addresses  
+\usepackage{ifthen}  % Conditional 
+\usepackage[utf8]{inputenc} %unicode support
+\urlstyle{rm}
+\usepackage{natbib}
+\renewcommand{\cite}{\citep}
+\usepackage{amsmath}
+\usepackage{amssymb}
+ 
+\usepackage{pifont}
+%\newcommand{\tick}{\ding{52}}
+\newcommand{\tick}{\checkmark}
+\newcommand{\tickNo}{\hspace{1pt}\ding{55}}
+
+\begin{document}
+\firstpage{1}
+
+\title{Process-based phenotypes: an application to the Cellular
+  Phenotype Ontology}
+
+\author[Hoehndorf et al.]{Robert Hoehndorf$^1$ and Gabriella
+  Rustici$^2$ and Midori Harris(?)$^3$ and Georgios V. Gkoutos$^{1}$}
+
+\address{$^{1}$Department of Genetics, University of Cambridge,
+  Downing Street, Cambridge, Cambridge CB2 3EH, UK\\
+  $^{2}$EBI, Wellcome Trust Genome Campus, Hinxton, Cambridge,
+  Cambridge CB2 3EH, UK}
+
+\maketitle
+ 
+\begin{abstract}
+  Phenotypes important for...
+
+  Include behavioral phenotypes, based on behavior ontology
+
+  We identify a problem in representing phenotypes such as drinking
+  behavior that...
+
+  provide solution...
+\end{abstract}
+
+\section{Introduction}
+
+problem of phenotypes...
+
+why reasoning, why formal, success,...
+
+solved: structures, qualities
+
+open: process phenotypes very complex...  
+physiology...
+measurements...
+
+\subsection{Problem statement 1}
+Heart rate increased: frequency of CMC increased fluid flow increased
+volume per contraction increased ...
+
+what is the relation to the heart?
+
+
+\subsection{Problem statement 2}
+increased apoptosis
+
+% \subsection{Problem statement 3}
+% A phenotype such as {\em Increased drinking behavior} is used for the
+% annotation of phenotypes in mouse and other species.
+
+% Different meanings:
+% \begin{itemize}
+% \item amount of substance increased over fixed period (e.g., 24h)
+% \item amount of substance per drinking act is increased
+% \item amount of time spent drinking over fixed period is increased
+% \item amount of time spent per drinking act is increased
+% \item number of drinking acts per fixed period increased
+% \item variety of substances that organism drinks is increased (over
+%   24h, per drinking act)
+% \item substance flow during drinking increased
+% \end{itemize}
+
+% more than just these aspects of ``drinking behavior'' can be increased
+
+\subsection{Observations}
+observation 1: there is a fundamental distinction between attribution
+of qualities for a fixed period (e.g., 24h) and single {\em act}s of
+drinking.
+
+observation 2: each of the different possible ``increased'' drinking
+behavior may be the result of different underlying causes and due to
+this, distinguishing between them may be important.
+
+observation 3: depending on the experiment performed, only some of the
+actual qualities can be measured.
+
+observation 4: some qualities can be inferred given others. For
+example,...
+
+\section{Methods}
+\subsection{Formal ontology}
+The ontology as an approach to semantic standardisation was proposed
+more than a decade ago and since then has become the dominant
+methodology used to semantically categorise phenodeviance.  The
+biomedical research community has invested considerable amount of
+effort and resources in the development and establishment of
+ontologies that are becoming increasingly successful as information
+management and integration tools in many disparate scientific fields
+allowing interoperability and semantic information processing between
+diverse biomedical resources and domains.
+
+In computer science, an ontology is a specification of a
+conceptualization of a domain of knowledge \cite{Gruber1995,
+  Guarino1998}.  % In philosophy, on the other hand, an ontology is a
+% system of categories that account for a particular view on the
+% world. The philosophical sense of ``ontology'' is what computer
+% science calls ``conceptualization''.  While a conceptualization is
+% language-independent, its specification is based on a language. In
+% this sense, ontologies specify some aspects of the meaning of terms
+% in vocabularies.
+Ontologies commonly distinguish between {\em classes} and {\em
+  individuals} within a domain of knowledge. A class is an entity that
+can have {\em instances}, while individuals are entities that cannot
+be instantiated. Examples of individuals include the Eiffel tower or
+the 2009 Ironman Triathlon in Hawaii, while examples of classes
+include {\em Tower} or {\em Triathlon}. The Eiffel tower can be an
+instance of the class {\em Tower}, and the 2009 Ironman Triathlon an
+instance of {\em Triathlon}.  The meaning of classes is specified by
+stating what must be true of their instances.
+
+In addition to classes and individuals, ontologies often include {\em
+  relations}. Relations are the ``the glue that holds things together,
+the primary constituents of the facts that go to make up reality''
+\cite{}.
+
+In {\em formal} ontologies, the specification of classes and relations
+follows the axiomatic-deductive method. Given a set of terms that are
+used within a domain and whose meaning we wish to specify, we begin by
+providing {\em explicit definitions} for some terms, potentially
+introducing new terms. An explicit definition of a term $t$ is a
+statement that can replace every occurrence of $t$ in any sentence.
+
+Eventually, a set of {\em primitive terms} remains that are not
+further defined. Using only the primitive terms, we can construct
+complex sentences. Based on the intended meaning of the primitive
+terms, we consider some of these sentences true and some of them false
+in our domain. We select some of the true sentences as {\em axioms}
+which provide the core of our ontology. Ideally, the axioms are chosen
+so that all true sentences in the domain we intend to represent follow
+by means of logical deduction from the axioms. More commonly, however,
+only {\em some aspects} of the intended meaning are formally
+represented while other aspects are omitted either due to limitations
+in language expressivity or due to their irrelevance to the problem
+for which an ontology is developed.
+
+Based on the axioms and definitions, we can use deduction to infer
+statements that logically follow from the axioms.  The process of
+automatically deducing sentences from axioms is called {\em automated
+  reasoning}. Automated reasoning allows users of an ontology to carry
+our key activities: verifying the ontology's consistency, inferring
+hidden knowledge and thereby performing powerful queries.  An ontology
+is inconsistent if {\em every} statement can be inferred from the
+ontology. In particular, an ontology is inconsistent if a statement
+$\phi$ and its negation $\neg \phi$ can be inferred from the
+ontology's axioms. Classes in an ontology may be unsatisfiable: a
+class $C$ is unsatisfiable, if it is not possible that the class has
+instances. Unsatisfiable classes are commonly the result of a
+contradictory class definition. That a class is unsatisfiable is often
+a special kind of unintended consequence that can be drawn from an
+ontology.
+
+Automated reasoning in the Web Ontology Language (OWL) can be employed
+to automatically compute the generalization hierarchy underlying an
+ontology as well as for verification of data consistency and complex
+queries \cite{Hoehndorf2011incon, Hoehndorf2011models}.
+
+
+Layered approach: although OWL has high expressivity, some things
+cannot be expressed in OWL; some things should not be expressed in OWL
+for specific applications due to tractability reasons
+
+Most applications rely on graph structure of ontology...
+
+\subsection{Processes, their participants and qualities}
+Processes are entities that are temporally extended: processes have
+temporal parts and {\em unfold} through time. Examples of classes that
+may have processes as instances include {\em Drinking}, {\em
+  Triathlon} or {\em Apoptosis}.
+
+Processes commonly have participants\footnote{It may be argued that
+  processes necessarily have participants or that processes may have
+  no participants. However, these discussions do not affect our aims
+  here and take no position in this regard.}. Participants of
+processes are entities that are present at time points (i.e., they
+have no temporal parts) and may undergo changes during the process.
+We can further distinguish different {\em roles} of participation in a
+process. For example, a runner may participate in a {\em Triathlon}
+process as a {\em Runner (role)}, while a particular {\em goal line}
+can participate in the same process in a different role.
+
+Amongst the participants of some processes, we will distinguish
+between {\em inputs} and {\em outputs} of processes. Chemical
+reactions, for example, are processes with definite inputs (the {\em
+  reactants}) and outputs ({\em the products}).
+
+\subsection{Gene Ontology}
+quick intro...
+
+mention regulation relations... 
+
+regulation of X processes
+
+\subsection{PATO and the EQ model}
+
+\section{Results}
+\subsection{Attributes of processes}
+An attribute that can be directly linked to a process is its {\em
+  duration}. A duration is an attribute that characterizes the
+temporal extent of a process and is similar to {\em Length}, {\em
+  Area} and {\em Volume} for one-, two- and three-dimensional
+entities. Furthermore, processes may be attributed a {\em temporal
+  location} with respect to a particular coordinate system.
+
+However, the majority of attributes that characterize processes are
+not based on genuine process attributes alone, but rather relate
+attributes of process participants with the duration of a process. In
+particular, a {\em rate} typically refers to an attribute of some
+entity {\em with respect to an attribute of another entity}, and in
+the context of processes, rates often refer to attributes of a process
+participant with respect to the duration of the process. For example,
+a {\em mass flow rate} refers to the {\em Mass} of a process
+participant with respect to the duration of the process, i.e., how
+much matter is moved (from one point to another) through the process.
+As a more complex example, a {\em rate of change of position} refers
+to the {\em distance} that an object is moved with respect to the
+duration of the process.
+
+Not all rates of a process depend on attributes of the process
+participants. In particular, a {\em frequency of occurrence} or {\em
+  event rate} refers to the number of occurrences of a type of process
+during the reference process. For example, a {\em rate of heart
+  beating} refers to the number of {\em Heart beating} processes that
+occur within a reference process (e.g., a process containing the heart
+with a duration of one minute). Further attributes that depend on
+types of processes with regard to a reference process are {\em
+  distribution patterns}, i.e., how the occurrences of processes of a
+particular type are distributed within a reference process. For
+example, the heart may beat {\em rhythmically} or {\em arrhythmically}
+within a period of time.
+
+Related to distribution patterns are {\em changing qualities} of
+processes. For example, the rate of heart beating may change ({\em
+  increase} or {\em decrease}) throughout the course of the reference
+process. A simple analysis of {\em increasing} ({\em decreasing})
+rates would be that the rate of a heart beating within the first half
+of a process if {\em lower} ({\em higher}) than in the second half of
+the process. Mathematically, this process sub-division can be iterated
+until we end up with infinitesimally small time intervals.
+
+While some processes can be subdivided indefinitely without changing
+the type of process, others cannot. A class $C$ of {\em continuous
+  processes} is a class that has processes $p$ as instance such that
+all temporal parts of $p$ are also instances of $C$. Examples include
+{\em continuous movements} or {\em regulation} processes. On the other
+hand, {\em discrete processes} can be subdivided into stages of
+activity and stages of inactivity: a class $C$ of {\em discrete
+  processes} is a class with processes $p$ as instance and there is a
+part of $p$ that is not an instance of $C$. An example is {\em heart
+  beating} which has periods of activity (a single heart beat) and
+inactivity.
+
+% In line with the GO, we call processes that cause
+
+% [Regulation of X vs. X: regulation modulates the number/amount of
+% occurrence...]
+
+In English language, we may say that an object has a {\em frequency}
+or {\em rate} as if these were attributes of objects at time
+points. For example, that my heart {\em now} beats with a frequency of
+80 beats per minute, or that a car is moving with a speed of 280
+kilometres per minute {\em at a particular point in time} (e.g., as
+observed with a speed camera) may be considered attributes of the
+objects, not attributes of processes. In our analysis, rates as
+attributes of objects can be explicitly defined using rates of
+processes. For example, the heart beating frequency of a particular
+heart $h$ at a time point $t$ is the frequency of heart beating
+processes in which $h$ participates at an infinitesimally small
+process around $t$ and within a reference process. The reference
+process is necessary in order to obtain a value for a frequency or
+rate even if the process in question is not occurring. For example, a
+rate of cardiac muscle contraction can be determined even when no
+cardiac muscle contraction is occurring in virtue of a reference
+process with a rate of cardiac muscle contraction.
+
+The reference process for an object at a time point $t$ is uniquely
+determined for continuous processes (the infinitesimally small process
+around $t$), and ambiguous for discrete processes.
+
+
+A similar construction as for continuous processes can be made for
+discrete processes. A rate of blood flow is immediately an attribute
+of a single heart beat process. However, during a period of time, the
+cumulative rate of blood flow can be observed as the sum of the blood
+flow rates of individual heart beating processes.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.5\textwidth]{processpatterns.pdf}
+  \caption{Overview over ...\label{fig:patterns}}
+\end{figure}
+
+Complex relations between Based on these definition patterns,
+interdependencies between process attributes can be observed.
+
+\begin{table*}
+  \begin{tabular}{l|l|l|l}
+    & Increased blood flow rate & Normal blood flow rate & Decreased
+    blood flow rate \\
+    Increased frequency &increased&increased&?\\
+    Normal frequency &increased&normal&decreased\\
+    Decreased frequency &?&decreased&decreased
+  \end{tabular}
+  \caption{\label{...}Total blood flow rate...}
+\end{table*}
+
+
+\subsection{Cellular Phenotype Ontology}
+
+A domain that would greatly benefit from the development of a CPO is
+Systems Microscopy, which aims to understand complex and dynamic
+cellular systems by combining automated fluorescence microscopy, cell
+microarray platforms, quantitative image analysis and data mining
+(Lock \& Stromblad, Exp. Cell Res. 2010).
+
+If we consider some of the studies, which have been published in this
+field in the last few years (Neumann et al, Nature 464: 722-727;
+Schmitz et al, Nature Cell Biology 12: 886-893; Fuchs et al, Mol Sys
+Biology 6: 370), the need for a CPO becomes evident.
+
+In all three studies here considered live-cell imaging assays and RNAi
+knockdown were used to generate phenotypic profiles that quantify the
+cellular response to a given siRNA thus allowing identification of
+hundreds of genes involved in diverse biological functions including
+cell division, migration and survival.
+
+In each study, several phenotypes were detected and described by the
+authors without the use of ontologies (see table), making the
+integration between datasets extremely difficult. For example, it is
+evident that cell division phenotypes were observed in the three
+datasets (e.g. 'Mitotic delay/arrest' and 'Prolonged mitotic exit' or
+'Methaphase delay' and 'Methaphase cells') but the overlap between
+such phenotypes is unclear.
+
+Data integration is also complicated by the lack of standardization at
+the level of data production and processing; all these issues are
+currently being address by the different groups involved in the
+Systems Microscopy Network of Excellence
+(http://www.systemsmicroscopy.eu/) and the first step towards data
+integration will be achieved by developing a CPO.
+
+This ontology will be used to integrate phenotypes' definitions across
+existing datasets and will then become an integrated part of the data
+processing pipeline and used to annotate the data as it gets generated
+(Conrad et al, Nature Methods 8: 246-249).
+
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=\textwidth,
+  height=.33\textheight]{overview.pdf}
+  \caption{Overview over ...\label{fig:overview}}
+\end{figure*}
+
+CPO contains both structural abnormalities and physiological
+abnormalities.
+
+Phenotypes in the CPO are either based on structural abnormalities or
+abnormal physiology involving cells or cell components. Structural
+abnormalities in the CPO are based on GO's Cellular Component (GO-CC)
+hierarchy. GO-CC contains 2,918 classes for cell parts (including {\em
+  Cell}) and extracellular components of cells. For each cellular
+component class $C$ in the GO-CC, we create a new class labelled {\em
+  $C$ phenotype} in the CPO. For example, for the class {\em
+  Mitochondrion} ({\tt GO:0005739}) in the GO-CC, we create the class
+{\em Mitochondrion phenotype}.
+
+Amongst the structural phenotype classes, we first distinguish between
+{\em normal} and {\em abnormal} phenotypes. An {\em Abnormal phenotype
+  of $C$} is a phenotype of an organism that does not have a normal
+$C$ as part, while a {\em Normal phenotype of $C$} represents the
+state in which an organism has a {\em normal $C$} as part.
+
+Amongst the abnormal phenotypes that we include for all cell
+components listed in GO-CC, we distinguish {\em abnormal morphology}
+and {\em abnormal physiology} phenotypes. An {\em Abnormal morphology
+  of $C$} is either the (abnormal) absence of required parts of $C$,
+the (abnormal) presence of additional parts, or abnormal qualities of
+$C$ \cite{Hoehndorf2010phene}. For example, an absence of caveolae
+({\tt MP:...}) would be a subclass of {\em Abnormal morphology of
+  plasma membrane} in virtue of caveolae necessarily being part of the
+{\em Plasma membrane} ({\tt GO:0005886}).
+
+Abnormal physiology of a cell component refers to abnormal {\em
+  functionality} of a cell component. We assume that a functionality
+of a cell component is (the potential for) a process in which the cell
+component is (causally) involved. We use the definitions of GO classes
+that were created based on lexical decompositions of GO class labels
+\cite{Mungall2010go, Bada2007a, Ogren2004} to identify the processes
+in which cell components are involved. For example, the definition of
+the GO class {\em Mitochondrial fission} ({\tt GO:0000266}) is
+explicitly defined as an {\em Organelle fission} ({\tt GO:0048285})
+that {\bf results-in-the-division-of} a {\em Mitochondrion} ({\tt
+  GO:0005739}). Based on this definition, we make the assumption that
+{\em Mitochondrial fission} is one of the functions of a {\em
+  Mitochondrion} and that an {\em Abnormality of mitochondrial
+  fission} is a subclass of an {\em Abnormality of mitochondrion
+  physiology}.
+
+Amongst abnormal physiology, we distinguish between abnormalities in a
+{\em single occurrence} of a cell component's functioning and an
+abnormal {\em pattern of multiple occurrences} of a cell component's
+functioning. For example, abnormalities in cell division resulting in
+{\em Aneuploidy} refer to abnormalities of functioning processes,
+while an {\em increased rate of cell division} refers to an
+abnormality in the pattern of occurrence of multiple cell division
+processes. In the CPO, abnormalities in the pattern of occurrence of
+$X$ are represented as abnormalities in the {\em regulation of $X$}.
+
+Single occurrences of processes can be abnormal in multiple ways,
+depending on the type of process.
+%
+First, common to all processes is the quality of {\em duration} and
+consequently, each process can have an {\em abnormal} (increased or
+decreased) duration. The second common type of abnormality are
+abnormalities based on process participants in relation to the
+duration of the process. These include all kinds of {\em rates} such
+as {\em mass flow rate}, {\em energy flow rate} and {\em velocity}
+(the rate of change of position). In each of these cases, an object
+participates in a process and a quality (or change of quality) of that
+object throughout the duration of the process is considered to form a
+new quality. If the process has participants that are distinguished
+into {\em inputs} and {\em outputs}, then a recurring pattern is that
+the amount of inputs or outputs that participate in the process can be
+{\em increased} or {\em decreased}.  Finally, some objects may be
+divided into stages during which particular states of affairs obtain,
+and a process may be abnormal in that these states of affairs do not
+obtain at a particular stage. Notably, at the beginning and the end of
+a process, pre- and post-conditions may obtain that are abnormally
+changed in a process. For example, {\em Aneuploidy} -- an abnormality
+during cell division at which the chromosomes do not separate properly
+between the two cells -- may be considered the result of such an
+abnormality.
+
+We implement the first two types of abnormality in the CPO. First, as
+a subclass of each {\em Abnormality of P} class, we create {\em
+  Abnormal duration of P}, which in turn has {\em Increased duration
+  of P} and {\em Decreased duration of P} as subclasses. Second, if we
+are able to identify {\em inputs} $I(P)$ or {\em outputs} $O(P)$ of
+the process $P$ in the formal definitions of the GO, we automatically
+generate {\em Abnormality of $I(P)$ in $P$} as well as {\em
+  Abnormality of $O(P)$ in $P$}.  The left side of Figure
+\ref{fig:overview} illustrates the schema of classes we generate for
+single process abnormalities.
+
+The second type of abnormality in the CPO relate to abnormalities of
+{\em multiple} occurrences of some process $X$. According to the GO,
+{\em regulation} processes are processes that maintain or modify the
+occurrence of processes of a particular type. Following this
+convention, we call an abnormality of multiple occurrences of $X$ {\em
+  abnormality of the regulation of $X$}.
+
+A first kind of abnormality of regulatory processes are {\em abnormal
+  temporal distribution patterns} of a process. The most common
+abnormal distribution pattern
+
+We use PATO's {\em frequency} class to define {\em Abnormal frequency
+  of occurrence of $X$} as a subclass of an {\em Abnormality of the
+  regulation of $X$}.
+
+
+
+\subsection{Cell Phenotype Ontology: implementation and evaluation}
+We were faced with two choices for implementing the CPO: we could
+either implement a pre-composed ontology in which all classes and
+their definitions are pre-generated according to the patterns we
+define, or we could develop an annotation software that enables the
+selection of our process phenotype patterns based on the current
+structure of the GO.  To maximize the utility and compatibility of the
+CPO, and to provide stable identifiers for its concepts, we selected
+the first strategy and developed a software to automatically generate
+a pre-composed ontology from the GO.
+
+We developed a software that utilizes the OWL API \cite{Horridge2007}
+in order to generate an OWL representation of the CPO. The software
+requires three input files: a version of the GO on which to based the
+generated CPO, a version of PATO that is used to define abnormal
+qualities, and a copy of the GO cross-product definitions
+\cite{Mungall2010go} that is used to relate cell components to the
+processes in which they participate as well as identify the
+participants, inputs and outputs of processes.
+
+We automatically generate a unique numerical identifier for each class
+in the CPO.  Since the CPO is based on the GO and need to be updated
+with subsequent versions of the GO, we must ensure to keep identifiers
+stable in subsequent versions of CPO. Therefore, we use the
+identifiers for GO classes to generate CPO class identifiers.
+
+In the CPO, identifiers are of the form {\tt CPO:XXGGGGGGG}, where
+{\tt GGGGGGG} is the seven-digit identifier of the GO class on which
+the CPO class is based, and {\tt XX} is a prefix that identifies the
+type of pattern we applied to the GO class. For example, based on the
+class {\em Apoptotis} ({\tt GO:0006915}), we generate the CPO classes
+{\em Abnormality of Apoptosis}, {\em Abnormality of single occurrence
+  of apoptosis} and {\em Abnormality of regulation of apoptosis}.
+We use the prefixes {\tt 12}, {\tt 14} and {\tt 15} for each of the
+corresponding phenotype patterns, and consequently generate the class
+identifiers {\tt CPO:120006915}, {\tt CPO:140006915} and {\tt
+  CPO:150006915}. 
+
+\section{Discussion}
+\subsection{Implementation as pre-composed ontology}
+Pre-composed or software support for pattern?
+
+\subsection{Use of CPO}
+
+\subsection{Future research: acts and intentional states}
+activities/actions, intentional (goal-oriented) acts
+
+feeling thirsty (internal state) as driving force behind drinking
+behavior
+
+non-measurable, inference only
+
+\subsection{Formalization}
+Formal, axiomatic system for process qualities, maybe based on PSL,
+FOIS paper 2010
+
+one example:...
+
+\section{Conclusion}
+
+
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Authors contributions}
+
+    
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Acknowledgements}
+% The authors declare that they have no competing interests.
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \section*{Acknowledgements}
+% \ifthenelse{\boolean{publ}}{\small}{}
+
+% The research work in its first unrevised form was presented at the
+% SMBM 2010, Hinxton, Cambridge, U.K.
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The Bibliography %%
+%%                                                         %%
+%% Bmc_article.bst will be used to %%
+%% create a .BBL file for submission, which includes %%
+%% XML structured for BMC.  %%
+%%                                                         %%
+%%                                                         %%
+%% Note that the displayed Bibliography will not %%
+%% necessarily be rendered by Latex exactly as specified %%
+%% in the online Instructions for Authors.  %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\bibliographystyle{plain} % Style BST file
+\bibliography{../bibtex/lc.bib}
+
+\end{document}
