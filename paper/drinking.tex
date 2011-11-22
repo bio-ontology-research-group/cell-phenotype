@@ -413,25 +413,36 @@ depending on the type of process.
 %
 First, common to all processes is the quality of {\em duration} and
 consequently, each process can have an {\em abnormal} (increased or
-decreased) duration. The second common type of abnormality are
-abnormalities based on process participants in relation to the
-duration of the process. These include all kinds of {\em rates} such
-as {\em mass flow rate}, {\em energy flow rate} and {\em velocity}
-(the rate of change of position). In each of these cases, an object
-participates in a process and a quality (or change of quality) of that
-object throughout the duration of the process is considered to form a
-new quality. If the process has participants that are distinguished
-into {\em inputs} and {\em outputs}, then a recurring pattern is that
-the amount of inputs or outputs that participate in the process can be
-{\em increased} or {\em decreased}.  Finally, some objects may be
-divided into stages during which particular states of affairs obtain,
-and a process may be abnormal in that these states of affairs do not
-obtain at a particular stage. Notably, at the beginning and the end of
-a process, pre- and post-conditions may obtain that are abnormally
-changed in a process. For example, {\em Aneuploidy} -- an abnormality
-during cell division at which the chromosomes do not separate properly
-between the two cells -- may be considered the result of such an
-abnormality.
+decreased) duration. For example, a part of an organism may
+participate in an {\em Inflammatory response} ({\tt GO:0006954}) that
+lasts longer than normal, i.e., the organism has an {\em Increased
+  duration of inflammatory response} phenotype. We define such a
+phenotype as a phenotype of an organism which has a part that
+participates in {\em Inflammatory response}, and this {\em
+  Inflammatory response} process has an {\em Increased duration} ({\tt
+  PATO:0000498}).
+
+The second common type of abnormality are abnormalities based on
+process participants in relation to the duration of the process. These
+include all kinds of {\em rates} such as {\em mass flow rate}, {\em
+  energy flow rate} and {\em velocity} (the rate of change of
+position). In each of these cases, an object participates in a process
+and a quality (or change of quality) of that object throughout the
+duration of the process is considered to form a new quality. If the
+process has participants that are distinguished into {\em inputs} and
+{\em outputs}, then a recurring pattern is that the amount of inputs
+or outputs that participate in the process can be {\em increased} or
+{\em decreased}. For example, an {\em Increased rate of cytoplasmic
+  streaming} is defined as 
+
+Finally, some objects may be divided into stages during which
+particular states of affairs obtain, and a process may be abnormal in
+that these states of affairs do not obtain at a particular
+stage. Notably, at the beginning and the end of a process, pre- and
+post-conditions may obtain that are abnormally changed in a
+process. For example, {\em Aneuploidy} -- an abnormality during cell
+division at which the chromosomes do not separate properly between the
+two cells -- may be considered the result of such an abnormality.
 
 We implement the first two types of abnormality in the CPO. First, as
 a subclass of each {\em Abnormality of P} class, we create {\em
@@ -486,8 +497,14 @@ A second kind of regulatory abnormalities is related to the {\em
 particular kind of process may be {\em delayed} ({\tt PATO:0000502})
 or {\em premature} ({\tt PATO:0000694}). For example, {\em Delayed
   apoptosis} refers to an abnormality of the {\em Regulation of
-  apoptosis} in which apoptosis is induced later than normal.
-We use 
+  apoptosis} in which apoptosis is induced later than normal.  We use
+the PATO quality {\em onset} ({\tt PATO:...}) and its children {\em
+  delayed} and {\em premature} to define these types of regulatory
+abnormality.
+
+Finally, a third kind of regulatory abnormality refers to abnormal
+rates with respect to a participant of the process that is being
+regulated. 
 
 \subsection{Cell Phenotype Ontology: implementation}
 We were faced with two choices for implementing the CPO: we could
