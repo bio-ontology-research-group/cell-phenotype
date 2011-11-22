@@ -101,22 +101,15 @@ diverse biomedical resources and domains.
 
 In computer science, an ontology is a specification of a
 conceptualization of a domain of knowledge \cite{Gruber1995,
-  Guarino1998}.  % In philosophy, on the other hand, an ontology is a
-% system of categories that account for a particular view on the
-% world. The philosophical sense of ``ontology'' is what computer
-% science calls ``conceptualization''.  While a conceptualization is
-% language-independent, its specification is based on a language. In
-% this sense, ontologies specify some aspects of the meaning of terms
-% in vocabularies.
-Ontologies commonly distinguish between {\em classes} and {\em
-  individuals} within a domain of knowledge. A class is an entity that
-can have {\em instances}, while individuals are entities that cannot
-be instantiated. Examples of individuals include the Eiffel tower or
-the 2009 Ironman Triathlon in Hawaii, while examples of classes
-include {\em Tower} or {\em Triathlon}. The Eiffel tower can be an
-instance of the class {\em Tower}, and the 2009 Ironman Triathlon an
-instance of {\em Triathlon}.  The meaning of classes is specified by
-stating what must be true of their instances.
+  Guarino1998}.  Ontologies commonly distinguish between {\em classes}
+and {\em individuals} within a domain of knowledge. A class is an
+entity that can have {\em instances}, while individuals are entities
+that cannot be instantiated. Examples of individuals include the
+Eiffel tower or the 2009 Ironman Triathlon in Hawaii, while examples
+of classes include {\em Tower} or {\em Triathlon}. The Eiffel tower
+can be an instance of the class {\em Tower}, and the 2009 Ironman
+Triathlon an instance of {\em Triathlon}.  The meaning of classes is
+specified by stating what must be true of their instances.
 
 In addition to classes and individuals, ontologies often include {\em
   relations}. Relations are the ``the glue that holds things together,
@@ -465,9 +458,24 @@ are temporally distributed is abnormal.  The most common abnormal
 distribution pattern is an increased or decreased frequency, and we
 use PATO's {\em frequency} class to define {\em Abnormal frequency of
   occurrence of $X$}.
-% as a subclass of an {\em Abnormality of the regulation of $X$}.
+% \begin{verbatim}
+% has-phenotype some (has-part-some (participates-in some 
+%   (regulates some X and has-quality some (frequency and towards some X))))
+% \end{verbatim}
+For example, an {\em Abnormal frequency of occurrence of apoptosis} is
+defined as an abnormality of {\em Regulation of apoptosis} ({\tt
+  GO:0042981}) with respect to the {\em frequency} ({\tt
+  PATO:0000044}) of {\em Apoptosis} ({\tt GO:0006915}) occurrences.
+
+A second kind of regulatory abnormalities are related to the {\em
+  onset} of a process. With respect to a reference process, a
+particular kind of process may be {\em delayed} ({\tt PATO:0000502})
+or {\em premature} ({\tt PATO:0000694}). For example, 
 
 
+Further kinds include deviations from distribution patterns. For
+example, a kind of process that is normally {\em rhythmic} can be
+abnormal in that it is {\em arrhythmic}...
 
 \subsection{Cell Phenotype Ontology: implementation}
 We were faced with two choices for implementing the CPO: we could
