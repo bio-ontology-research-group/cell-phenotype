@@ -191,6 +191,45 @@ reactions, for example, are processes with definite inputs (the {\em
   reactants}) and outputs ({\em the products}).
 
 \subsection{Gene Ontology}
+
+The Gene Ontology provides a set of ontologies for molecular and
+cellular biology, originally designed to support structured
+annotations for genes and gene products in all species with respect to
+molecular function (MF), biological process (BP) and cellular
+component (CC). MF and BP both describe processes, but at different
+spatiotemporal scales; in particular, BP includes processes that
+unfold within cells and within tissues and organs of multicellular
+organisms. Gene product annotations identify participants in the
+processes.
+
+Over time, GO development has increasingly emphasized a normalized
+approach that includes supplementing existing human-readable text
+description with formally specified explicit definitions for GO
+classes. The formalization of GO is readily apparent in its
+representation of biological regulation.
+
+Regulatory processes may regulate other processes, at either the MF or
+BP scale, or biological qualities. GO accordingly includes three broad
+categories of regulation terms, regulation of molecular function,
+regulation of biological process, and regulation of biological
+quality. The first two are explicitly defined entirely with respect to
+other GO terms, whereas the third comprises classes in which the
+regulated qualities are specified by terms from PATO (see below) or
+anatomy ontologies.
+
+All GO regulation terms use one of three relations, regulates,
+negatively_regulates and positively_regulates, to link regulation
+terms to process or quality terms. The regulates relations are defined
+in terms of qualities: a regulatory process causes a change in
+magnitude to some quality, which in turn has an effect on the
+frequency, rate or duration of some other type of process. Effects
+that results in increases and decreases use positively_regulates and
+negatively_regulates respectively. \cite{} (cite the paper on
+cross-products in GO, PMID:20152934) The existing ontology structure
+would also support the addition of subclasses to distinguish, for
+example, regulation of the rate of a process from regulation of its
+duration or time of onset.
+
 quick intro...
 
 mention regulation relations... 
