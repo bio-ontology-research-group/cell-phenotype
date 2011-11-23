@@ -499,23 +499,47 @@ abnormality. Similarly, we use PATO's {\em offset} ({\tt PATO:...})
   which a process ends prematurely or too late.
 
 \begin{table*}
+  \centering
   \begin{tabular}{l|l|l|l}
-    & Increased blood flow rate & Normal blood flow rate & Decreased
-    blood flow rate \\
-    Increased frequency &increased&increased&?\\
-    Normal frequency &increased&normal&decreased\\
-    Decreased frequency &?&decreased&decreased
+    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate & Decreased
+    cytoplasmic flow rate \\
+    \hline
+    Increased frequency &increased total flow rate &increased total
+    flow rate &?\\
+    Normal frequency &increased total flow rate &normal total flow
+    rate &decreased total flow rate\\
+    Decreased frequency &?&decreased total flow rate &decreased total
+    flow rate\\
+    \hline
   \end{tabular}
-  \caption{\label{...}Total blood flow rate...}
+  \caption{\label{tbl:flow}Total cytoplasmic flow rate...}
 \end{table*}
 
 Finally, a third kind of regulatory abnormality refers to abnormal
 rates with respect to a participant of the process that is being
 regulated. For example, a cytoplasmic flow rate can be increased or
 decreased not within a single {\em cytoplasmic streaming} process but
-rather the total flow rate, as a summation over all cytoplasmic
-streaming processes that occur within an organism (or a particular
-anatomical location), is increased or decreased. 
+rather the total cytoplasmic flow rate, as a summation over all
+cytoplasmic streaming processes that occur within an organism (or a
+particular anatomical location), is increased or decreased. While a
+flow rate of a single {\em cytoplasmic streaming} process is a quality
+of that process, an increased {\em total} cytoplasmic flow rate is a
+quality of the regulation of {\em cytoplasmic streaming}. In
+particular, it is possible for an organism to have a normal --- or
+even a decreased --- cytoplasmic flow rate in each individual
+cytoplasmic streaming process while at the same time having an
+increased total cytoplasmic flow rate due to a large increase in the
+frequency of occurrence of cytoplasmic streaming processes. Similarly,
+the frequency of occurrence of cytoplasmic streaming may be normal or
+decreased while the total cytoplasmic flow rate is increased due to an
+increased cytoplasmic flow rate in each individual cytoplasmic
+streaming process. Table \ref{tbl:flow} illustrates the dependencies
+between rates of individual processes, their frequency of occurrence
+and the total rate of these processes. We include total rates as
+regulatory abnormalities in the CPO since these are the attributes of
+processes that are often measured or observed, while the rates of
+individual processes are inferred following a schema such as Table
+\ref{tbl:flow}.
 
 \subsection{Cell Phenotype Ontology: implementation}
 We were faced with two choices for implementing the CPO: we could
