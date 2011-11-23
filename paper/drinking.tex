@@ -1,4 +1,6 @@
 \documentclass{bioinfo}
+\usepackage{setspace}
+
 \copyrightyear{2005}
 \pubyear{2005}
 \usepackage{url}
@@ -50,6 +52,8 @@
   provide solution...
 \end{abstract}
 
+{\bf Keywords:} cell phenotype, process, ontology, Semantic Web
+
 \section{Introduction}
 
 problem of phenotypes...
@@ -87,7 +91,7 @@ actual qualities can be measured.
 observation 4: some qualities can be inferred given others. For
 example,...
 
-\section{Methods}
+\section{Materials and Methods}
 \subsection{Formal ontology}
 The ontology as an approach to semantic standardisation was proposed
 more than a decade ago and since then has become the dominant
@@ -295,17 +299,6 @@ flow rates of individual heart beating processes.
 Complex relations between Based on these definition patterns,
 interdependencies between process attributes can be observed.
 
-\begin{table*}
-  \begin{tabular}{l|l|l|l}
-    & Increased blood flow rate & Normal blood flow rate & Decreased
-    blood flow rate \\
-    Increased frequency &increased&increased&?\\
-    Normal frequency &increased&normal&decreased\\
-    Decreased frequency &?&decreased&decreased
-  \end{tabular}
-  \caption{\label{...}Total blood flow rate...}
-\end{table*}
-
 
 \subsection{Cellular Phenotype Ontology}
 
@@ -500,11 +493,24 @@ or {\em premature} ({\tt PATO:0000694}). For example, {\em Delayed
   apoptosis} in which apoptosis is induced later than normal.  We use
 the PATO quality {\em onset} ({\tt PATO:...}) and its children {\em
   delayed} and {\em premature} to define these types of regulatory
-abnormality.
+abnormality. Similarly, we use PATO's {\em offset ({\tt PATO:...})
+  quality and its children to characterize regulatory abnormalities in
+  which a process ends prematurely or too late.
+
+\begin{table*}
+  \begin{tabular}{l|l|l|l}
+    & Increased blood flow rate & Normal blood flow rate & Decreased
+    blood flow rate \\
+    Increased frequency &increased&increased&?\\
+    Normal frequency &increased&normal&decreased\\
+    Decreased frequency &?&decreased&decreased
+  \end{tabular}
+  \caption{\label{...}Total blood flow rate...}
+\end{table*}
 
 Finally, a third kind of regulatory abnormality refers to abnormal
 rates with respect to a participant of the process that is being
-regulated. 
+regulated. For example, a cytoplasmic flow rate can 
 
 \subsection{Cell Phenotype Ontology: implementation}
 We were faced with two choices for implementing the CPO: we could
@@ -576,8 +582,9 @@ FOIS paper 2010
 
 one example:...
 
-\section{Conclusion}
+\subsection{Conclusion}
 
+\section{Acknowledgements}
 
 
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -585,7 +592,6 @@ one example:...
 
     
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section*{Acknowledgements}
 % The authors declare that they have no competing interests.
 
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%
