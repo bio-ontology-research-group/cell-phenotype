@@ -294,56 +294,57 @@ attributes that arise from processes and their parts and include {\em
   frequency}; and the third are attributes that arise from processes
 and qualities of their participants, and include {\em flow rates}.
 
-Attribute that can be directly linked to a process are the result of
-the temporal extension of a process and include process {\em duration}
-and {\em temporal location}. A duration is an attribute that
-characterizes the temporal extent of a process and is similar to {\em
-  Length}, {\em Area} and {\em Volume} for one-, two- and
-three-dimensional entities. A {\em Temporal location} positions the
-time interval during which the process occurs with respect to a
-reference coordinate system.
+Attribute that can be directly linked to a process arise from
+processes' temporal extension. For example, a duration is an attribute
+that characterizes the temporal extent of a process and is similar to
+{\em Length}, {\em Area} and {\em Volume} for one-, two- and
+three-dimensional physical objects. A {\em Temporal location}
+positions the time interval at which the process occurs with respect
+to a reference coordinate system.
 
 However, the majority of attributes that characterize processes are
-not based on genuine process attributes alone, but rather relate
-attributes of process participants with the duration of a process. In
-particular, a {\em rate} typically refers to an attribute of some
-entity {\em with respect to an attribute of another entity}, and in
-the context of processes, rates often refer to attributes of a process
-participant with respect to the duration of the process. For example,
-a {\em mass flow rate} refers to the {\em Mass} of a process
+not based on these types of process attributes alone, but rather
+relate attributes of process participants with the duration of a
+process. In particular, a {\em rate} typically refers to an attribute
+of some entity {\em with respect to an attribute of another entity},
+and in the context of processes, rates often refer to attributes of a
+process participant with respect to the duration of the process. For
+example, a {\em mass flow rate} refers to the {\em Mass} of a process
 participant with respect to the duration of the process, i.e., how
 much matter is moved (from one point to another) through the process.
 As a more complex example, a {\em rate of change of position} refers
 to the {\em distance} that an object is moved with respect to the
 duration of the process.
 
-Not all rates of a process depend on attributes of the process
-participants. In particular, a {\em frequency of occurrence} or {\em
-  event rate} refers to the number of occurrences of a type of process
-during the reference process. For example, a {\em rate of heart
+However, not all rates of a process depend on attributes of the
+process participants. In particular, a {\em frequency of occurrence}
+or {\em event rate} refers to the number of occurrences of a type of
+process during a reference process. For example, a {\em rate of heart
   beating} refers to the number of {\em Heart beating} processes that
-occur within a reference process (e.g., a process containing the heart
-with a duration of one minute). Further attributes that depend on
-types of processes with regard to a reference process are {\em
-  distribution patterns}, i.e., how the occurrences of processes of a
-particular type are distributed within a reference process. For
+occur within a reference process (e.g., a process in which the heart
+participates with a duration of one minute). Further attributes that
+depend on types of processes with regard to a reference process are
+{\em distribution patterns}, i.e., how the occurrences of processes of
+a particular type are distributed within a reference process. For
 example, the heart may beat {\em rhythmically} or {\em arrhythmically}
 within a period of time.
 
 Related to distribution patterns are {\em changing qualities} of
 processes. For example, the rate of heart beating may change ({\em
-  increase} or {\em decrease}) throughout the course of the reference
+  increase} or {\em decrease}) throughout the course of a reference
 process. A simple analysis of {\em increasing} ({\em decreasing})
 rates would be that the rate of a heart beating within the first half
-of a process if {\em lower} ({\em higher}) than in the second half of
-the process. Mathematically, this process sub-division can be iterated
-until we end up with infinitesimally small time intervals.
+of a process is {\em lower} ({\em higher}) than in the second half of
+the process. To make such an assertion, we divide a process into two
+temporal parts. Mathematically, this process of sub-division can be
+iterated until processes occur within infinitesimally small time
+intervals.
 
 While some processes can be subdivided indefinitely without changing
 the type of process, others cannot. A class $C$ of {\em continuous
   processes} is a class that has processes $p$ as instance such that
 all temporal parts of $p$ are also instances of $C$. Examples include
-{\em continuous movements} or {\em regulation} processes. On the other
+{\em continuous movements} or {\em mass flow} processes. On the other
 hand, {\em discrete processes} can be subdivided into stages of
 activity and stages of inactivity: a class $C$ of {\em discrete
   processes} is a class with processes $p$ as instance and there is a
@@ -351,39 +352,32 @@ part of $p$ that is not an instance of $C$. An example is {\em heart
   beating} which has periods of activity (a single heart beat) and
 inactivity.
 
-% In line with the GO, we call processes that cause
+We may further attribute a {\em frequency} or {\em rate} to an object
+instead of a process. For example, a heart that beats {\em now} with a
+frequency of 80 beats per minute, or a car that is moving at a speed
+of 180 kilometres per hour {\em at a particular point in time} (e.g.,
+as observed with a speed camera) can be considered attributes of the
+objects (the heart or the car), not attributes of the processes in
+which the objects participate. However, these are {\em different}
+kinds of attributes. Rates, when considered as attributes of objects,
+may be explicitly defined using rates of processes. For example, the
+heart beating frequency of a particular heart $h$ at a time point $t$
+is the frequency of a reference heart beating process in which $h$
+participates. Such a reference process is necessary in order to obtain
+a value for a frequency even when no {\em heart beating} process is
+occurring. However, the frequency is only an attribute of the heart in
+virtue of such a reference process in which {\em heart beating} is
+actually occurring.  This reference process can be uniquely determined
+for continuous processes (such that the frequency or rate of an object
+at a time $t$ is the frequency or rate of the infinitesimally small
+process around $t$), and is ambiguous for discrete processes (in which
+case the reference process must be explicitly stated).
 
-% [Regulation of X vs. X: regulation modulates the number/amount of
-% occurrence...]
-
-We may say that an object has a {\em frequency} or {\em rate} as if
-these were attributes of objects at time points. For example, that my
-heart {\em now} beats with a frequency of 80 beats per minute, or that
-a car is moving with a speed of 280 kilometres per minute {\em at a
-  particular point in time} (e.g., as observed with a speed camera)
-may be considered attributes of the objects, not attributes of
-processes. In our analysis, rates as attributes of objects can be
-explicitly defined using rates of processes. For example, the heart
-beating frequency of a particular heart $h$ at a time point $t$ is the
-frequency of heart beating processes in which $h$ participates at an
-infinitesimally small process around $t$ and within a reference
-process. The reference process is necessary in order to obtain a value
-for a frequency or rate even if the process in question is not
-occurring. For example, a rate of cardiac muscle contraction can be
-determined even when no cardiac muscle contraction is occurring in
-virtue of a reference process with a rate of cardiac muscle
-contraction.
-
-The reference process for an object at a time point $t$ is uniquely
-determined for continuous processes (the infinitesimally small process
-around $t$), and ambiguous for discrete processes.
-
-
-A similar construction as for continuous processes can be made for
-discrete processes. A rate of blood flow is immediately an attribute
-of a single heart beat process. However, during a period of time, the
-cumulative rate of blood flow can be observed as the sum of the blood
-flow rates of individual heart beating processes.
+% A similar construction as for continuous processes can be made for
+% discrete processes. A rate of blood flow is immediately an attribute
+% of a single heart beat process. However, during a period of time, the
+% cumulative rate of blood flow can be observed as the sum of the blood
+% flow rates of individual heart beating processes.
 
 \begin{figure}
   \centering
@@ -391,9 +385,8 @@ flow rates of individual heart beating processes.
   \caption{Overview over ...\label{fig:patterns}}
 \end{figure}
 
-Complex relations between Based on these definition patterns,
-interdependencies between process attributes can be observed.
-
+% Complex relations between Based on these definition patterns,
+% interdependencies between process attributes can be observed.
 
 \subsection{Cellular Phenotype Ontology}
 \begin{figure*}[h]
