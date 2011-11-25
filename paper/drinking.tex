@@ -159,10 +159,26 @@ ontology.
 Automated reasoning in the Web Ontology Language (OWL) can be employed
 to automatically compute the generalization hierarchy underlying an
 ontology as well as for verification of data consistency and complex
-queries \cite{Hoehndorf2011incon, Hoehndorf2011models}.
+queries \cite{Hoehndorf2011incon, Hoehndorf2011models}. Highly
+efficient automated reasoners are available to process OWL ontologies
+\cite{Sirin2004, Tsarkov2006, Motik2009a}. OWL profiles were developed
+to support even large ontologies by further reducing the expressivity
+of OWL in order to enable polynomial-time inferences. In particular
+the OWL EL profile was found to provide the expressivity required for
+most biomedical ontologies \cite{el4, elvira}, and highly optimized
+OWL EL reasoners are available or under development to support
+reasoning over very large ontologies \cite{el4, cbreasoner}.
 
+A high expressivity is required to accurately specify complex axioms
+that constrain the domain under investigation, and languages with
+higher expressivity than OWL are often required in the biomedical
+domain to achieve this goal \cite{Hoehndorf2009sequences,
+  rnao}. On the other hand, automated reasoning over large ontologies
+and associated datasets benefits from languages with a low complexity
+of inferences in which complex axioms cannot be formulated. Therefore,
+we use a layered approach: we specify the meaning of terms
 
-Layered approach: although OWL has high expressivity, some things
+although OWL has high expressivity, some things
 cannot be expressed in OWL; some things should not be expressed in OWL
 for specific applications due to tractability reasons
 
@@ -217,24 +233,18 @@ other GO terms, whereas the third comprises classes in which the
 regulated qualities are specified by terms from PATO (see below) or
 anatomy ontologies.
 
-All GO regulation terms use one of three relations, regulates,
-negatively\_regulates and positively\_regulates, to link regulation
-terms to process or quality terms. The regulates relations are defined
-in terms of qualities: a regulatory process causes a change in
-magnitude to some quality, which in turn has an effect on the
-frequency, rate or duration of some other type of process. Effects
-that results in increases and decreases use positively\_regulates and
-negatively\_regulates respectively. \cite{} (cite the paper on
-cross-products in GO, PMID:20152934) The existing ontology structure
-would also support the addition of subclasses to distinguish, for
-example, regulation of the rate of a process from regulation of its
-duration or time of onset.
-
-quick intro...
-
-mention regulation relations... 
-
-regulation of X processes
+All GO regulation terms use one of three relations, {\bf regulates},
+{\bf negatively\_regulates} and {\bf positively\_regulates}, to link
+regulation terms to process or quality terms. The {\bf regulates}
+relations are defined in terms of qualities: a regulatory process
+causes a change in magnitude to some quality, which in turn has an
+effect on the frequency, rate or duration of some other type of
+process. Effects that results in increases and decreases use {\bf
+  positively\_regulates} and {\bf negatively\_regulates} respectively
+\cite{Mungall2010go}. The existing ontology structure would also
+support the addition of subclasses to distinguish, for example,
+regulation of the rate of a process from regulation of its duration or
+time of onset.
 
 \subsection{PATO and the EQ model}
 The Phenotype And Trait Ontology (PATO) was envisaged and designed to
@@ -259,11 +269,11 @@ formal (logical) definitions (equivalence axioms) to ontologies
 containing a set of precomposed (pre-coordinated) phenotype terms. For
 instance, to describe the decrease in the length of the sexual cycle
 of female animals, we can combine the PATO term \textit{decreased
-  duration} (PATO:0000499) with the Gene Ontology term \textit{estrous
-  cycle} (GO:0042698), whilst if such a term existed in a precomposed
-ontology (for the MP:0009007 term from the Mammalian Phenotype) it
-could be used to provide an equivalence statement between that class
-and the above PATO-based description.
+  duration} ({\tt PATO:0000499}) with the Gene Ontology term
+\textit{estrous cycle} ({\tt GO:0042698}), whilst if such a term
+existed in a pre-composed ontology (for the {\tt MP:0009007} term from
+the Mammalian Phenotype) it could be used to provide an equivalence
+statement between that class and the above PATO-based description.
 
 \section{Results}
 \subsection{Attributes of processes}
