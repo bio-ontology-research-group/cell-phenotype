@@ -180,7 +180,7 @@ possible solution is to use a layered approach: to specify the meaning
 of terms using an expressive language, and derive the axioms that
 must obtain in a weaker language using deductive inferences.
 
-\subsection{Processes, their participants and qualities}
+\subsection{Processes and their participants}
 \begin{figure}
   \centering
   \includegraphics[width=.45\textwidth]{onto.pdf}
@@ -288,10 +288,11 @@ statement between that class and the above PATO-based description.
 We develop a model of process attributes that is applicable for
 representations of physiology and related phenotypes. In principle, we
 distinguish between three different kinds of process attributes:
-process attributes that are linked directly to processes, attributes
-that arise due to process parts and attributes of processes, and
-attributes arising from attributes of process participants and other
-process attributes.
+the first are process attributes that arise directly from processes
+and include {\em duration} and {\em temporal location}; the second are
+attributes that arise from processes and their parts and include {\em
+  frequency}; and the third are attributes that arise from processes
+and qualities of their participants, and include {\em flow rates}.
 
 Attribute that can be directly linked to a process are the result of
 the temporal extension of a process and include process {\em duration}
@@ -652,9 +653,6 @@ XX classes...
 Classifies in...
 
 \section{Discussion}
-\subsection{Implementation as pre-composed ontology}
-Pre-composed or software support for pattern?
-
 \subsection{Use of CPO}
 The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
 to support annotation of phenotypes in {\em Schizosaccharomyces
@@ -708,13 +706,8 @@ existing datasets and will then become an integrated part of the data
 processing pipeline and used to annotate the data as it gets generated
 (Conrad et al, Nature Methods 8: 246-249).
 
-% \subsection{Future research: acts and intentional states}
-% activities/actions, intentional (goal-oriented) acts
-
-% feeling thirsty (internal state) as driving force behind drinking
-% behavior
-
-% non-measurable, inference only
+\subsection{Pre- vs. post-composed ontology}
+Pre-composed or software support for pattern?
 
 \subsection{Formalization}
 Formal, axiomatic system for process qualities, maybe based on PSL,
