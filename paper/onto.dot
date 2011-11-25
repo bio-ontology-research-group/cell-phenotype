@@ -1,0 +1,6 @@
+digraph G{
+"Entity" -> "Physical object";
+"Entity" -> "Quality";
+"Entity" -> "Function"
+"Entity" -> "Process"
+}
