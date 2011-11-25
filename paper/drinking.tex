@@ -182,8 +182,8 @@ processes are entities that are present at time points (i.e., they
 have no temporal parts) and may undergo changes during the process.
 We can further distinguish different {\em roles} of participation in a
 process. For example, a runner may participate in a {\em Triathlon}
-process as a {\em Runner (role)}, while a particular {\em goal line}
-can participate in the same process in a different role.
+process as a {\em Runner (role)}, while a {\em Referee} can
+participate in the same process but in a different role.
 
 Amongst the participants of some processes, we will distinguish
 between {\em inputs} and {\em outputs} of processes. Chemical
@@ -218,13 +218,13 @@ regulated qualities are specified by terms from PATO (see below) or
 anatomy ontologies.
 
 All GO regulation terms use one of three relations, regulates,
-negatively_regulates and positively_regulates, to link regulation
+negatively\_regulates and positively\_regulates, to link regulation
 terms to process or quality terms. The regulates relations are defined
 in terms of qualities: a regulatory process causes a change in
 magnitude to some quality, which in turn has an effect on the
 frequency, rate or duration of some other type of process. Effects
-that results in increases and decreases use positively_regulates and
-negatively_regulates respectively. \cite{} (cite the paper on
+that results in increases and decreases use positively\_regulates and
+negatively\_regulates respectively. \cite{} (cite the paper on
 cross-products in GO, PMID:20152934) The existing ontology structure
 would also support the addition of subclasses to distinguish, for
 example, regulation of the rate of a process from regulation of its
@@ -237,6 +237,33 @@ mention regulation relations...
 regulation of X processes
 
 \subsection{PATO and the EQ model}
+The Phenotype And Trait Ontology (PATO) was envisaged and designed to
+provide a platform for allowing the integration of quantitative and
+qualitative phenotype related information across different levels of
+granularity of domain knowledge granularity and species
+\cite{Gkoutos2005}.  PATO forms an ontology of phenotype qualities
+that form basic entities that we can perceive and/or measure such as
+colors, sizes, rates etc. One of it's classification axis lies on the
+basis of the basic type of entity these qualities inhere to and
+distinguishes between qualities of physical objects and qualities of
+processes.
+
+PATO allows for the description of affected entities by combining
+various ontologies that describe the entities that have been affected,
+such as the various anatomical ontologies, GO\cite {Ashburner2000b},
+the Cell Type Ontology\cite {Bard2005a}, (SO)\cite {Eilbeck2005} etc
+with the various qualities it provides for defining how these entities
+were affected.  PATO can be used for annotation either directly in a
+so called post-composed (post-coordinated) manner or for providing
+formal (logical) definitions (equivalence axioms) to ontologies
+containing a set of precomposed (pre-coordinated) phenotype terms. For
+instance, to describe the decrease in the length of the sexual cycle
+of female animals, we can combine the PATO term \textit{decreased
+  duration} (PATO:0000499) with the Gene Ontology term \textit{estrous
+  cycle} (GO:0042698), whilst if such a term existed in a precomposed
+ontology (for the MP:0009007 term from the Mammalian Phenotype) it
+could be used to provide an equivalence statement between that class
+and the above PATO-based description.
 
 \section{Results}
 \subsection{Attributes of processes}
