@@ -172,17 +172,13 @@ reasoning over very large ontologies \cite{el4, cbreasoner}.
 A high expressivity is required to accurately specify complex axioms
 that constrain the domain under investigation, and languages with
 higher expressivity than OWL are often required in the biomedical
-domain to achieve this goal \cite{Hoehndorf2009sequences,
-  rnao}. On the other hand, automated reasoning over large ontologies
-and associated datasets benefits from languages with a low complexity
-of inferences in which complex axioms cannot be formulated. Therefore,
-we use a layered approach: we specify the meaning of terms
-
-although OWL has high expressivity, some things
-cannot be expressed in OWL; some things should not be expressed in OWL
-for specific applications due to tractability reasons
-
-Most applications rely on graph structure of ontology...
+domain to achieve this goal \cite{Hoehndorf2009sequences, rnao}. On
+the other hand, automated reasoning over large ontologies and
+associated datasets benefits from languages with a low complexity of
+inferences in which complex axioms cannot be formulated. Therefore, a
+possible solution is to use a layered approach: to specify the meaning
+of terms using an expressive language, and derive the axioms that
+must obtain in a weaker language using deductive inferences.
 
 \subsection{Processes, their participants and qualities}
 Processes are entities that are temporally extended: processes have
@@ -198,8 +194,8 @@ processes are entities that are present at time points (i.e., they
 have no temporal parts) and may undergo changes during the process.
 We can further distinguish different {\em roles} of participation in a
 process. For example, a runner may participate in a {\em Triathlon}
-process as a {\em Runner (role)}, while a {\em Referee} can
-participate in the same process but in a different role.
+process as a {\em Runner (role)}, while another person can participate
+in the same process but in a different role (such as {\em Referee}).
 
 Amongst the participants of some processes, we will distinguish
 between {\em inputs} and {\em outputs} of processes. Chemical
@@ -207,7 +203,6 @@ reactions, for example, are processes with definite inputs (the {\em
   reactants}) and outputs ({\em the products}).
 
 \subsection{Gene Ontology}
-
 The Gene Ontology provides a set of ontologies for molecular and
 cellular biology, originally designed to support structured
 annotations for genes and gene products in all species with respect to
