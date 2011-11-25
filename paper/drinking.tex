@@ -632,7 +632,7 @@ a pre-composed ontology from the GO.
 
 We developed a software that utilizes the OWL API \cite{Horridge2007}
 in order to generate an OWL representation of the CPO. The software
-requires three input files: a version of the GO on which to based the
+requires three input files: a version of the GO on which to base the
 generated CPO, a version of PATO that is used to define abnormal
 qualities, and a copy of the GO cross-product definitions
 \cite{Mungall2010go} that is used to relate cell components to the
@@ -680,6 +680,20 @@ Pre-composed or software support for pattern?
 
 \subsection{Use of CPO}
 
+The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
+to support annotation of phenotypes in {\em Schizosaccharomyces
+  pombe}, consists of pre-composed terms describing normal or abnormal
+cellular phenotypes. Over 80\% of FYPO definitions reference
+descendants of GO BP 'cellular process' as the entity; a further 11\%
+reference GO CC terms. All FYPO explicit definitions reference
+qualities in PATO, including {\em normal}, {\em abnormal}, and several
+process qualities including {\em increased duration}, {\em decreased
+  occurrence}, etc. FYPO will thus fit neatly under the CPO umbrella,
+and stands to benefit from the automated synchronization between CPO
+and GO. {\em S. pombe} annotations to FYPO terms will provide a rich
+body of highly specific, well-supported data to be integrated with
+data from other species.
+
 \subsection{Future research: acts and intentional states}
 activities/actions, intentional (goal-oriented) acts
 
@@ -697,7 +711,7 @@ one example:...
 \subsection{Conclusion}
 
 \section{Acknowledgements}
-
+MAH is supported by Wellcome Trust grant WT090548MA.
 
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section*{Authors contributions}
