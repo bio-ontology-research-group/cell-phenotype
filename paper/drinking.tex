@@ -285,12 +285,22 @@ statement between that class and the above PATO-based description.
 
 \section{Results}
 \subsection{Attributes of processes}
-An attribute that can be directly linked to a process is its {\em
-  duration}. A duration is an attribute that characterizes the
-temporal extent of a process and is similar to {\em Length}, {\em
-  Area} and {\em Volume} for one-, two- and three-dimensional
-entities. Furthermore, processes may be attributed a {\em temporal
-  location} with respect to a particular coordinate system.
+We develop a model of process attributes that is applicable for
+representations of physiology and related phenotypes. In principle, we
+distinguish between three different kinds of process attributes:
+process attributes that are linked directly to processes, attributes
+that arise due to process parts and attributes of processes, and
+attributes arising from attributes of process participants and other
+process attributes.
+
+Attribute that can be directly linked to a process are the result of
+the temporal extension of a process and include process {\em duration}
+and {\em temporal location}. A duration is an attribute that
+characterizes the temporal extent of a process and is similar to {\em
+  Length}, {\em Area} and {\em Volume} for one-, two- and
+three-dimensional entities. A {\em Temporal location} positions the
+time interval during which the process occurs with respect to a
+reference coordinate system.
 
 However, the majority of attributes that characterize processes are
 not based on genuine process attributes alone, but rather relate
@@ -385,43 +395,6 @@ interdependencies between process attributes can be observed.
 
 
 \subsection{Cellular Phenotype Ontology}
-A domain that would greatly benefit from the development of a CPO is
-Systems Microscopy, which aims to understand complex and dynamic
-cellular systems by combining automated fluorescence microscopy, cell
-microarray platforms, quantitative image analysis and data mining
-(Lock \& Stromblad, Exp. Cell Res. 2010).
-
-If we consider some of the studies, which have been published in this
-field in the last few years (Neumann et al, Nature 464: 722-727;
-Schmitz et al, Nature Cell Biology 12: 886-893; Fuchs et al, Mol Sys
-Biology 6: 370), the need for a CPO becomes evident.
-
-In all three studies here considered live-cell imaging assays and RNAi
-knockdown were used to generate phenotypic profiles that quantify the
-cellular response to a given siRNA thus allowing identification of
-hundreds of genes involved in diverse biological functions including
-cell division, migration and survival.
-
-In each study, several phenotypes were detected and described by the
-authors without the use of ontologies (see table), making the
-integration between datasets extremely difficult. For example, it is
-evident that cell division phenotypes were observed in the three
-datasets (e.g. 'Mitotic delay/arrest' and 'Prolonged mitotic exit' or
-'Methaphase delay' and 'Methaphase cells') but the overlap between
-such phenotypes is unclear.
-
-Data integration is also complicated by the lack of standardization at
-the level of data production and processing; all these issues are
-currently being address by the different groups involved in the
-Systems Microscopy Network of Excellence
-(http://www.systemsmicroscopy.eu/) and the first step towards data
-integration will be achieved by developing a CPO.
-
-This ontology will be used to integrate phenotypes' definitions across
-existing datasets and will then become an integrated part of the data
-processing pipeline and used to annotate the data as it gets generated
-(Conrad et al, Nature Methods 8: 246-249).
-
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth,
@@ -674,7 +647,6 @@ increased frequency of occurrences of Apoptosis is a phenotype of
 entities in which the number of occurrences of Apoptosis within a
 given time period is increased in comparison to a reference process.''
 
-
 When using the GO and PATO ontologies from 30 Nov 2011, CPO contains
 XX classes...
 Classifies in...
@@ -684,7 +656,6 @@ Classifies in...
 Pre-composed or software support for pattern?
 
 \subsection{Use of CPO}
-
 The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
 to support annotation of phenotypes in {\em Schizosaccharomyces
   pombe}, consists of pre-composed terms describing normal or abnormal
@@ -699,13 +670,51 @@ and GO. {\em S. pombe} annotations to FYPO terms will provide a rich
 body of highly specific, well-supported data to be integrated with
 data from other species.
 
-\subsection{Future research: acts and intentional states}
-activities/actions, intentional (goal-oriented) acts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A domain that would greatly benefit from the development of a CPO is
+Systems Microscopy, which aims to understand complex and dynamic
+cellular systems by combining automated fluorescence microscopy, cell
+microarray platforms, quantitative image analysis and data mining
+(Lock \& Stromblad, Exp. Cell Res. 2010).
 
-feeling thirsty (internal state) as driving force behind drinking
-behavior
+If we consider some of the studies, which have been published in this
+field in the last few years (Neumann et al, Nature 464: 722-727;
+Schmitz et al, Nature Cell Biology 12: 886-893; Fuchs et al, Mol Sys
+Biology 6: 370), the need for a CPO becomes evident.
 
-non-measurable, inference only
+In all three studies here considered live-cell imaging assays and RNAi
+knockdown were used to generate phenotypic profiles that quantify the
+cellular response to a given siRNA thus allowing identification of
+hundreds of genes involved in diverse biological functions including
+cell division, migration and survival.
+
+In each study, several phenotypes were detected and described by the
+authors without the use of ontologies (see table), making the
+integration between datasets extremely difficult. For example, it is
+evident that cell division phenotypes were observed in the three
+datasets (e.g. 'Mitotic delay/arrest' and 'Prolonged mitotic exit' or
+'Methaphase delay' and 'Methaphase cells') but the overlap between
+such phenotypes is unclear.
+
+Data integration is also complicated by the lack of standardization at
+the level of data production and processing; all these issues are
+currently being address by the different groups involved in the
+Systems Microscopy Network of Excellence
+(http://www.systemsmicroscopy.eu/) and the first step towards data
+integration will be achieved by developing a CPO.
+
+This ontology will be used to integrate phenotypes' definitions across
+existing datasets and will then become an integrated part of the data
+processing pipeline and used to annotate the data as it gets generated
+(Conrad et al, Nature Methods 8: 246-249).
+
+% \subsection{Future research: acts and intentional states}
+% activities/actions, intentional (goal-oriented) acts
+
+% feeling thirsty (internal state) as driving force behind drinking
+% behavior
+
+% non-measurable, inference only
 
 \subsection{Formalization}
 Formal, axiomatic system for process qualities, maybe based on PSL,
