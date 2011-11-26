@@ -55,16 +55,53 @@
 {\bf Keywords:} cell phenotype, process, ontology, Semantic Web
 
 \section{Introduction}
+Phenotype studies on all scales and levels of granularity are now an
+invaluable tool for functional genomics research. Phenotypes of
+targeted mutations in animal models are now systematically recorded to
+reveal the role of individual genes within a biological system. These
+phenotype studies now play a key role in translational research and
+are being used to reveal candidate genes for orphan diseases and to
+identify chemicals that may have effects on these diseases \cite{}.
 
-problem of phenotypes...
+The large volume and diversity of phenotypes within different species
+and across multiple scales and levels of granularity necessitates the
+application of flexible strategies for managing and integrating data
+so that it becomes amenable to automated comparative analyses. To
+integrate biomedical data across heterogeneous information systems,
+biomedical ontologies were being developed \cite{Smith2007}. An
+ontology is an explicit specification of a conceptualization of a
+domain and can be used to make the meaning of terms in a vocabulary
+explicit \cite{Gruber1995, Guarino1998}. They play a crucial role in
+the annotation of biomedical data and the integration of model
+organism databases \cite{go2010, Bada2004, goble}.
 
-why reasoning, why formal, success,...
+Ontologies increasingly rely on the use of Semantic Web technologies
+\cite{Berners-Lee2001}. The Semantic Web provides a stack of protocols
+and languages to include explicit semantics in websites. In
+particular, the Web Ontology Language (OWL) \cite{Grau2008} has been
+designed to express and share ontologies within the Semantic Web. OWL
+is a language based on description logics (a group of formal languages
+based on first-order predicate logic). Automated reasoners have been
+developed within the Semantic Web to perform complex operations on
+ontologies formulated in OWL. In particular, automated reasoners can
+verify an ontology's consistency and use deductive inference to
+perform powerful queries over ontologies. To benefit from automated
+reasoning and the rapidly increasing number of software tools that are
+being developed within the Semantic Web, most biomedical ontologies
+are now available in OWL or can be converted into an OWL-based
+representation \cite{Horrocks2007, Hoehndorf2010patterns}.
 
-solved: structures, qualities
+In the domain of phenotypes, multiple ontologies have been
+developed. In particular, ontologies to characterize mammalian
+\cite{Smith2004}, human \cite{Robinson2008}, yeast \cite{ypo} and worm
+\cite{wpo} phenotypes are now available, with several more ontologies
+being under development. 
+
+structures, qualities
 
 open: process phenotypes very complex...  
 physiology...
-measurements...
+measurements and inferences...
 
 \subsection{Problem statement 1}
 Heart rate increased: frequency of CMC increased fluid flow increased
@@ -373,6 +410,9 @@ at a time $t$ is the frequency or rate of the infinitesimally small
 process around $t$), and is ambiguous for discrete processes (in which
 case the reference process must be explicitly stated).
 
+Figure \ref{fig:patterns} illustrates some examples of
+non-comparative and comparative process attributes.
+
 % A similar construction as for continuous processes can be made for
 % discrete processes. A rate of blood flow is immediately an attribute
 % of a single heart beat process. However, during a period of time, the
@@ -396,9 +436,15 @@ case the reference process must be explicitly stated).
   \caption{Overview over ...\label{fig:overview}}
 \end{figure*}
 
-CPO contains both structural abnormalities and physiological
-abnormalities.
+While our considerations about process attributes are only the
+beginnings of a full-fledged theory, we have derived several phenotype
+formalization patterns and a high-level taxonomic structure of
+process-based phenotypes. To evaluate our approach, we created the
+Cellular Phenotype Ontology (CPO) by automatically applying our
+patterns to the GO.
 
+% CPO contains both structural abnormalities and physiological
+% abnormalities of cells.
 Phenotypes in the CPO are either based on structural abnormalities or
 abnormal physiology involving cells or cell components. Structural
 abnormalities in the CPO are based on GO's Cellular Component (GO-CC)
