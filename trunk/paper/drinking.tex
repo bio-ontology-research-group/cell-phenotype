@@ -124,30 +124,35 @@ the heart. One of the heart's functions is {\em Heart beating}, i.e.,
 a capability that is realized through processes of the type {\em Heart
   beating}. {\em Blood} is a participant of {\em Heart beating}
 processes.  An abnormal phenotype of an organism could be that the
-{\em rate of heart beating} is increased with the intended meaning
-that the number of {\em Heart beating} processes in a given time
-interval is higher than normal. An attribute such as {\em increased
-  rate of heart beating} 
+{\em rate of heart beating} is increased. The intended meaning of such
+a description is that the number of {\em Heart beating} processes in a
+given time interval is higher than normal. Another important attribute
+of heart physiology is the fluid flow rate through the heart. For an
+abnormal phenotype such as {\em increased rate of fluid flow through
+  the heart}, the intended meaning could either be that the amount of
+fluid that is moved through the heart within a single heart beating
+process is increased or that the amount of fluid that is moved through
+the heart within a period of time interval is increased. 
 
-Heart rate increased: frequency of CMC increased fluid flow increased
-volume per contraction increased ...
+Based on these examples, we can make several observations about
+process attributes. First, for a process like {\em Heart beating}, we
+can distinguish between single occurrences and processes in which {\em
+  Heart beating} occurs multiple times. Only the latter kind of
+process may have a {\em rate of heart beating}, while {\em Heart
+  beating} processes do not have such an attribute. Second, we can
+distinguish between abnormal fluid flow rates in {\em Heart beating}
+processes and rate of fluid flow through the heart within a given
+duration. Both may have entirely different underlying causes and it is
+therefore important to distinguish between them. Finally, we may be
+able to infer some phenotypes from others, thereby limiting the number
+of phenotypes that must be experimentally observed. For example, when
+the fluid flow rate in single heart beating processes is increased and
+the {\em rate of heart beating} is increased within a process $P$,
+then the rate of fluid flow through the heart will be increased for
+$P$.
 
-what is the relation to the heart?
-
-%%%%%%%%%%%%%%%%%%
-observation 1: there is a fundamental distinction between attribution
-of qualities for a fixed period (e.g., 24h) and single {\em act}s of
-drinking.
-
-observation 2: each of the different possible ``increased'' drinking
-behavior may be the result of different underlying causes and due to
-this, distinguishing between them may be important.
-
-observation 3: depending on the experiment performed, only some of the
-actual qualities can be measured.
-
-observation 4: some qualities can be inferred given others. For
-example,...
+Here, we present the foundations for an ontology of physiological
+phenotypes. 
 
 \section{Materials and Methods}
 \subsection{Formal ontology}
