@@ -160,7 +160,7 @@ Ontology (CPO). The CPO is linked to reference ontologies for
 qualities, biological processes, functions and cell components, and
 its prime application is the unification of phenotypes on the cellular
 level across different species as well as for annotation of cellular
-phenotypes in domains in which no such ontology exists.
+phenotypes in domains in which no such ontology exists...
 
 \section{Materials and Methods}
 \subsection{Formal ontology}
@@ -189,7 +189,7 @@ specified by stating what must be true of their instances.
 In addition to classes and individuals, ontologies often include {\em
   relations}. Relations are the ``the glue that holds things together,
 the primary constituents of the facts that go to make up reality''
-\cite{}.
+\cite{Barwise1989}.
 
 In {\em formal} ontologies, the specification of classes and relations
 follows the axiomatic-deductive method. Given a set of terms that are
@@ -463,7 +463,7 @@ non-comparative and comparative process attributes.
 % Complex relations between Based on these definition patterns,
 % interdependencies between process attributes can be observed.
 
-\subsection{Cellular Phenotype Ontology}
+\subsection{Cell Phenotype Ontology}
 \begin{figure*}[h]
   \centering
   \includegraphics[width=\textwidth,
@@ -672,7 +672,7 @@ processes that are often measured or observed, while the rates of
 individual processes are inferred following a schema such as Table
 \ref{tbl:flow}.
 
-\subsection{Cell Phenotype Ontology: implementation}
+\subsection{Implementation}
 We were faced with two choices for implementing the CPO: we could
 either implement a pre-composed ontology in which all classes and
 their definitions are pre-generated according to the patterns we
@@ -781,9 +781,11 @@ processing pipeline and used to annotate the data as it gets generated
 (Conrad et al, Nature Methods 8: 246-249).
 
 \subsection{Pre- vs. post-composed ontology}
-Pre-composed or software support for pattern?
+We implemented the CPO using only a few patterns for formulating
+phenotypes involving processes.
 
-\subsection{Formalization}
+
+\subsection{Future work}
 Formal, axiomatic system for process qualities, maybe based on PSL,
 FOIS paper 2010
 
