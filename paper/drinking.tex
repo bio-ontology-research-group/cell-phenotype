@@ -30,15 +30,19 @@
   cell physiology}
 
 \author[Hoehndorf et al.]{Robert Hoehndorf$^1$ and Midori
-  A. Harris$^3$ and Heinrich Herre(?) and Gabriella Rustici$^2$ and
+  A. Harris$^2$ and Heinrich Herre$^3$ and Gabriella Rustici$^4$ and
   Georgios V. Gkoutos$^{1}$}
 
 \address{$^{1}$Department of Genetics, University of Cambridge,
   Downing Street, Cambridge, Cambridge CB2 3EH, UK\\
-  $^{2}$EBI, Wellcome Trust Genome Campus, Hinxton, Cambridge,
-  Cambridge CB10 1SD, UK\\
-  $^{3}$Department of Biochemistry; University of Cambridge, 80 Tennis
-  Court Road, Cambridge CB2 1GA, UK}
+  $^{2}$Department of Biochemistry; University of Cambridge, 80 Tennis
+  Court Road, Cambridge CB2 1GA, UK\\
+  $^{3}$Institute for Medical Informatics, Statistics and
+  Epidemiology, University of Leipzig, Haertelstrasse 16-18, 04107
+  Leipzig, Germany\\
+  $^{4}$EBI, Wellcome Trust Genome Campus, Hinxton, Cambridge,
+  Cambridge CB10 1SD, UK
+}
 
 \maketitle
  
@@ -255,7 +259,12 @@ must obtain in a weaker language using deductive inferences.
 \begin{figure}
   \centering
   \includegraphics[width=.45\textwidth]{onto.pdf}
-  \caption{Overview over ...\label{fig:onto}}
+  \caption{Overview over basic top-level categories. Physical objects
+    are entities that are wholly present at time points. Qualities are
+    attributes of entities. Functions are capabilities that arise from
+    physical objects with their qualities, and processes are
+    temporally extended entities that may be realizations of a
+    function.\label{fig:onto}}
 \end{figure}
 
 Most biomedical ontologies share common distinctions between different
@@ -457,7 +466,20 @@ non-comparative and comparative process attributes.
 \begin{figure}
   \centering
   \includegraphics[width=.5\textwidth]{processpatterns.pdf}
-  \caption{Overview over ...\label{fig:patterns}}
+  
+  \caption{\label{fig:patterns}Six examples of processes with
+    non-comparative and comparative process attributes.  We assume
+    that the processes labelled $a$, $b$, $c$ and $d$ are all
+    instances of the class of processes $P$.  On the left side, three
+    regulation (of $P$) processes are illustrated which exhibit
+    non-comparative attributes. The first process has an attribute of
+    {\em rhythmic} occurrence of $P$ because the instances of $P$ are
+    temporally equidistantly distributed. The second example shows an
+    {\em arrhythmic} occurrence of $P$, and the third examples shows
+    an {\em increasing frequency} (of $P$). A regulation process with
+    an increasing frequency (of $P$) is a process in which the
+    frequency of occurrences of $P$ is lower in the first half of the
+    process than in the second...}
 \end{figure}
 
 % Complex relations between Based on these definition patterns,
