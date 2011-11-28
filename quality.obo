@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 12:10:2011 13:03
+date: 23:11:2011 12:21
 saved-by: George Gkoutos
 auto-generated-by: OBO-Edit 2.1-beta13
 subsetdef: abnormal_slim "Abnormal/normal slim"
@@ -103,6 +103,7 @@ name: color
 alt_id: PATO:0000020
 def: "A composite chromatic quality composed of hue, saturation and intensity parts." [PATOC:GVG]
 subset: attribute_slim
+synonym: "colour" EXACT []
 synonym: "relative color" EXACT []
 is_a: PATO:0001300 ! optical quality
 
@@ -522,7 +523,7 @@ id: PATO:0000078
 name: rhythm quality
 def: "A quality of a single process inhering in a bearer by virtue of the bearer's movement or variation characterized by the regular recurrence or alternation of different quantities or conditions." [answers.com:answers.com "http://www.answers.com/"]
 subset: attribute_slim
-is_a: PATO:0002062 ! physical quality of a process
+is_a: PATO:0002323 ! temporal distribution quality
 
 [Term]
 id: PATO:0000079
@@ -548,7 +549,7 @@ id: PATO:0000083
 name: phase
 def: "A quality that exists by virtue of being a particular point in the time of a cycle." [PATOC:GVG]
 subset: attribute_slim
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002323 ! temporal distribution quality
 
 [Term]
 id: PATO:0000084
@@ -1702,11 +1703,11 @@ is_obsolete: true
 [Term]
 id: PATO:0000297
 name: arrested
-def: "A duration quality of a process inhering in a bearer by virtue of the bearer's duration which ends earlier than the natural end time." [PATOC:melissa]
+def: "A quality of a process which ends earlier than the natural end time or reference process." [PATOC:LC]
 subset: value_slim
 synonym: "incomplete" RELATED []
-is_a: PATO:0000499 ! implied link automatically realized ! decreased duration
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002302 ! implied link automatically realized ! decreased process quality
+is_a: PATO:0002324 ! offset quality
 relationship: decreased_in_magnitude_relative_to PATO:0000461 ! normal
 
 [Term]
@@ -3000,10 +3001,10 @@ is_a: PATO:0000083 ! phase
 [Term]
 id: PATO:0000502
 name: delayed
-def: "A duration quality of a process inhering in a bearer by virtue of the bearer's duration which starts later than the natural start time." [PATOC:melissa]
+def: "A quality of a process which starts later than the natural start time or the reference process." [PATOC:LC]
 subset: value_slim
 synonym: "late" RELATED []
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002325 ! onset quality
 
 [Term]
 id: PATO:0000503
@@ -4204,11 +4205,13 @@ is_obsolete: true
 id: PATO:0000694
 name: premature
 alt_id: PATO:0000691
-def: "A duration which starts earlier than the natural start time." [PATO:melissa]
+alt_id: PATO:0002086
+def: "A quality of a process which starts earlier than the natural start time or the reference process." [PATO:LC]
 subset: value_slim
+synonym: "advanced" EXACT []
 synonym: "early" RELATED []
 synonym: "precocious" RELATED []
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002325 ! onset quality
 
 [Term]
 id: PATO:0000695
@@ -6273,26 +6276,26 @@ is_obsolete: true
 [Term]
 id: PATO:0001051
 name: acute angle
-def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle which is less than 90 degrees." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
+def: "An angle which is less than 90 degrees." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001052
 name: obtuse angle to
-def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle which is between 90 degrees and 180 degrees to another entity." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
+def: "An angle which is between 90 degrees and 180 degrees to another entity." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001053
 name: convex angle to
-def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle which is less than 180 degrees to another entity." [maths.org:maths.org "http://thesaurus.maths.org/"]
+def: "An angle which is less than 180 degrees to another entity." [maths.org:maths.org "http://thesaurus.maths.org/"]
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001054
@@ -6308,7 +6311,7 @@ name: reflex angle to
 def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle that is greater than 180 degrees but less than 360 degrees to another entity." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001056
@@ -7873,7 +7876,7 @@ intersection_of: increased_in_magnitude_relative_to PATO:0000461 ! normal
 id: PATO:0001309
 name: duration quality of a process
 alt_id: PATO:0000081
-def: "A quality of a single process inhering in a bearer by virtue of the bearer's starting and ending point." [PATOC:mellybelly]
+def: "A process quality inhering in a bearer by virtue of the bearer's magnitude of the temporal extent between the starting and ending point." [PATOC:mellybelly]
 subset: attribute_slim
 synonym: "period" EXACT []
 synonym: "time" RELATED []
@@ -7972,19 +7975,19 @@ is_a: PATO:0000454 ! hairy
 [Term]
 id: PATO:0001321
 name: right angle to
-def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle which is 90 degrees to another entity." [thesaurus.math:thesaurus.math "http://thesaurus.maths.org/"]
+def: "An angle which is 90 degrees to another entity." [thesaurus.math:thesaurus.math "http://thesaurus.maths.org/"]
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001322
 name: straight angle
-def: "An angular placement quality inhering in a bearer by virtue of the bearer's placement at an angle which is 180 degrees to another entity." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
+def: "An angle which is 180 degrees to another entity." [thesaurus.maths:thesaurus.maths "http://thesaurus.maths.org/"]
 comment: TODO: decide on correct parentage.
 subset: relational_slim
 subset: value_slim
-is_a: PATO:0000133 ! orientation
+is_a: PATO:0002326 ! angle
 
 [Term]
 id: PATO:0001323
@@ -8068,9 +8071,9 @@ is_a: PATO:0000051 ! morphology
 [Term]
 id: PATO:0001333
 name: temporally extended
-def: "A duration which ends later than the natural end time." [PATOC:melissa]
+def: "A quality of a process which ends later than the natural end time." [PATOC:melissa]
 subset: value_slim
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002324 ! offset quality
 
 [Term]
 id: PATO:0001334
@@ -9271,9 +9274,9 @@ is_a: PATO:0002290 ! aplastic/hypoplastic
 [Term]
 id: PATO:0001484
 name: recent
-def: "A duration quality of a process inhering in a bearer by virtue of the bearer's occuring near to or not long before the present." [WordNet:WordNet "http://wordnet.princeton.edu/"]
+def: "A quality of a process which occurs near to or not long before the present." [WordNet:WordNet "http://wordnet.princeton.edu/"]
 subset: value_slim
-is_a: PATO:0001309 ! duration quality of a process
+is_a: PATO:0002325 ! onset quality
 
 [Term]
 id: PATO:0001485
@@ -14386,15 +14389,6 @@ created_by: George Gkoutos
 creation_date: 2009-09-25T11:31:13Z
 
 [Term]
-id: PATO:0002086
-name: advanced
-def: "A duration quality of a process inhering in a bearer by virtue of the bearer's duration which starts earlier than the natural start time." [PATOC:GVG]
-subset: value_slim
-is_a: PATO:0001309 ! duration quality of a process
-created_by: George Gkoutos
-creation_date: 2009-09-25T02:51:18Z
-
-[Term]
 id: PATO:0002087
 name: bullet-shaped
 def: "A quality inhering in a bearer by virtue of the bearer's being short and wide and tapered distally." [PATOC:GVG]
@@ -16702,6 +16696,69 @@ name: hyperelliptic
 is_a: PATO:0002318 ! superelliptic
 created_by: George Gkoutos
 creation_date: 2011-10-12T12:51:19Z
+
+[Term]
+id: PATO:0002323
+name: temporal distribution quality
+def: "A temporal distribution pattern of process occurrences within a regulation/reference process." [PATOC:LC]
+subset: attribute_slim
+is_a: PATO:0002062 ! physical quality of a process
+created_by: George Gkoutos
+creation_date: 2011-11-22T01:12:28Z
+
+[Term]
+id: PATO:0002324
+name: offset quality
+def: "The temporal relation between the end of the process with respect to a reference process." [PATOC:LC]
+subset: attribute_slim
+is_a: PATO:0002323 ! temporal distribution quality
+created_by: George Gkoutos
+creation_date: 2011-11-23T11:46:00Z
+
+[Term]
+id: PATO:0002325
+name: onset quality
+def: "The temporal relation between the start of the process with respect to a reference process." [PATOC:LC]
+subset: attribute_slim
+is_a: PATO:0002323 ! temporal distribution quality
+created_by: George Gkoutos
+creation_date: 2011-11-23T11:47:34Z
+
+[Term]
+id: PATO:0002326
+name: angle
+def: "An orientation inhering in a bearer by virtue of the bearer's placement at an angle." [PATOC:GVG]
+subset: attribute_slim
+subset: relational_slim
+is_a: PATO:0000133 ! orientation
+created_by: George Gkoutos
+creation_date: 2011-11-23T12:06:09Z
+
+[Term]
+id: PATO:0002327
+name: increased angle
+def: "An angle which is relatively high." [PATOC:GVG]
+subset: relational_slim
+subset: value_slim
+is_a: PATO:0001475 ! implied link automatically realized ! increased position
+is_a: PATO:0002326 ! implied link automatically realized ! angle
+intersection_of: PATO:0002326 ! angle
+intersection_of: increased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: George Gkoutos
+creation_date: 2011-11-23T12:06:38Z
+
+[Term]
+id: PATO:0002328
+name: decreased angle
+def: "An angle which is relatively low." [PATOC:GVG]
+subset: relational_slim
+subset: value_slim
+is_a: PATO:0001476 ! implied link automatically realized ! decreased position
+is_a: PATO:0002326 ! implied link automatically realized ! angle
+intersection_of: PATO:0002326 ! angle
+intersection_of: decreased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: George Gkoutos
+creation_date: 2011-11-23T12:06:54Z
 
 [Typedef]
 id: correlates_with
