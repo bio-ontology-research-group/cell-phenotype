@@ -141,49 +141,58 @@ ccs.each { cc ->
   addAnno(cl,OWLRDFVocabulary.RDFS_LABEL,"$name phenotype")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		     cl,
-		     fac.getOWLObjectSomeValuesFrom(
-		       r("has-part"), fac.getOWLObjectSomeValuesFrom(
-			 r("part-of"), cc))))
+		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), fac.getOWLObjectSomeValuesFrom(
+							r("part-of"), cc)))))
   
   def cl2 = c("C3PO:01$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl2, cl))
   addAnno(cl2,OWLRDFVocabulary.RDFS_LABEL,"Normal $name phenotype")
+  addAnno(cl2,OWLRDFVocabulary.RDF_DESCRIPTION,"The observable characteristics of $name are normal.")
 
   def cl3 = c("C3PO:02$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl3, cl))
   addAnno(cl3,OWLRDFVocabulary.RDFS_LABEL,"Abnormal $name phenotype")
+  addAnno(cl3,OWLRDFVocabulary.RDF_DESCRIPTION,"Some observable characteristics of $name are abnormal.")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		     cl3,
-		     fac.getOWLObjectSomeValuesFrom(
-		       r("has-part"), fac.getOWLObjectIntersectionOf(
-			 fac.getOWLObjectSomeValuesFrom(
-			   r("part-of"), cc),
-			 fac.getOWLObjectSomeValuesFrom(
-			   r("has-quality"), id2class["PATO:0000001"])))))
+		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), fac.getOWLObjectIntersectionOf(
+							fac.getOWLObjectSomeValuesFrom(
+							  r("part-of"), cc),
+							fac.getOWLObjectSomeValuesFrom(
+							  r("has-quality"), id2class["PATO:0000001"]))))))
 
   def cl4 = c("C3PO:03$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl4, cl3))
   addAnno(cl4,OWLRDFVocabulary.RDFS_LABEL,"Absence of $name")
+  addAnno(cl4,OWLRDFVocabulary.RDF_DESCRIPTION,"The complete absence of $name. No $name is present in the organism.")
 
   def cl5 = c("C3PO:04$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl5, cl3))
   addAnno(cl5,OWLRDFVocabulary.RDFS_LABEL,"Abnormal $name morphology")
+  addAnno(cl5,OWLRDFVocabulary.RDF_DESCRIPTION,"The morphology of $name is abnormal.")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		     cl5,
-		     fac.getOWLObjectSomeValuesFrom(
-		       r("has-part"), fac.getOWLObjectIntersectionOf(
-			 cc, fac.getOWLObjectSomeValuesFrom(
-			   r("has-quality"), id2class["PATO:0000051"])))))
+		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), fac.getOWLObjectIntersectionOf(
+							cc, fac.getOWLObjectSomeValuesFrom(
+							  r("has-quality"), id2class["PATO:0000051"]))))))
 
   def cl6 = c("C3PO:05$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl6, cl3))
   addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"Abnormal $name physiology")
+  addAnno(cl6,OWLRDFVocabulary.RDF_DESCRIPTION,"Abnormal physiology of $name. The physiology of $name includes $name's functions and functionings.")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		     cl6,
-		     fac.getOWLObjectSomeValuesFrom(
-		       r("has-part"), fac.getOWLObjectIntersectionOf(
-			 cc, fac.getOWLObjectSomeValuesFrom(
-			   r("has-quality"), id2class["PATO:0001509"])))))
+		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), fac.getOWLObjectIntersectionOf(
+							cc, fac.getOWLObjectSomeValuesFrom(
+							  r("has-quality"), id2class["PATO:0001509"]))))))
   
 }
 
@@ -195,34 +204,40 @@ bps.each { bp ->
   def name = null // label of GO Class
   bp.getAnnotations(ont, label).each { name = it.getValue().getLiteral() }
   addAnno(cl,OWLRDFVocabulary.RDFS_LABEL,"$name phenotype")
+  addAnno(cl,OWLRDFVocabulary.RDF_DESCRIPTION,"An observable characteristic of processes of the type $name.")
 
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		     cl,
-		     fac.getOWLObjectSomeValuesFrom(
-		       r("has-part"), fac.getOWLObjectSomeValuesFrom(
-			 r("participates-in"), 
-			 fac.getOWLObjectSomeValuesFrom(
-			   r("part-of"), bp)))))
+		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), fac.getOWLObjectSomeValuesFrom(
+							r("participates-in"), 
+							fac.getOWLObjectSomeValuesFrom(
+							  r("part-of"), bp))))))
 
   
   def cl2 = c("C3PO:11$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl2, cl))
   addAnno(cl2,OWLRDFVocabulary.RDFS_LABEL,"Normal $name phenotype")
+  addAnno(cl2,OWLRDFVocabulary.RDF_DESCRIPTION,"The observable characteristics of $name processes are normal.")
 
   def cl3 = c("C3PO:12$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl3, cl))
   addAnno(cl3,OWLRDFVocabulary.RDFS_LABEL,"Abnormal $name phenotype")
+  addAnno(cl3,OWLRDFVocabulary.RDF_DESCRIPTION,"The observable characteristics of $name processes are abnormal.")
+  /* This does not work, because we need to use a union to say that it is either the process that is abnormal of the regulation of the process */
   // manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
   // 		     cl3,
-  // 		     fac.getOWLObjectSomeValuesFrom(
-  // 		       r("has-part"), 
-  // 		       fac.getOWLObjectSomeValuesFrom(
-  // 			 r("participates-in"), 
-  // 			 fac.getOWLObjectIntersectionOf(
-  // 			   fac.getOWLObjectSomeValuesFrom(
-  // 			     r("part-of"), bp),
-  // 			   fac.getOWLObjectSomeValuesFrom(
-  // 			     r("has-quality"), id2class["PATO:0000001"]))))))
+  // 		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+  // 						    fac.getOWLObjectSomeValuesFrom(
+  // 						      r("has-part"), 
+  // 						      fac.getOWLObjectSomeValuesFrom(
+  // 							r("participates-in"), 
+  // 							fac.getOWLObjectIntersectionOf(
+  // 							  fac.getOWLObjectSomeValuesFrom(
+  // 							    r("part-of"), bp),
+  // 							  fac.getOWLObjectSomeValuesFrom(
+  // 							    r("has-quality"), id2class["PATO:0000001"])))))))
 
   if (bp2cc["GO:"+id]!=null) {
     bp2cc["GO:"+id].each { cid2 ->
@@ -241,64 +256,70 @@ bps.each { bp ->
   addAnno(cl5,OWLRDFVocabulary.RDFS_LABEL,"Abnormality of single occurrence of $name")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
   		     cl5,
-  		     fac.getOWLObjectSomeValuesFrom(
-  		       r("has-part"), 
-  		       fac.getOWLObjectSomeValuesFrom(
-  			 r("participates-in"), 
-  			 fac.getOWLObjectIntersectionOf(
-  			   fac.getOWLObjectSomeValuesFrom(
-  			     r("part-of"), bp),
-  			   fac.getOWLObjectSomeValuesFrom(
-  			     r("has-quality"), id2class["PATO:0000001"]))))))
+  		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), 
+						      fac.getOWLObjectSomeValuesFrom(
+							r("participates-in"), 
+							fac.getOWLObjectIntersectionOf(
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("part-of"), bp),
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("has-quality"), id2class["PATO:0000001"])))))))
   
   def cl6 = c("C3PO:15$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl6, cl3))
-  addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"Abnormality of multiple occurrences of $name")
+  addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"Abnormality of $name regulation")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
   		     cl6,
-  		     fac.getOWLObjectSomeValuesFrom(
-  		       r("has-part"), 
-  		       fac.getOWLObjectSomeValuesFrom(
-  			 r("participates-in"), 
-  			 fac.getOWLObjectIntersectionOf(
-			   id2class["GO:0008150"],
-  			   fac.getOWLObjectSomeValuesFrom(
-  			     r("has-quality"), 
-			     fac.getOWLObjectIntersectionOf(
-			       id2class["PATO:0000001"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp))))))))
-
+  		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"),
+						      fac.getOWLObjectSomeValuesFrom(
+							r("participates-in"), 
+							fac.getOWLObjectIntersectionOf(
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("regulates"), bp),
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("has-quality"), 
+							    fac.getOWLObjectIntersectionOf(
+							      id2class["PATO:0000001"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+		   
   def cl7 = c("C3PO:16$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl7, cl6))
-  addAnno(cl7,OWLRDFVocabulary.RDFS_LABEL,"Increased frequency of occurrences of $name")
+  addAnno(cl7,OWLRDFVocabulary.RDFS_LABEL,"Increased frequency of $name")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
   		     cl7,
-  		     fac.getOWLObjectSomeValuesFrom(
-  		       r("has-part"), 
-  		       fac.getOWLObjectSomeValuesFrom(
-  			 r("participates-in"), 
-  			 fac.getOWLObjectIntersectionOf(
-			   id2class["GO:0008150"],
-  			   fac.getOWLObjectSomeValuesFrom(
-  			     r("has-quality"), 
-			     fac.getOWLObjectIntersectionOf(
-			       id2class["PATO:0000380"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp))))))))
+  		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), 
+						      fac.getOWLObjectSomeValuesFrom(
+							r("participates-in"), 
+							fac.getOWLObjectIntersectionOf(
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("regulates"), bp),
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("has-quality"), 
+							    fac.getOWLObjectIntersectionOf(
+							      id2class["PATO:0000380"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 
   def cl8 = c("C3PO:17$id") 
   manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl8, cl6))
-  addAnno(cl8,OWLRDFVocabulary.RDFS_LABEL,"Decreased frequency of occurrences of $name")
+  addAnno(cl8,OWLRDFVocabulary.RDFS_LABEL,"Decreased frequency of $name")
   manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
   		     cl8,
-  		     fac.getOWLObjectSomeValuesFrom(
-  		       r("has-part"), 
-  		       fac.getOWLObjectSomeValuesFrom(
-  			 r("participates-in"), 
-  			 fac.getOWLObjectIntersectionOf(
-			   id2class["GO:0008150"],
-  			   fac.getOWLObjectSomeValuesFrom(
-  			     r("has-quality"), 
-			     fac.getOWLObjectIntersectionOf(
-			       id2class["PATO:0000381"], fac.getOWLObjectSomeValuesFrom(r("towards"),bp))))))))
-
+  		     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						    fac.getOWLObjectSomeValuesFrom(
+						      r("has-part"), 
+						      fac.getOWLObjectSomeValuesFrom(
+							r("participates-in"), 
+							fac.getOWLObjectIntersectionOf(
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("regulates"), bp),
+							  fac.getOWLObjectSomeValuesFrom(
+							    r("has-quality"), 
+							    fac.getOWLObjectIntersectionOf(
+							      id2class["PATO:0000381"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 }
 
 manager.addAxiom(
@@ -308,6 +329,17 @@ manager.addAxiom(
 manager.addAxiom(
   outont, fac.getOWLEquivalentObjectPropertiesAxiom(
     r("part-of"), fac.getOWLObjectProperty(IRI.create("http://purl.obolibrary.org/obo/GENE_ONTOLOGY_part_of"))))
+
+manager.addAxiom(
+  outont, fac.getOWLEquivalentObjectPropertiesAxiom(
+    r("regulates"), fac.getOWLObjectProperty(IRI.create("http://purl.obolibrary.org/obo/GENE_ONTOLOGY_regulates"))))
+
+manager.addAxiom(outont, fac.getOWLTransitiveObjectPropertyAxiom(r("has-part")))
+manager.addAxiom(outont, fac.getOWLTransitiveObjectPropertyAxiom(r("part-of")))
+manager.addAxiom(outont, fac.getOWLTransitiveObjectPropertyAxiom(r("regulates")))
+manager.addAxiom(outont, fac.getOWLReflexiveObjectPropertyAxiom(r("has-part")))
+manager.addAxiom(outont, fac.getOWLReflexiveObjectPropertyAxiom(r("part-of")))
+manager.addAxiom(outont, fac.getOWLReflexiveObjectPropertyAxiom(r("regulates")))
 
 manager.saveOntology(outont, IRI.create("file:"+opt.o))
 System.exit(0)
