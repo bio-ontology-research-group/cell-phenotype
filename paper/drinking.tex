@@ -810,17 +810,28 @@ processing pipeline and used to annotate the data as it gets generated
 (Conrad et al, Nature Methods 8: 246-249).
 
 \subsection{Pre- vs. post-composed ontology}
-We implemented the CPO using only a few patterns for formulating
-phenotypes involving processes.
+We implemented the CPO using a pattern-based approach to formulating
+phenotypes involving processes. The patterns we identify use
+pre-existing ontologies, in particular the PATO ontology and the
+classification of cellular processes as well as cellular components in
+the GO. The result is a large ontology in which classes for phenotypes
+are {\em pre-composed}: they are named and defined within an OWL
+ontology. However, the large size of the resulting ontology may impair
+its utility for data annotation and integration, and software tools
+may not always support such very large ontologies. The alternative to
+pre-composing all possible phenotype classes using the patterns we
+describe is to dynamically generate appropriately defined classes at
+the time at which they are being used. To achieve this goal, software
+must be developed to support ontology users in applying these patterns
+and generate the appropriate class description when required.
 
+% \subsection{Future work}
+% Formal, axiomatic system for process qualities, maybe based on PSL,
+% FOIS paper 2010
 
-\subsection{Future work}
-Formal, axiomatic system for process qualities, maybe based on PSL,
-FOIS paper 2010
+% one example:...
 
-one example:...
-
-\subsection{Conclusion}
+% \subsection{Conclusion}
 
 \section{Acknowledgements}
 MAH is supported by Wellcome Trust grant WT090548MA.
