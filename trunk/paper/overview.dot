@@ -1,6 +1,9 @@
-digraph overview{
-	"Abnormality of X" -> "Abnormal X morphology";
-	"Abnormality of X" -> "Abnormal X physiology";
+digraph overview {
+	"X phenotype" -> "Normal X phenotype";
+	"X phenotype" -> "Abnormal X phenotype";
+	"Abnormal X phenotype" -> "Abnormal X morphology";
+	"Abnormal X phenotype" -> "Abnormal X physiology";
+	"Abnormal X phenotype" -> "Absence of X";
 	edge[style=dotted];
 	"Abnormal X physiology" -> "Abnormality of\nP(X)";
 	edge[style=""];
