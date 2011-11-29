@@ -409,6 +409,46 @@ bps.each { bp ->
 								      fac.getOWLObjectSomeValuesFrom(
 									r("has-quality"), 
 									id2class["PATO:0001563"])))))))))
+	  def cl11 = c("C3PO:20$id") 
+	  manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl11, cl5))
+	  addAnno(cl11,OWLRDFVocabulary.RDFS_LABEL,"Increased mass of $oname as input in $name")
+	  addAnno(cl11,OWLRDFVocabulary.RDF_DESCRIPTION,"The mass of $oname that is used as input in a single $name is increased.")
+	  manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+			     cl11,
+			     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-part"), 
+							      fac.getOWLObjectSomeValuesFrom(
+								r("participates-in"),
+								fac.getOWLObjectIntersectionOf(
+								  bp,
+								  fac.getOWLObjectSomeValuesFrom(
+								    r("has-input"),
+								    fac.getOWLObjectIntersectionOf(
+								      id2class[outp],
+								      fac.getOWLObjectSomeValuesFrom(
+									r("has-quality"), 
+									id2class["PATO:0001563"])))))))))
+	  def cl12 = c("C3PO:21$id") 
+	  manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl12, cl5))
+	  addAnno(cl12,OWLRDFVocabulary.RDFS_LABEL,"Decreased mass of $oname as input in $name")
+	  addAnno(cl12,OWLRDFVocabulary.RDF_DESCRIPTION,"The mass of $oname that is used as input in a single $name is decreased.")
+	  manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+			     cl12,
+			     fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-part"), 
+							      fac.getOWLObjectSomeValuesFrom(
+								r("participates-in"),
+								fac.getOWLObjectIntersectionOf(
+								  bp,
+								  fac.getOWLObjectSomeValuesFrom(
+								    r("has-input"),
+								    fac.getOWLObjectIntersectionOf(
+								      id2class[outp],
+								      fac.getOWLObjectSomeValuesFrom(
+									r("has-quality"), 
+									id2class["PATO:0001562"])))))))))
 	}
       }
     }
