@@ -361,6 +361,45 @@ bps.each { bp ->
 							      r("has-quality"), 
 							      fac.getOWLObjectIntersectionOf(
 								id2class["PATO:0000381"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+
+    def clx = c("C3PO:90$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(clx, cl6))
+    addAnno(clx,OWLRDFVocabulary.RDFS_LABEL,"Late onset of $name")
+    addAnno(clx,OWLRDFVocabulary.RDF_DESCRIPTION,"A regulatory abnormality in which $name starts later than normal.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+		       clx,
+		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						      fac.getOWLObjectSomeValuesFrom(
+							r("has-part"), 
+							fac.getOWLObjectSomeValuesFrom(
+							  r("participates-in"), 
+							  fac.getOWLObjectIntersectionOf(
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("regulates"), bp),
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-quality"), 
+							      fac.getOWLObjectIntersectionOf(
+								id2class["PATO:0000502"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+
+    def cly = c("C3PO:91$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cly, cl6))
+    addAnno(cly,OWLRDFVocabulary.RDFS_LABEL,"Early onset of $name")
+    addAnno(cly,OWLRDFVocabulary.RDF_DESCRIPTION,"A regulatory abnormality in which $name starts earlier than normal.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+		       cly,
+		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						      fac.getOWLObjectSomeValuesFrom(
+							r("has-part"), 
+							fac.getOWLObjectSomeValuesFrom(
+							  r("participates-in"), 
+							  fac.getOWLObjectIntersectionOf(
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("regulates"), bp),
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-quality"), 
+							      fac.getOWLObjectIntersectionOf(
+								id2class["PATO:0000694"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+
     if (outputmap["GO:$id"]!=null) {
       def output = outputmap["GO:$id"]
       def oname = null
