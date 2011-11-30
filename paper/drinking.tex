@@ -229,17 +229,12 @@ $\phi$ and its negation $\neg \phi$ can be inferred from the
 ontology's axioms.  If an ontology is formally inconsistent, {\em
   every} statement can be inferred from the ontology.  
 
-
-
-We assume that the classes of an ontology are
-satisfiable, i.e. that they have instances
-
-Classes in an ontology may be unsatisfiable: a class $C$ is
-unsatisfiable, if it is not possible that the class has
-instances. Unsatisfiable classes are commonly the result of a
-contradictory class definition. That a class is unsatisfiable is often
-a special kind of unintended consequence that can be drawn from an
-ontology.
+Automated reasoning can further determine whether classes in an
+ontology are unsatisfiable: a class $C$ is unsatisfiable, if it is
+impossible for the class to have any instances. Unsatisfiable classes
+in an ontology are commonly the result of a contradictory class
+definition. % That a class is unsatisfiable is often a special kind of
+% unintended consequence that can be drawn from an ontology.
 
 Automated reasoning in the Web Ontology Language (OWL) can be employed
 to automatically compute the generalization hierarchy underlying an
@@ -289,22 +284,20 @@ by processes, which are temporally extended entities
 instances include {\em Drinking}, {\em Triathlon} or {\em Apoptosis}.
 Figure \ref{fig:onto} illustrates these basic categories of being.
 
-Processes commonly have participants\footnote{It may be argued that
-  processes necessarily have participants or that processes may have
-  no participants. However, these discussions do not affect our aims
-  here and take no position in this regard.}. Participants of
-processes are entities that are present at time points (i.e., they
-have no temporal parts) and may undergo changes during the process
-\cite{Herre2006, Herre2010}.  We can further distinguish different
-{\em roles} of participation in a process \cite{Loebe2007}. For
-example, a runner may participate in a {\em Triathlon} process as a
-{\em Runner (role)}, while another person can participate in the same
-process but in a different role (such as {\em Referee}).
+Processes commonly have physical objects as participants. Physical
+objects are entities that are present as a whole at time points (i.e.,
+they have no temporal parts) and may persist through time, i.e., they
+may undergo changes during the process \cite{Herre2006, Herre2010}.
+We can further distinguish different {\em roles} of participation in a
+process \cite{Loebe2007}. For example, a runner may participate in a
+{\em Triathlon} process as a {\em Runner (role)}, while another person
+can participate in the same process but in a different role (such as
+{\em Referee}).
 
-Amongst the participants of some processes, we will distinguish
-between {\em inputs} and {\em outputs} of processes. Chemical
-reactions, for example, are processes with definite inputs (the {\em
-  reactants}) and outputs ({\em the products}).
+% Amongst the participants of some processes, we will distinguish
+% between {\em inputs} and {\em outputs} of processes. Chemical
+% reactions, for example, are processes with definite inputs (the {\em
+%   reactants}) and outputs ({\em the products}).
 
 \subsection{Gene Ontology}
 The Gene Ontology provides a set of ontologies for molecular and
@@ -378,14 +371,15 @@ statement between that class and the above PATO-based description.
 \subsection{Attributes of processes}
 We develop a model of process attributes that is applicable for
 representations of physiology and related phenotypes. In principle, we
-distinguish between three different kinds of process attributes:
-the first are process attributes that arise directly from processes
-and include {\em duration} and {\em temporal location}; the second are
-attributes that arise from processes and their parts and include {\em
-  frequency}; and the third are attributes that arise from processes
-and qualities of their participants, and include {\em flow rates}.
+distinguish between three different kinds of process attributes: the
+first are process attributes that arise directly from processes and
+include {\em duration} and {\em temporal location}; the second are
+attributes that arise from processes and their temporal parts and
+include {\em frequency} and {\em onset}; and the third are attributes
+that arise from processes and qualities of their participants, and
+include {\em flow rates}.
 
-Attribute that can be directly linked to a process arise from
+Attributes that can be directly linked to a process arise from
 processes' temporal extension. For example, a duration is an attribute
 that characterizes the temporal extent of a process and is similar to
 {\em Length}, {\em Area} and {\em Volume} for one-, two- and
@@ -418,7 +412,7 @@ depend on types of processes with regard to a reference process are
 {\em distribution patterns}, i.e., how the occurrences of processes of
 a particular type are distributed within a reference process. For
 example, the heart may beat {\em rhythmically} or {\em arrhythmically}
-within a period of time.
+within a period of time (see Figure \ref{fig:patterns}).
 
 Related to distribution patterns are {\em changing qualities} of
 processes. For example, the rate of heart beating may change ({\em
@@ -431,17 +425,19 @@ temporal parts. Mathematically, this process of sub-division can be
 iterated until processes occur within infinitesimally small time
 intervals.
 
-While some processes can be subdivided indefinitely without changing
-the type of process, others cannot. A class $C$ of {\em continuous
-  processes} is a class that has processes $p$ as instance such that
-all temporal parts of $p$ are also instances of $C$. Examples include
-{\em continuous movements} or {\em mass flow} processes. On the other
-hand, {\em discrete processes} can be subdivided into stages of
-activity and stages of inactivity: a class $C$ of {\em discrete
-  processes} is a class with processes $p$ as instance and there is a
-part of $p$ that is not an instance of $C$. An example is {\em heart
-  beating} which has periods of activity (a single heart beat) and
-inactivity.
+While some processes can be subdivided indefinitely while retaining
+certain kinds of attributes, others cannot.
+% A class $C$ of {\em continuous
+%   processes} is a class that has processes $p$ as instance such that
+% all temporal parts of $p$ are also instances of $C$. 
+Examples of processes that can be divided include {\em continuous
+  movements} or {\em mass flow} processes, for which all parts have a
+{\em speed} or {\em flow rate} attribute. On the other hand, some
+processes can be subdivided into stages of activity and stages of
+inactivity and cannot arbitrarily be divided. For example, a process
+of {\em heart beating} has periods of activity (a single heart beat)
+and inactivity. Consequently, not all parts of the process have a {\em
+  heart rate} attribute.
 
 We may further attribute a {\em frequency} or {\em rate} to an object
 instead of a process. For example, a heart that beats {\em now} with a
@@ -459,13 +455,14 @@ a value for a frequency even when no {\em heart beating} process is
 occurring. However, the frequency is only an attribute of the heart in
 virtue of such a reference process in which {\em heart beating} is
 actually occurring.  This reference process can be uniquely determined
-for continuous processes (such that the frequency or rate of an object
-at a time $t$ is the frequency or rate of the infinitesimally small
-process around $t$), and is ambiguous for discrete processes (in which
-case the reference process must be explicitly stated).
+for processes such as {\em continuous movement}, where the rate of an
+object at a time $t$ is the rate of the infinitesimally small process
+that occurs around $t$. The reference process is ambiguous for
+processes such as {\em heart beating}, and the reference process must
+be explicitly stated.
 
-Figure \ref{fig:patterns} illustrates some examples of
-non-comparative and comparative process attributes.
+% Figure \ref{fig:patterns} illustrates some examples of
+% non-comparative and comparative process attributes.
 
 % A similar construction as for continuous processes can be made for
 % discrete processes. A rate of blood flow is immediately an attribute
