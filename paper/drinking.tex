@@ -182,19 +182,20 @@ diverse biomedical resources and domains.
 In computer science, an ontology is a specification of a
 conceptualization of a domain of knowledge \cite{Gruber1995,
   Guarino1998}.  Ontologies commonly distinguish between {\em classes}
-and {\em individuals} within a domain of knowledge. A class is an
-entity that can have {\em instances}, while individuals are entities
-that cannot be instantiated. Examples of individuals include the
-Eiffel tower or the 2009 Ironman Triathlon in Hawaii, while examples
-of classes include {\em Tower} or {\em Triathlon}. The Eiffel tower
-can be an instance of the class {\em Tower}, and the 2009 Ironman
-Triathlon an instance of {\em Triathlon}.  The meaning of classes is
-specified by stating what must be true of their instances.
+(also called {\em concepts}, {\em categories} or {\em universals}) and
+{\em individuals} within a domain of knowledge. A class is an entity
+that can have {\em instances}, while individuals are entities that
+cannot be instantiated \cite{Herre2006}. Examples of individuals
+include the Eiffel tower or the 2009 Ironman Triathlon in Hawaii,
+while examples of classes include {\em Tower} or {\em Triathlon}. The
+Eiffel tower can be an instance of the class {\em Tower}, and the 2009
+Ironman Triathlon an instance of {\em Triathlon}.  The meaning of
+classes is specified by stating what must be true of their instances.
 
 In addition to classes and individuals, ontologies often include {\em
-  relations}. Relations are the ``the glue that holds things together,
-the primary constituents of the facts that go to make up reality''
-\cite{Barwise1989}.
+  relations}. Relations hold between entities, they are the ``the glue
+that holds things together, the primary constituents of the facts that
+go to make up reality'' \cite{Barwise1989}.
 
 In {\em formal} ontologies, the specification of classes and relations
 follows the axiomatic-deductive method. Given a set of terms that are
@@ -204,13 +205,14 @@ introducing new terms. An explicit definition of a term $t$ is a
 statement that can replace every occurrence of $t$ in any sentence.
 
 Eventually, a set of {\em primitive terms} remains that are not
-further defined. Using only the primitive terms, we can construct
-complex sentences. Based on the intended meaning of the primitive
-terms, we consider some of these sentences true and some of them false
-in our domain. We select some of the true sentences as {\em axioms}
-which provide the core of our ontology. Ideally, the axioms are chosen
-so that all true sentences in the domain we intend to represent follow
-by means of logical deduction from the axioms. More commonly, however,
+further defined. Following the axiomatic method \cite{Hilbert1918},
+using only the primitive terms, we can construct complex
+sentences. Based on the intended meaning of the primitive terms, we
+consider some of these sentences true and some of them false in our
+domain. We select some of the true sentences as {\em axioms} which
+provide the core of our ontology. Ideally, the axioms are chosen so
+that all true sentences in the domain we intend to represent follow by
+means of logical deduction from the axioms. More commonly, however,
 only {\em some aspects} of the intended meaning are formally
 represented while other aspects are omitted either due to limitations
 in language expressivity or due to their irrelevance to the problem
@@ -222,11 +224,18 @@ automatically deducing sentences from axioms is called {\em automated
   reasoning}. Automated reasoning allows users of an ontology to carry
 our key activities: verifying the ontology's consistency, inferring
 hidden knowledge and thereby performing powerful queries.  An ontology
-is inconsistent if {\em every} statement can be inferred from the
-ontology. In particular, an ontology is inconsistent if a statement
+is formally inconsistent if there is a statement $\phi$ such that
 $\phi$ and its negation $\neg \phi$ can be inferred from the
-ontology's axioms. Classes in an ontology may be unsatisfiable: a
-class $C$ is unsatisfiable, if it is not possible that the class has
+ontology's axioms.  If an ontology is formally inconsistent, {\em
+  every} statement can be inferred from the ontology.  
+
+
+
+We assume that the classes of an ontology are
+satisfiable, i.e. that they have instances
+
+Classes in an ontology may be unsatisfiable: a class $C$ is
+unsatisfiable, if it is not possible that the class has
 instances. Unsatisfiable classes are commonly the result of a
 contradictory class definition. That a class is unsatisfiable is often
 a special kind of unintended consequence that can be drawn from an
