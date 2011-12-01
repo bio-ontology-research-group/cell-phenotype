@@ -47,14 +47,8 @@
 \maketitle
  
 \begin{abstract}
-  Phenotypes important for...
 
-  Include behavioral phenotypes, based on behavior ontology
-
-  We identify a problem in representing phenotypes such as drinking
-  behavior that...
-
-  provide solution...
+  \url{http://cell-phenotype.googlecode.com}.
 \end{abstract}
 
 {\bf Keywords:} cell phenotype, process, ontology, Semantic Web
@@ -165,7 +159,7 @@ Ontology (CPO). The CPO is linked to reference ontologies for
 qualities, biological processes, functions and cell components, and
 its prime application is the unification of phenotypes on the cellular
 level across different species as well as for annotation of cellular
-phenotypes in domains in which no such ontology exists...
+phenotypes in domains in which no such ontology exists.
 
 \section{Materials and Methods}
 \subsection{Formal ontology}
@@ -500,11 +494,13 @@ be explicitly stated.
 % interdependencies between process attributes can be observed.
 
 \subsection{Cell Phenotype Ontology}
-\begin{figure*}[h]
+\begin{figure*}
   \centering
   \includegraphics[width=\textwidth,
   height=.33\textheight]{overview.pdf}
-  \caption{Overview over ...\label{fig:overview}}
+  \caption{Overview over the taxonomic structure of CPO. The structure
+    is based on a cellular component class $X$ and the cellular
+    processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
 \end{figure*}
 
 While our considerations about process attributes are only the
@@ -538,7 +534,7 @@ and {\em abnormal physiology} phenotypes. An {\em Abnormal morphology
   of $C$} is either the (abnormal) absence of required parts of $C$,
 the (abnormal) presence of additional parts, or abnormal qualities of
 $C$ \cite{Hoehndorf2010phene}. For example, an absence of caveolae
-({\tt MP:...}) would be a subclass of {\em Abnormal morphology of
+({\tt MP:0004150}) would be a subclass of {\em Abnormal morphology of
   plasma membrane} in virtue of caveolae necessarily being part of the
 {\em Plasma membrane} ({\tt GO:0005886}).
 
@@ -626,6 +622,32 @@ occurrence of processes of a particular type. Following this
 convention, we call an abnormality of multiple occurrences of $X$ {\em
   abnormality of the regulation of $X$}.
 
+\begin{table*}
+  \centering
+  \begin{tabular}{l|l|l|l}
+    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate & Decreased
+    cytoplasmic flow rate \\
+    \hline
+    Increased frequency &increased total flow rate &increased total
+    flow rate &?\\
+    Normal frequency &increased total flow rate &normal total flow
+    rate &decreased total flow rate\\
+    Decreased frequency &?&decreased total flow rate &decreased total
+    flow rate\\
+    \hline
+  \end{tabular}
+  \caption{\label{tbl:flow}Interdependency for the attribute {\em
+      Total cytoplasmic flow rate}. A {\em Total cytoplasmic flow
+      rate} is an attribute of {\em Regulation of cytoplasmic
+      streaming} processes, while {\em Cytoplasmic flow rate} is an
+    attribute of individual {\em cytoplasmic streaming}
+    processes. Depending both on whether the cytoplasmic flow rate in
+    individual {\em cytoplasmic streaming} processes is increased or
+    decreased and whether the frequency of occurrence of {\em
+      cytoplasmic streaming} is increased or decreased, the total
+    cytoplasmic flow rate can be increased or decreased.}
+\end{table*}
+
 A first kind of abnormality of regulatory processes are {\em abnormal
   temporal distribution patterns} of a process. In these
 abnormalities, the {\em way} in which processes of a particular kind
@@ -662,34 +684,11 @@ particular kind of process may be {\em delayed} ({\tt PATO:0000502})
 or {\em premature} ({\tt PATO:0000694}). For example, {\em Delayed
   apoptosis} refers to an abnormality of the {\em Regulation of
   apoptosis} in which apoptosis is induced later than normal.  We use
-the PATO quality {\em onset} ({\tt PATO:...}) and its children {\em
-  delayed} and {\em premature} to define these types of regulatory
-abnormality. Similarly, we use PATO's {\em offset} ({\tt PATO:...})
-  quality and its children to characterize regulatory abnormalities in
-  which a process ends prematurely or too late.
-
-\begin{table*}
-  \centering
-  \begin{tabular}{l|l|l|l}
-    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate & Decreased
-    cytoplasmic flow rate \\
-    \hline
-    Increased frequency &increased total flow rate &increased total
-    flow rate &?\\
-    Normal frequency &increased total flow rate &normal total flow
-    rate &decreased total flow rate\\
-    Decreased frequency &?&decreased total flow rate &decreased total
-    flow rate\\
-    \hline
-  \end{tabular}
-  \caption{\label{tbl:flow}Interdependency for the attribute {\em
-      Total cytoplasmic flow rate}. Depending both on whether the
-    cytoplasmic flow rate in individual {\em cytoplasmic streaming}
-    processes is increased or decreased and whether the frequency of
-    occurrence of {\em cytoplasmic streaming} is increased or
-    decreased, the total cytoplasmic flow rate can be increased or
-    decreased.}
-\end{table*}
+the PATO quality {\em onset} ({\tt PATO:0002325}) and its children
+{\em delayed} and {\em premature} to define these types of regulatory
+abnormality. Similarly, we use PATO's {\em offset} ({\tt
+  PATO:0002324}) quality and its children to characterize regulatory
+abnormalities in which a process ends prematurely or too late.
 
 Finally, a third kind of regulatory abnormality refers to abnormal
 rates with respect to a participant of the process that is being
@@ -758,99 +757,142 @@ long as the GO maintains its identifier for the {\em Apoptosis} class,
 the identifiers in the CPO will remain stable even when it is
 regenerated.
 
+\begin{table*}
+  \centering
+  \begin{tabular}{|p{7cm}|l|p{4cm}|}
+    Neumann et al.\cite{Neumann2010}&Schmitz et
+    al.\cite{Schmitz2010}&Fuchs et al.\cite{Fuchs2010}\\
+    \hline
+    binuclear & normal mitotic exit & actin fiver cells\\
+    cell death & prolonged mitotic exit & big cells \\
+    cell migration & & bright and large cells phenotype \\
+    condensation followed by decondensation without completion of
+    mitosis & & bright nuclei\\
+    condensation without mitosis/collapse of nucleus & & cells with protrusions\\
+    dynamic changes & & elongated cells\\
+    failure in decondensation & & elongated cells with protrusions\\
+    grape& & high actin ratio cells \\
+    increased proliferation& & lamellipodia + high actin ratio cells\\
+    large& & lamellipodia cells\\
+    large nucleus& & large cells\\
+    metaphase alignment problems/including no metaphase& & large nuclei\\
+    metaphase delay/arrest& & low eccentricity cells\\
+    migration (distance)& & metaphase cells\\
+    migration (speed)& & proliferating cells\\
+    mitotic delay/arrest& & small cells\\
+    nuclei stay close together& & small cells with an enrichment of mitotic cells\\
+    polylobed& &\\
+    pulsating nuclei& &\\
+    segregation problems/chromatin bridges/lagging chromosomes/multiple DNA masses&&\\
+    small nucleus&&\\
+    strange nuclear shape&&\\
+    \hline
+  \end{tabular}
+  \caption{\label{tbl:studies}The table summarizes cellular phenotype
+    terms used in three recent systems microscopy studies.}
+\end{table*}
+
 We use the labels of GO classes to automatically generate class labels
 for phenotype classes as well as textual definitions for classes in
 the CPO. For example, the label of the class for increased number of
 occurrences of {\em Apoptosis} is {\em Increased frequency of
-  occurrences of Apoptosis}, and its textual definition states: ``An
-increased frequency of occurrences of Apoptosis is a phenotype of
-entities in which the number of occurrences of Apoptosis within a
-given time period is increased in comparison to a reference process.''
+  occurrences of Apoptosis}, and its textual definition states that an
+increased frequency of occurrences of {\em Apoptosis} is a phenotype
+of {\em Regulation of apoptosis} in which the number of occurrences of
+{\em Apoptosis} within a given time period is increased in comparison
+to a reference process that is considered {\em normal}.
 
-When using the GO and PATO ontologies from 29 Nov 2011, CPO contains
- classes...
-Classifies in...
+When using the GO and PATO ontologies from 30 Nov 2011, CPO contains
+125,466 classes of which 79,236 are explicitly defined.  The ELK
+reasoner \cite{Kazakov2011} is able to perform a classification of the
+ontology in under 10 seconds. We make the ontology and the source code
+that is used to generate it freely available on
+\url{http://cell-phenotype.googlecode.com}.
 
 \section{Discussion}
-\subsection{Use of CPO}
+
+\subsection{Applications of the CPO}
 The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
 to support annotation of phenotypes in {\em Schizosaccharomyces
   pombe}, consists of pre-composed terms describing normal or abnormal
 cellular phenotypes. Over 80\% of FYPO definitions reference
-descendants of GO BP 'cellular process' as the entity; a further 11\%
-reference GO CC terms. All FYPO explicit definitions reference
+descendants of GO-BP's {\em Cellular process} as the entity; a further
+11\% reference GO-CC terms. All FYPO explicit definitions reference
 qualities in PATO, including {\em normal}, {\em abnormal}, and several
-process qualities including {\em increased duration}, {\em decreased
-  occurrence}, etc. FYPO will thus fit neatly under the CPO umbrella,
-and stands to benefit from the automated synchronization between CPO
-and GO. {\em S. pombe} annotations to FYPO terms will provide a rich
-body of highly specific, well-supported data to be integrated with
-data from other species.
+process qualities including {\em increased duration} and {\em
+  decreased occurrence}. FYPO will thus fit neatly under the CPO
+umbrella, and stands to benefit from the automated synchronization
+between CPO and GO, as well as the integration of cellular phenotypes
+across species that the CPO can provide. {\em Schizosaccharomyces
+  pombe} annotations to FYPO terms will provide a rich body of highly
+specific, well-supported data to be integrated with data from other
+species.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-A domain that would greatly benefit from the development of a CPO is
-Systems Microscopy, which aims to understand complex and dynamic
+
+
+A further domain that will greatly benefit from the CPO is {\em
+  systems microscopy}, which aims to understand complex and dynamic
 cellular systems by combining automated fluorescence microscopy, cell
 microarray platforms, quantitative image analysis and data mining
-(Lock \& Stromblad, Exp. Cell Res. 2010).
-
-If we consider some of the studies, which have been published in this
-field in the last few years (Neumann et al, Nature 464: 722-727;
-Schmitz et al, Nature Cell Biology 12: 886-893; Fuchs et al, Mol Sys
-Biology 6: 370), the need for a CPO becomes evident.
-
-In all three studies here considered live-cell imaging assays and RNAi
-knockdown were used to generate phenotypic profiles that quantify the
-cellular response to a given siRNA thus allowing identification of
-hundreds of genes involved in diverse biological functions including
-cell division, migration and survival.
-
+\cite{Lock2010}.  If we consider some of the studies, which have been
+published in this field in the last few years \cite{Neumann2010,
+  Schmitz2010, Fuchs2010}, the need for CPO becomes evident.  In the
+three studies illustrated in Table \ref{tbl:studies}, live-cell
+imaging assays and RNAi knockdown were used to generate phenotypic
+profiles that quantify the cellular response to a given siRNA thus
+allowing identification of hundreds of genes involved in diverse
+biological functions including cell division, migration and survival.
 In each study, several phenotypes were detected and described by the
-authors without the use of ontologies (see table), making the
-integration between datasets extremely difficult. For example, it is
-evident that cell division phenotypes were observed in the three
-datasets (e.g. 'Mitotic delay/arrest' and 'Prolonged mitotic exit' or
-'Methaphase delay' and 'Methaphase cells') but the overlap between
-such phenotypes is unclear.
+authors without the use of ontologies (see Table \ref{tbl:studies},
+making the integration between datasets extremely difficult. For
+example, it is evident that cell division phenotypes were observed in
+all three datasets (e.g. {\em Mitotic delay/arrest} and {\em Prolonged
+  mitotic exit} or {\em Methaphase delay} and {\em Methaphase cells})
+but the overlap between such phenotypes is unclear.
 
 Data integration is also complicated by the lack of standardization at
 the level of data production and processing; all these issues are
 currently being address by the different groups involved in the
 Systems Microscopy Network of Excellence
 (http://www.systemsmicroscopy.eu/) and the first step towards data
-integration will be achieved by developing a CPO.
+integration can be achieved by further developing CPO.
 
 This ontology will be used to integrate phenotypes' definitions across
 existing datasets and will then become an integrated part of the data
 processing pipeline and used to annotate the data as it gets generated
-(Conrad et al, Nature Methods 8: 246-249).
+\cite{Conrad2011}.
 
-\subsection{Pre- vs. post-composed ontology}
+\subsection{Future research}
 We implemented the CPO using a pattern-based approach to formulating
-phenotypes involving processes. The patterns we identify use
+phenotypes involving processes. The patterns we identify are based on
 pre-existing ontologies, in particular the PATO ontology and the
 classification of cellular processes as well as cellular components in
-the GO. The result is a large ontology in which classes for phenotypes
-are {\em pre-composed}: they are named and defined within an OWL
-ontology. However, the large size of the resulting ontology may impair
-its utility for data annotation and integration, and software tools
-may not always support such very large ontologies. The alternative to
-pre-composing all possible phenotype classes using the patterns we
-describe is to dynamically generate appropriately defined classes at
-the time at which they are being used. To achieve this goal, software
-must be developed to support ontology users in applying these patterns
-and generate the appropriate class description when required.
+the GO. The result of our method is a large ontology in which classes
+for phenotypes are {\em pre-composed}: they are named and defined
+within an OWL ontology. However, the large size of the resulting
+ontology may impair its utility for data annotation and integration,
+and software tools may not always support such very large
+ontologies. The alternative to pre-composing all possible phenotype
+classes using the patterns we describe is to dynamically generate
+appropriately defined classes at the time at which they are being
+used. To achieve this goal, software must be developed to support
+ontology users in applying these patterns and generate the appropriate
+class description when required.
 
-% \subsection{Future work}
-% Formal, axiomatic system for process qualities, maybe based on PSL,
-% FOIS paper 2010
-
-% one example:...
-
-% \subsection{Conclusion}
+A further important task is to develop the theory we outlined and
+applied for the CPO. In particular, a precise formal characterization
+of this theory in terms of axioms will further improve the clarity of
+phenotypic descriptions of processes and enable its integration in
+well-developed formal ontologies of processes \cite{Herre2006,
+  Gruninger2010}.
 
 \section{Acknowledgements}
-MAH is supported by Wellcome Trust grant WT090548MA.
+Funding for RH is provided by the European Commission's 7th
+Framework Programme, RICORDO project, grant number 248502. MAH is
+supported by Wellcome Trust, grant WT090548MA. HH is supported by the
+Institute for Medical Informatics, Statistics and Epidemiology,
+University of Leipzig. GVG is funded by BBSRC grant BBG0043581. 
 
 % % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section*{Authors contributions}
