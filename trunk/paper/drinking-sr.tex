@@ -1,8 +1,9 @@
 \documentclass[11pt]{article}
-\usepackage{times}
+%\usepackage{times}
 \usepackage{setspace}
-\doublespacing
-
+\usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
 %\copyrightyear{2005}
 %\pubyear{2005}
 \usepackage{graphicx}
@@ -16,24 +17,20 @@
 \usepackage{ifthen}  % Conditional 
 \usepackage[utf8]{inputenc} %unicode support
 \urlstyle{rm}
-\usepackage{natbib}
+\usepackage[sort&compress]{natbib}
 \renewcommand{\cite}{\citep}
 \usepackage{amsmath}
 \usepackage{amssymb}
  
-\usepackage{pifont}
-%\newcommand{\tick}{\ding{52}}
-\newcommand{\tick}{\checkmark}
-\newcommand{\tickNo}{\hspace{1pt}\ding{55}}
+
 
 \begin{document}
-%\firstpage{1}
 
-\title{Semantic integration of physiology phenotypes: an application
-  to the cellular phenotype ontology}
+\title{Semantic integration of physiology
+  phenotypes: an application to the cellular phenotype ontology}
 
-\author{Robert Hoehndorf$^{1,*}$ and Midori
-  A. Harris$^2$ and\\Heinrich Herre$^3$ and Gabriella Rustici$^4$ and
+\author{Robert Hoehndorf$^{1,*}$, Midori
+  A. Harris$^2$, Heinrich Herre$^3$, Gabriella Rustici$^4$ and\\
   Georgios V. Gkoutos$^{1}$}
 
 \date{$^{1}$Department of Genetics, University of Cambridge,
@@ -46,36 +43,38 @@
   $^{4}$European Bioinformatics Institute, Wellcome Trust Genome
   Campus, Hinxton, Cambridge, Cambridge CB10 1SD, UK}
 
+% \history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+% \editor{Associate Editor: XXXXXXX}
+
 \maketitle
  
 \begin{abstract}
-  The systematic observation of phenotypes has become a crucial tool
-  of functional genomics, and several large international projects are
-  currently underway to identify and characterize the phenotypes that
-  are associated with genotypes in several species. To integrate
-  phenotype descriptions within and across species, phenotype
-  ontologies have been developed. Applying ontologies to unify
-  phenotype descriptions in the domain of physiology has been a
-  particular challenge due to the high complexity of the underlying
-  domain.  Here, we present the outline of a theory for an ontology of
-  physiology-related phenotypes. We provide a formal description of
-  process attributes and relate them to the attributes of their parts
-  and participants. We apply our theory to create the Cellular
-  Phenotype Ontology (CPO). The CPO is an ontology of morphological
-  and physiological phenotypic abnormalities of cells, cell components
-  and cellular processes. Its prime application is the unification of
-  cellular phenotype descriptions across species by providing terms
-  and uniform definition patterns. The CPO can further be used for the
-  annotation of observed abnormalities in domains, such as systems
-  microscopy, in which cellular abnormalities are observed and for
-  which no phenotype ontology has been created.  The CPO and the
-  source code we generated to create the CPO are available on
-  \url{http://cell-phenotype.googlecode.com}.
+The systematic observation of phenotypes has become a crucial tool of
+functional genomics, and several large international projects are
+currently underway to identify and characterize the phenotypes that
+are associated with genotypes in several species. To integrate
+phenotype descriptions within and across species, phenotype ontologies
+have been developed. Applying ontologies to unify phenotype
+descriptions in the domain of physiology has been a particular
+challenge due to the high complexity of the underlying domain.
+Here, we present the outline of a theory for an ontology of
+physiology-related phenotypes. We provide a formal description of
+process attributes and relate them to the attributes of their parts
+and participants. We apply our theory to create the Cellular Phenotype
+Ontology (CPO). The CPO is an ontology of morphological and
+physiological phenotypic abnormalities of cells, cell components and
+cellular processes. Its prime application is the unification of
+cellular phenotype descriptions across species by providing terms and
+uniform definition patterns. The CPO can further be used for the
+annotation of observed abnormalities in domains, such as systems
+microscopy, in which cellular abnormalities are observed and for which
+no phenotype ontology has been created.  
+The CPO and the source code we generated to create the CPO are freely
+available on \url{http://cell-phenotype.googlecode.com}.
 \end{abstract}
 
-{\bf Keywords:} cell phenotype, process, ontology, Semantic Web
-
-\section{Introduction}
+%\section{Introduction}
 Phenotype studies on all scales and levels of granularity are now an
 invaluable tool for functional genomics research. Phenotypes of
 targeted mutations in animal models are now systematically recorded to
@@ -182,195 +181,6 @@ qualities, biological processes, functions and cell components, and
 its prime application is the unification of phenotypes on the cellular
 level across different species as well as for annotation of cellular
 phenotypes in domains in which no such ontology exists.
-
-\section{Materials and Methods}
-\subsection{Formal ontology}
-The ontology as an approach to semantic standardisation was proposed
-more than a decade ago and since then has become the dominant
-methodology used to semantically categorise phenodeviance.  The
-biomedical research community has invested considerable effort and
-resources in the development and establishment of ontologies that are
-becoming increasingly successful as information management and
-integration tools in many disparate scientific fields allowing
-interoperability and semantic information processing between diverse
-biomedical resources and domains.
-
-In computer science, an ontology is a specification of a
-conceptualization of a domain of knowledge \cite{Gruber1995,
-  Guarino1998}.  Ontologies commonly distinguish between {\em classes}
-(also called {\em concepts}, {\em categories} or {\em universals}) and
-{\em individuals} within a domain of knowledge. A class is an entity
-that can have {\em instances}, while individuals are entities that
-cannot be instantiated \cite{Herre2006}. Examples of individuals
-include the Eiffel tower or the 2009 Ironman Triathlon in Hawaii,
-while examples of classes include {\em Tower} or {\em Triathlon}. The
-Eiffel tower can be an instance of the class {\em Tower}, and the 2009
-Ironman Triathlon an instance of {\em Triathlon}.  The meaning of
-classes is specified by stating what must be true of their instances.
-
-In addition to classes and individuals, ontologies often include {\em
-  relations}. Relations hold between entities, they are the ``the glue
-that holds things together, the primary constituents of the facts that
-go to make up reality'' \cite{Barwise1989}.
-
-In {\em formal} ontologies, the specification of classes and relations
-follows the axiomatic-deductive method. Given a set of terms that are
-used within a domain and whose meaning we wish to specify, we begin by
-providing {\em explicit definitions} for some terms, potentially
-introducing new terms. An explicit definition of a term $t$ is a
-statement that can replace every occurrence of $t$ in any sentence.
-
-Eventually, a set of {\em primitive terms} remains that are not
-further defined. Following the axiomatic method \cite{Hilbert1918},
-using only the primitive terms, we can construct complex
-sentences. Based on the intended meaning of the primitive terms, we
-consider some of these sentences true and some of them false in our
-domain. We select some of the true sentences as {\em axioms} which
-provide the core of our ontology. Ideally, the axioms are chosen so
-that all true sentences in the domain we intend to represent follow by
-means of logical deduction from the axioms. More commonly, however,
-only {\em some aspects} of the intended meaning are formally
-represented while other aspects are omitted either due to limitations
-in language expressivity or due to their irrelevance to the problem
-for which an ontology is developed.
-
-Based on the axioms and definitions, we can use deduction to infer
-statements that logically follow from the axioms.  The process of
-automatically deducing sentences from axioms is called {\em automated
-  reasoning}. Automated reasoning allows users of an ontology to carry
-out key activities: verifying the ontology's consistency, inferring
-hidden knowledge and thereby performing powerful queries.  An ontology
-is formally inconsistent if there is a statement $\phi$ such that
-$\phi$ and its negation $\neg \phi$ can be inferred from the
-ontology's axioms.  If an ontology is formally inconsistent, {\em
-  every} statement can be inferred from the ontology.  
-
-Automated reasoning can further determine whether classes in an
-ontology are unsatisfiable: a class $C$ is unsatisfiable, if it is
-impossible for the class to have any instances. Unsatisfiable classes
-in an ontology are commonly the result of a contradictory class
-definition. % That a class is unsatisfiable is often a special kind of
-% unintended consequence that can be drawn from an ontology.
-
-Automated reasoning in the Web Ontology Language (OWL) can be employed
-to automatically compute the generalization hierarchy underlying an
-ontology as well as for verification of data consistency and complex
-queries \cite{Hoehndorf2011incon, Hoehndorf2011models}. Highly
-efficient automated reasoners are available to process OWL ontologies
-\cite{Sirin2004, Tsarkov2006, Motik2009a}. OWL profiles were developed
-to support even large ontologies by further reducing the expressivity
-of OWL in order to enable polynomial-time inferences. In particular
-the OWL EL profile was found to provide the expressivity required for
-most biomedical ontologies \cite{el4, elvira}, and highly optimized
-OWL EL reasoners are available or under development to support
-reasoning over very large ontologies \cite{el4, cbreasoner}.
-
-A high expressivity is required to accurately specify complex axioms
-that constrain the domain under investigation, and languages with
-higher expressivity than OWL are often required in the biomedical
-domain to achieve this goal \cite{Hoehndorf2009sequences, rnao}. On
-the other hand, automated reasoning over large ontologies and
-associated datasets benefits from languages with a low complexity of
-inferences in which complex axioms cannot be formulated. Therefore, a
-possible solution is to use a layered approach: to specify the meaning
-of terms using an expressive language, and derive the axioms that
-must obtain in a weaker language using deductive inferences.
-
-\subsection{Processes and their participants}
-Most biomedical ontologies share common distinctions between different
-kinds of entities: physical objects, qualities, functions and
-processes. A physical object is an entity that is present as a whole
-at a time point, i.e., an entity that has no temporal parts. A quality
-is an attribute or feature of an entity. Physical objects together
-with their qualities give rise to functions, which are capabilities or
-potentials of physical objects. These functions can then be realized
-by processes, which are temporally extended entities
-\cite{Burek2006}. Examples of classes that may have processes as
-instances include {\em Drinking}, {\em Triathlon} or {\em Apoptosis}.
-Figure \ref{fig:onto} illustrates these basic categories of being.
-
-Processes commonly have physical objects as participants. Physical
-objects are entities that are present as a whole at time points (i.e.,
-they have no temporal parts) and may persist through time, i.e., they
-may undergo changes during the process \cite{Herre2006, Herre2010}.
-We can further distinguish different {\em roles} of participation in a
-process \cite{Loebe2007}. For example, a runner may participate in a
-{\em Triathlon} process as a {\em Runner (role)}, while another person
-can participate in the same process but in a different role (such as
-{\em Referee}).
-
-% Amongst the participants of some processes, we will distinguish
-% between {\em inputs} and {\em outputs} of processes. Chemical
-% reactions, for example, are processes with definite inputs (the {\em
-%   reactants}) and outputs ({\em the products}).
-
-\subsection{Gene Ontology}
-The Gene Ontology provides a set of ontologies for molecular and
-cellular biology, originally designed to support structured
-annotations for genes and gene products in all species with respect to
-molecular function (MF), biological process (BP) and cellular
-component (CC). MF and BP both describe processes, but at different
-spatiotemporal scales; in particular, BP includes processes that
-unfold within cells and within tissues and organs of multicellular
-organisms. Gene product annotations identify participants in the
-processes.
-
-Over time, GO development has increasingly emphasized a normalized
-approach that includes supplementing existing human-readable text
-description with formally specified explicit definitions for GO
-classes. The formalization of GO is readily apparent in its
-representation of biological regulation.
-
-Regulatory processes may regulate other processes, at either the MF or
-BP scale, or biological qualities. GO accordingly includes three broad
-categories of regulation terms, regulation of molecular function,
-regulation of biological process, and regulation of biological
-quality. The first two are explicitly defined entirely with respect to
-other GO terms, whereas the third comprises classes in which the
-regulated qualities are specified by terms from PATO (see below) or
-anatomy ontologies.
-
-All GO regulation terms use one of three relations, {\bf regulates},
-{\bf negatively\_regulates} and {\bf positively\_regulates}, to link
-regulation terms to process or quality terms. The {\bf regulates}
-relations are defined in terms of qualities: a regulatory process
-causes a change in magnitude to some quality, which in turn has an
-effect on the frequency, rate or duration of some other type of
-process. Effects that results in increases and decreases use {\bf
-  positively\_regulates} and {\bf negatively\_regulates} respectively
-\cite{Mungall2010go}. The existing ontology structure would also
-support the addition of subclasses to distinguish, for example,
-regulation of the rate of a process from regulation of its duration or
-time of onset.
-
-\subsection{PATO and the EQ model}
-PATO was envisaged and designed to provide a platform for allowing the
-integration of quantitative and qualitative phenotype related
-information across different domains, levels of granularity and
-species \cite{Gkoutos2005}.  PATO is an ontology of phenotype
-qualities that form basic entities that we can perceive and/or measure
-such as colors, sizes, rates etc. One of its classification axes is
-based on the basic type of entity to which a qualities belongs, and
-PATO distinguishes between qualities of physical objects and qualities
-of processes.
-
-PATO allows for the description of affected entities by combining
-various ontologies that describe the entities that have been affected,
-such as the various anatomical ontologies, GO \cite {Ashburner2000b},
-the Cell Type Ontology \cite {Bard2005}, SO \cite {Eilbeck2005} etc
-with the various qualities it provides for defining how these entities
-were affected.  PATO can be used for annotation either directly in a
-so called post-composed (post-coordinated) manner or for providing
-formal (logical) definitions (equivalence axioms) to ontologies
-containing a set of precomposed (pre-coordinated) phenotype terms. For
-instance, to describe the decrease in the length of the sexual cycle
-of female animals, we can combine the PATO term \textit{decreased
-  duration} ({\tt PATO:0000499}) with the Gene Ontology term
-\textit{estrous cycle} ({\tt GO:0042698}), whilst if such a term
-existed in a pre-composed ontology (for example the {\tt MP:0009007}
-term from the Mammalian Phenotype) it could be used to provide an
-equivalence statement between that class and the above PATO-based
-description.
 
 \section{Results}
 \subsection{Attributes of processes}
@@ -599,32 +409,6 @@ occurrence of processes of a particular type. Following this
 convention, we call an abnormality of multiple occurrences of $X$ {\em
   abnormality of the regulation of $X$}.
 
-\begin{table*}
-  \centering
-  \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{4cm}}
-    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate & Decreased
-    cytoplasmic flow rate \\
-    \hline
-    Increased frequency &increased total flow rate &increased total
-    flow rate &?\\
-    Normal frequency &increased total flow rate &normal total flow
-    rate &decreased total flow rate\\
-    Decreased frequency &?&decreased total flow rate &decreased total
-    flow rate\\
-    \hline
-  \end{tabular}
-  \caption{\label{tbl:flow}Interdependency for the attribute {\em
-      Total cytoplasmic flow rate}. A {\em Total cytoplasmic flow
-      rate} is an attribute of {\em Regulation of cytoplasmic
-      streaming} processes, while {\em Cytoplasmic flow rate} is an
-    attribute of individual {\em cytoplasmic streaming}
-    processes. Depending both on whether the cytoplasmic flow rate in
-    individual {\em cytoplasmic streaming} processes is increased or
-    decreased and whether the frequency of occurrence of {\em
-      cytoplasmic streaming} is increased or decreased, the total
-    cytoplasmic flow rate can be increased or decreased.}
-\end{table*}
-
 A first kind of abnormality of regulatory processes are {\em abnormal
   temporal distribution patterns} of a process. In these
 abnormalities, the {\em way} in which processes of a particular kind
@@ -734,40 +518,40 @@ long as the GO maintains its identifier for the {\em Apoptosis} class,
 the identifiers in the CPO will remain stable even when it is
 regenerated.
 
-\begin{table*}
-  \centering
-  \begin{tabular}{|p{7cm}|l|p{4cm}|}
-    Neumann et al.\cite{Neumann2010}&Schmitz et
-    al.\cite{Schmitz2010}&Fuchs et al.\cite{Fuchs2010}\\
-    \hline
-    binuclear & normal mitotic exit & actin fiver cells\\
-    cell death & prolonged mitotic exit & big cells \\
-    cell migration & & bright and large cells phenotype \\
-    condensation followed by decondensation without completion of
-    mitosis & & bright nuclei\\
-    condensation without mitosis/collapse of nucleus & & cells with protrusions\\
-    dynamic changes & & elongated cells\\
-    failure in decondensation & & elongated cells with protrusions\\
-    grape& & high actin ratio cells \\
-    increased proliferation& & lamellipodia + high actin ratio cells\\
-    large& & lamellipodia cells\\
-    large nucleus& & large cells\\
-    metaphase alignment problems/including no metaphase& & large nuclei\\
-    metaphase delay/arrest& & low eccentricity cells\\
-    migration (distance)& & metaphase cells\\
-    migration (speed)& & proliferating cells\\
-    mitotic delay/arrest& & small cells\\
-    nuclei stay close together& & small cells with an enrichment of mitotic cells\\
-    polylobed& &\\
-    pulsating nuclei& &\\
-    segregation problems/chromatin bridges/lagging chromosomes/multiple DNA masses&&\\
-    small nucleus&&\\
-    strange nuclear shape&&\\
-    \hline
-  \end{tabular}
-  \caption{\label{tbl:studies}The table summarizes cellular phenotype
-    terms used in three recent systems microscopy studies.}
-\end{table*}
+% \begin{table*}
+%   \centering
+%   \begin{tabular}{|p{7cm}|l|p{4cm}|}
+%     Neumann et al.\cite{Neumann2010}&Schmitz et
+%     al.\cite{Schmitz2010}&Fuchs et al.\cite{Fuchs2010}\\
+%     \hline
+%     binuclear & normal mitotic exit & actin fiver cells\\
+%     cell death & prolonged mitotic exit & big cells \\
+%     cell migration & & bright and large cells phenotype \\
+%     condensation followed by decondensation without completion of
+%     mitosis & & bright nuclei\\
+%     condensation without mitosis/collapse of nucleus & & cells with protrusions\\
+%     dynamic changes & & elongated cells\\
+%     failure in decondensation & & elongated cells with protrusions\\
+%     grape& & high actin ratio cells \\
+%     increased proliferation& & lamellipodia + high actin ratio cells\\
+%     large& & lamellipodia cells\\
+%     large nucleus& & large cells\\
+%     metaphase alignment problems/including no metaphase& & large nuclei\\
+%     metaphase delay/arrest& & low eccentricity cells\\
+%     migration (distance)& & metaphase cells\\
+%     migration (speed)& & proliferating cells\\
+%     mitotic delay/arrest& & small cells\\
+%     nuclei stay close together& & small cells with an enrichment of mitotic cells\\
+%     polylobed& &\\
+%     pulsating nuclei& &\\
+%     segregation problems/chromatin bridges/lagging chromosomes/multiple DNA masses&&\\
+%     small nucleus&&\\
+%     strange nuclear shape&&\\
+%     \hline
+%   \end{tabular}
+%   \caption{\label{tbl:studies}The table summarizes cellular phenotype
+%     terms used in three recent systems microscopy studies.}
+% \end{table*}
 
 We use the labels of GO classes to automatically generate class labels
 for phenotype classes as well as textual definitions for classes in
@@ -786,7 +570,6 @@ the ontology and the source code that is used to generate it freely
 available on \url{http://cell-phenotype.googlecode.com}.
 
 \section{Discussion}
-
 %\subsection{Applications of the CPO}
 The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
 to support annotation of phenotypes in {\em Schizosaccharomyces
@@ -804,9 +587,6 @@ across species that the CPO can provide. {\em Schizosaccharomyces
 specific, well-supported data to be integrated with data from other
 species.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 A further domain that will greatly benefit from the CPO is {\em
   systems microscopy}, which aims to understand complex and dynamic
 cellular systems by combining automated fluorescence microscopy, cell
@@ -814,25 +594,25 @@ microarray platforms, quantitative image analysis and data mining
 \cite{Lock2010}.  If we consider some of the studies, which have been
 published in this field in the last few years \cite{Neumann2010,
   Schmitz2010, Fuchs2010}, the need for CPO becomes evident.  In the
-three studies illustrated in Table \ref{tbl:studies}, live-cell
-imaging assays and RNAi knockdown were used to generate phenotypic
-profiles that quantify the cellular response to a given siRNA thus
-allowing identification of hundreds of genes involved in diverse
-biological functions including cell division, migration and survival.
-In each study, several phenotypes were detected and described by the
-authors without the use of ontologies (see Table \ref{tbl:studies}),
-making the integration between datasets extremely difficult. For
-example, it is evident that cell division phenotypes were observed in
-all three datasets (e.g. {\em Mitotic delay/arrest} and {\em Prolonged
-  mitotic exit} or {\em Methaphase delay} and {\em Methaphase cells})
-but the overlap between such phenotypes is unclear.
+three studies, live-cell imaging assays and RNAi knockdown were used
+to generate phenotypic profiles that quantify the cellular response to
+a given siRNA thus allowing identification of hundreds of genes
+involved in diverse biological functions including cell division,
+migration and survival.  In each study, several phenotypes were
+detected and described by the authors without the use of ontologies or
+controlled vocabularies, making the integration between datasets
+extremely difficult. For example, it is evident that cell division
+phenotypes were observed in all three datasets and describes using
+terms such as {\em Mitotic delay/arrest}, {\em Prolonged mitotic
+  exit}, {\em Methaphase delay} and {\em Methaphase cells}). the
+overlap between such phenotypes is unclear.
 
 Data integration is also complicated by the lack of standardization at
 the level of data production and processing; all these issues are
 currently being address by the different groups involved in the
 Systems Microscopy Network of Excellence
-(http://www.systemsmicroscopy.eu/) and the first step towards data
-integration can be achieved by further developing CPO.
+(\url{http://www.systemsmicroscopy.eu/}) and the first step towards
+data integration can be achieved by further developing CPO.
 
 This ontology will be used to integrate phenotypes' definitions across
 existing datasets and will then become an integrated part of the data
@@ -863,7 +643,201 @@ phenotypic descriptions of processes and enable its integration in
 well-developed formal ontologies of processes \cite{Herre2006,
   Gruninger2010}.
 
-\section{Acknowledgements}
+\section{Methods}
+\subsection{Formal ontology}
+The ontology as an approach to semantic standardisation was proposed
+more than a decade ago and since then has become the dominant
+methodology used to semantically categorise phenodeviance.  The
+biomedical research community has invested considerable effort and
+resources in the development and establishment of ontologies that are
+becoming increasingly successful as information management and
+integration tools in many disparate scientific fields allowing
+interoperability and semantic information processing between diverse
+biomedical resources and domains.
+
+In computer science, an ontology is a specification of a
+conceptualization of a domain of knowledge \cite{Gruber1995,
+  Guarino1998}.  Ontologies commonly distinguish between {\em classes}
+(also called {\em concepts}, {\em categories} or {\em universals}) and
+{\em individuals} within a domain of knowledge. A class is an entity
+that can have {\em instances}, while individuals are entities that
+cannot be instantiated \cite{Herre2006}. Examples of individuals
+include the Eiffel tower or the 2009 Ironman Triathlon in Hawaii,
+while examples of classes include {\em Tower} or {\em Triathlon}. The
+Eiffel tower can be an instance of the class {\em Tower}, and the 2009
+Ironman Triathlon an instance of {\em Triathlon}.  The meaning of
+classes is specified by stating what must be true of their instances.
+
+In addition to classes and individuals, ontologies often include {\em
+  relations}. Relations hold between entities, they are the ``the glue
+that holds things together, the primary constituents of the facts that
+go to make up reality'' \cite{Barwise1989}.
+
+In {\em formal} ontologies, the specification of classes and relations
+follows the axiomatic-deductive method. Given a set of terms that are
+used within a domain and whose meaning we wish to specify, we begin by
+providing {\em explicit definitions} for some terms, potentially
+introducing new terms. An explicit definition of a term $t$ is a
+statement that can replace every occurrence of $t$ in any sentence.
+
+Eventually, a set of {\em primitive terms} remains that are not
+further defined. Following the axiomatic method \cite{Hilbert1918},
+using only the primitive terms, we can construct complex
+sentences. Based on the intended meaning of the primitive terms, we
+consider some of these sentences true and some of them false in our
+domain. We select some of the true sentences as {\em axioms} which
+provide the core of our ontology. Ideally, the axioms are chosen so
+that all true sentences in the domain we intend to represent follow by
+means of logical deduction from the axioms. More commonly, however,
+only {\em some aspects} of the intended meaning are formally
+represented while other aspects are omitted either due to limitations
+in language expressivity or due to their irrelevance to the problem
+for which an ontology is developed.
+
+Based on the axioms and definitions, we can use deduction to infer
+statements that logically follow from the axioms.  The process of
+automatically deducing sentences from axioms is called {\em automated
+  reasoning}. Automated reasoning allows users of an ontology to carry
+out key activities: verifying the ontology's consistency, inferring
+hidden knowledge and thereby performing powerful queries.  An ontology
+is formally inconsistent if there is a statement $\phi$ such that
+$\phi$ and its negation $\neg \phi$ can be inferred from the
+ontology's axioms.  If an ontology is formally inconsistent, {\em
+  every} statement can be inferred from the ontology.  
+
+Automated reasoning can further determine whether classes in an
+ontology are unsatisfiable: a class $C$ is unsatisfiable, if it is
+impossible for the class to have any instances. Unsatisfiable classes
+in an ontology are commonly the result of a contradictory class
+definition. % That a class is unsatisfiable is often a special kind of
+% unintended consequence that can be drawn from an ontology.
+
+Automated reasoning in the Web Ontology Language (OWL) can be employed
+to automatically compute the generalization hierarchy underlying an
+ontology as well as for verification of data consistency and complex
+queries \cite{Hoehndorf2011incon, Hoehndorf2011models}. Highly
+efficient automated reasoners are available to process OWL ontologies
+\cite{Sirin2004, Tsarkov2006, Motik2009a}. OWL profiles were developed
+to support even large ontologies by further reducing the expressivity
+of OWL in order to enable polynomial-time inferences. In particular
+the OWL EL profile was found to provide the expressivity required for
+most biomedical ontologies \cite{el4, elvira}, and highly optimized
+OWL EL reasoners are available or under development to support
+reasoning over very large ontologies \cite{el4, cbreasoner}.
+
+A high expressivity is required to accurately specify complex axioms
+that constrain the domain under investigation, and languages with
+higher expressivity than OWL are often required in the biomedical
+domain to achieve this goal \cite{Hoehndorf2009sequences, rnao}. On
+the other hand, automated reasoning over large ontologies and
+associated datasets benefits from languages with a low complexity of
+inferences in which complex axioms cannot be formulated. Therefore, a
+possible solution is to use a layered approach: to specify the meaning
+of terms using an expressive language, and derive the axioms that
+must obtain in a weaker language using deductive inferences.
+
+\subsection{Processes and their participants}
+Most biomedical ontologies share common distinctions between different
+kinds of entities: physical objects, qualities, functions and
+processes. A physical object is an entity that is present as a whole
+at a time point, i.e., an entity that has no temporal parts. A quality
+is an attribute or feature of an entity. Physical objects together
+with their qualities give rise to functions, which are capabilities or
+potentials of physical objects. These functions can then be realized
+by processes, which are temporally extended entities
+\cite{Burek2006}. Examples of classes that may have processes as
+instances include {\em Drinking}, {\em Triathlon} or {\em Apoptosis}.
+Figure \ref{fig:onto} illustrates these basic categories of being.
+
+Processes commonly have physical objects as participants. Physical
+objects are entities that are present as a whole at time points (i.e.,
+they have no temporal parts) and may persist through time, i.e., they
+may undergo changes during the process \cite{Herre2006, Herre2010}.
+We can further distinguish different {\em roles} of participation in a
+process \cite{Loebe2007}. For example, a runner may participate in a
+{\em Triathlon} process as a {\em Runner (role)}, while another person
+can participate in the same process but in a different role (such as
+{\em Referee}).
+
+% Amongst the participants of some processes, we will distinguish
+% between {\em inputs} and {\em outputs} of processes. Chemical
+% reactions, for example, are processes with definite inputs (the {\em
+%   reactants}) and outputs ({\em the products}).
+
+\subsection{Gene Ontology}
+The Gene Ontology provides a set of ontologies for molecular and
+cellular biology, originally designed to support structured
+annotations for genes and gene products in all species with respect to
+molecular function (MF), biological process (BP) and cellular
+component (CC). MF and BP both describe processes, but at different
+spatiotemporal scales; in particular, BP includes processes that
+unfold within cells and within tissues and organs of multicellular
+organisms. Gene product annotations identify participants in the
+processes.
+
+Over time, GO development has increasingly emphasized a normalized
+approach that includes supplementing existing human-readable text
+description with formally specified explicit definitions for GO
+classes. The formalization of GO is readily apparent in its
+representation of biological regulation.
+
+Regulatory processes may regulate other processes, at either the MF or
+BP scale, or biological qualities. GO accordingly includes three broad
+categories of regulation terms, regulation of molecular function,
+regulation of biological process, and regulation of biological
+quality. The first two are explicitly defined entirely with respect to
+other GO terms, whereas the third comprises classes in which the
+regulated qualities are specified by terms from PATO (see below) or
+anatomy ontologies.
+
+All GO regulation terms use one of three relations, {\bf regulates},
+{\bf negatively\_regulates} and {\bf positively\_regulates}, to link
+regulation terms to process or quality terms. The {\bf regulates}
+relations are defined in terms of qualities: a regulatory process
+causes a change in magnitude to some quality, which in turn has an
+effect on the frequency, rate or duration of some other type of
+process. Effects that results in increases and decreases use {\bf
+  positively\_regulates} and {\bf negatively\_regulates} respectively
+\cite{Mungall2010go}. The existing ontology structure would also
+support the addition of subclasses to distinguish, for example,
+regulation of the rate of a process from regulation of its duration or
+time of onset.
+
+\subsection{PATO and the EQ model}
+PATO was envisaged and designed to provide a platform for allowing the
+integration of quantitative and qualitative phenotype related
+information across different domains, levels of granularity and
+species \cite{Gkoutos2005}.  PATO is an ontology of phenotype
+qualities that form basic entities that we can perceive and/or measure
+such as colors, sizes, rates etc. One of its classification axes is
+based on the basic type of entity to which a qualities belongs, and
+PATO distinguishes between qualities of physical objects and qualities
+of processes.
+
+PATO allows for the description of affected entities by combining
+various ontologies that describe the entities that have been affected,
+such as the various anatomical ontologies, GO \cite {Ashburner2000b},
+the Cell Type Ontology \cite {Bard2005}, SO \cite {Eilbeck2005} etc
+with the various qualities it provides for defining how these entities
+were affected.  PATO can be used for annotation either directly in a
+so called post-composed (post-coordinated) manner or for providing
+formal (logical) definitions (equivalence axioms) to ontologies
+containing a set of precomposed (pre-coordinated) phenotype terms. For
+instance, to describe the decrease in the length of the sexual cycle
+of female animals, we can combine the PATO term \textit{decreased
+  duration} ({\tt PATO:0000499}) with the Gene Ontology term
+\textit{estrous cycle} ({\tt GO:0042698}), whilst if such a term
+existed in a pre-composed ontology (for example the {\tt MP:0009007}
+term from the Mammalian Phenotype) it could be used to provide an
+equivalence statement between that class and the above PATO-based
+description.
+
+
+\bibliographystyle{unsrt}
+\bibliography{lc}
+
+\clearpage
+\section*{Acknowledgement}
 Funding for RH is provided by the European Commission's 7th Framework
 Programme, RICORDO project, grant number 248502. MAH is supported by
 Wellcome Trust, grant WT090548MA. HH is supported by the Institute for
@@ -871,46 +845,17 @@ Medical Informatics, Statistics and Epidemiology, University of
 Leipzig.  Funding for GR is provided by the European Union's Seventh
 Framework Programme (FP7/2007-2013) under grant agreement number
 258068, EU-FP7-Systems Microscopy NoE. 
-%GVG is funded by NIH grant number R01 HG004838-02.
 
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section*{Authors contributions}
+\section*{Author contributions}
+...
 
-    
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The authors declare that they have no competing interests.
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section*{Acknowledgements}
-% \ifthenelse{\boolean{publ}}{\small}{}
-
-% The research work in its first unrevised form was presented at the
-% SMBM 2010, Hinxton, Cambridge, U.K.
-
-
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The Bibliography %%
-%%                                                         %%
-%% Bmc_article.bst will be used to %%
-%% create a .BBL file for submission, which includes %%
-%% XML structured for BMC.  %%
-%%                                                         %%
-%%                                                         %%
-%% Note that the displayed Bibliography will not %%
-%% necessarily be rendered by Latex exactly as specified %%
-%% in the online Instructions for Authors.  %%
-%%                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\bibliographystyle{natbib} % Style BST file
-\bibliography{lc}
+\section*{Additional information}
+\paragraph*{Competing financial interests:} The author(s) declare no
+competing financial interests.
 
 \clearpage
-
 \section*{Figure legends}
-\begin{figure}
+\begin{figure}[h]
   \centering
 %  \includegraphics[width=1\textwidth]{onto.pdf}
   \caption{Overview over basic top-level categories. Physical objects
@@ -921,9 +866,9 @@ Framework Programme (FP7/2007-2013) under grant agreement number
     function.\label{fig:onto}}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
-%  \includegraphics[width=1\textwidth]{processpatterns.pdf}
+ % \includegraphics[width=1\textwidth]{processpatterns.pdf}
   
   \caption{\label{fig:patterns}Six examples of processes with
     non-comparative and comparative process attributes.  We assume
@@ -947,12 +892,40 @@ Framework Programme (FP7/2007-2013) under grant agreement number
     process than {\em normal}.}
 \end{figure}
 
-\begin{figure*}
+\begin{figure*}[h]
   \centering
 %  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
   \caption{Overview over the taxonomic structure of CPO. The structure
     is based on a cellular component class $X$ and the cellular
     processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
 \end{figure*}
+
+\clearpage
+\section*{Tables}
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{p{2.5cm}|p{3cm}|p{3cm}|p{3cm}}
+    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate &
+    Decreased cytoplasmic flow rate \\
+    \hline
+    Increased frequency &increased total flow rate &increased total
+    flow rate &?\\
+    Normal frequency &increased total flow rate &normal total flow
+    rate &decreased total flow rate\\
+    Decreased frequency &?&decreased total flow rate &decreased total
+    flow rate\\
+    \hline
+  \end{tabular}
+  \caption{\label{tbl:flow}Interdependency for the attribute {\em
+      Total cytoplasmic flow rate}. A {\em Total cytoplasmic flow
+      rate} is an attribute of {\em Regulation of cytoplasmic
+      streaming} processes, while {\em Cytoplasmic flow rate} is an
+    attribute of individual {\em cytoplasmic streaming}
+    processes. Depending both on whether the cytoplasmic flow rate in
+    individual {\em cytoplasmic streaming} processes is increased or
+    decreased and whether the frequency of occurrence of {\em
+      cytoplasmic streaming} is increased or decreased, the total
+    cytoplasmic flow rate can be increased or decreased.}
+\end{table*}
 
 \end{document}

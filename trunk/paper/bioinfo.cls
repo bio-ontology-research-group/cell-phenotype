@@ -27,11 +27,13 @@
 \ProcessOptions
 
 % Load all necessary packages
-\RequirePackage{crop,graphicx,amsmath,array,color,amssymb,flushend,stfloats,amsthm,chngpage,times}
-\def\helvetica{\fontfamily{phv}}
-\def\helveticaitalic{\fontfamily{phv}\itshape}
-\def\helveticabold{\fontfamily{phv}\bfseries}
-\def\helveticabolditalic{\fontfamily{phv}\bfseries\itshape}
+\RequirePackage{inputenc,crop,graphicx,amsmath,array,color,amssymb,flushend,stfloats,amsthm,chngpage,times}
+%\RequirePackage[LY1]{fontenc}
+%\RequirePackage[LY1,mtbold]{mathtime}
+\def\helvetica{\fontfamily{phv}\selectfont}
+\def\helveticaitalic{\fontfamily{phv}\itshape\selectfont}
+\def\helveticabold{\fontfamily{phv}\bfseries\selectfont}
+\def\helveticabolditalic{\fontfamily{phv}\bfseries\itshape\selectfont}
 
 % Not sure if needed.
 \newcommand\@ptsize{0}
@@ -243,12 +245,12 @@
   {%
   \def\@oddfoot{\vbox to 13\p@{\hbox{\rule{\textwidth}{1\p@}}\vss
         \hbox to \textwidth{\helvetica
-        \fontsize{7}{9}\fontshape{n}\selectfont%
+        \fontsize{7}{9}\fontshape{n}\selectfont \copyright\space Oxford University Press \@copyrightyear.%
           \hfill\small\helveticabold\thepage}%
         }}%
   \def\@evenfoot{\vbox to 13\p@{\rule{\textwidth}{1\p@}\vss
         \hbox to \textwidth{\helvetica\thepage\hfill
-          \fontsize{7}{9}\fontshape{n}\selectfont }%
+          \fontsize{7}{9}\fontshape{n}\selectfont \copyright\space Oxford University Press \@copyrightyear.}%
         }}%
   \let\@evenhead\relax
   \let\@oddhead\relax}
@@ -387,6 +389,8 @@
 \def\vol#1{\global\def\@vol{#1}}
 \def\issue#1{\global\def\@issue{#1}}
 \def\address#1{\global\def\@issue{#1}}
+\def\history#1{\global\def\@history{#1}}
+\def\editor#1{\global\def\@editor{#1}}
 \def\pubyear#1{\global\def\@pubyear{#1}}
 \def\copyrightyear#1{\global\def\@copyrightyear{#1}}
 \def\address#1{\global\def\@address{#1}}
@@ -421,12 +425,16 @@
   \global\let\maketitle\relax
   \global\let\@maketitle\relax
   \global\let\@address\@empty
+  \global\let\@history\@empty
+  \global\let\@editor\@empty
   \global\let\@thanks\@empty
   \global\let\@author\@empty
   \global\let\@date\@empty
   \global\let\@title\@empty
   \global\let\@pubyear\@empty
   \global\let\address\relax
+  \global\let\history\relax
+  \global\let\editor\relax
   \global\let\title\relax
   \global\let\author\relax
   \global\let\date\relax
@@ -446,14 +454,17 @@
   \vspace*{\aboveskipchk}%
   \vspace{\dropfromtop}%
   \hbox to \textwidth{%
-  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont {\color{gray}}
+  {\helvetica\itshape\bfseries\fontsize{19}{12}\selectfont {\color{gray}BIOINFORMATICS}
     \hfil
     \if@appnotes APPLICATIONS NOTE\hfil\fi
     }%
 \enskip  \parbox[b]{11.3pc}{%
     \helvetica
     \flushright\fontsize{8}{10}\fontshape{it}\selectfont
+        Vol. 00\ no. 00 \@pubyear\\
+        \hfill Pages \thepagerange
   }}
+  \rule{\textwidth}{1\p@}\par%
   \helvetica
   \hbox to \textwidth{%
   \parbox[t]{36.5pc}{%
@@ -463,7 +474,11 @@
     {\helvetica\fontsize{13}{15}\selectfont\raggedright \@author \par}%
         \vspace{4\p@}
     {\helvetica\fontsize{10}{12}\selectfont\raggedright \@address \par}%
-    \vspace{20\p@}
+    \vspace{4\p@}
+    {\helvetica\fontsize{8}{10}\selectfont\raggedright \@history \par}
+    \vspace{24\p@}
+    {\helvetica\fontsize{10}{12}\selectfont\raggedright \@editor \par}
+    %\vspace{20\p@}
     }%
   }
   \vspace{14.5\p@}%
@@ -480,9 +495,9 @@
 \newenvironment{abstract}{%
   \begingroup
   \let\section\absection
-  \helvetica\fontsize{8}{11}\selectfont
+  \fontfamily{\sfdefault}\fontsize{8}{11}\sffamily\selectfont
   {\fontseries{b}\selectfont ABSTRACT}\par}
-{\endgroup\bigskip\@afterheading\@afterindentfalse}
+{\endgroup\bigskip\@afterheading\@afterindentfalse\vskip 12pt plus 3pt minus 1pt}
 
 % Section macros
 
@@ -493,23 +508,26 @@
 
 \def\section{%
   \@startsection{section}{1}{\z@}
-  {-11\p@ plus -3\p@}{3\p@}
+  {-22\p@ plus -3\p@}{3\p@}
   {\reset@font\raggedright\helveticabold\fontsize{10}{12}\selectfont\MakeUppercase}}
   
 \def\subsection{%
   \@startsection{subsection}{2}{\z@}
-  {-5\p@ plus -2\p@}{3\p@}
+  {-11\p@ plus -2\p@}{3\p@}
   {\reset@font\raggedright\mathversion{bold}\fontseries{b}\fontsize{10}{12}\selectfont}}
  
 \def\subsubsection{%
   \@startsection{subsubsection}{3}{\z@}
-  {-6\p@ plus -1\p@}{-1em}
+  {-11\p@ plus -1\p@}{-1em}
   {\reset@font\normalfont\normalsize\itshape}}
 
-%% \def\paragraph{%
-%%   \@startsection{paragraph}{4}{\z@}
-%%   {-12\p@ plus -1\p@}{-1em}
-%%   {\reset@font\raggedright\helvetica\itshape}}
+\def\textcolon{\text{\rm :}}
+
+ \def\paragraph{%
+   \@startsection{paragraph}{4}{\z@}
+   {-6\p@}
+   {-.4em}
+   {\reset@font\itshape}}
 
 % ********************
 % Figures and tables *
@@ -663,6 +681,7 @@
    \labelsep      0.5em
    \listparindent \parindent
    \itemindent    \z@
+   \topsep 11\p@
 }
 
 \def\enumerate{%
@@ -693,6 +712,7 @@
    \rightmargin   \z@
    \listparindent \parindent
    \itemindent    \z@
+   \topsep11\p@
 }
 
 \def\itemize{%
@@ -857,7 +877,7 @@
   \begingroup
 \def\section{%
   \@startsection{section}{1}{\z@}
-  {-11\p@ plus -3\p@}{4\p@}
+  {-24\p@ plus -3\p@}{4\p@}
   {\reset@font\raggedright\helveticabold\fontsize{10}{12}\selectfont\MakeUppercase}}
  \def\subsection{%
   \@startsection{subsection}{2}{\z@}

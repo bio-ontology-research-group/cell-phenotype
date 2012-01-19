@@ -1,42 +1,26 @@
-\documentclass[11pt]{article}
-\usepackage{times}
-\usepackage{setspace}
-\doublespacing
-
-%\copyrightyear{2005}
-%\pubyear{2005}
-\usepackage{graphicx}
+\documentclass{bioinfo}
+\copyrightyear{2005}
+\pubyear{2005}
 \usepackage{url}
 \usepackage[normalem]{ulem}
 \usepackage{multirow}
-\usepackage{pifont}
-% Load packages
-\usepackage{cite} % Make references as [1-4], not [1,2,3,4]
-\usepackage{url}  % Formatting web addresses  
-\usepackage{ifthen}  % Conditional 
-\usepackage[utf8]{inputenc} %unicode support
-\urlstyle{rm}
-\usepackage{natbib}
-\renewcommand{\cite}{\citep}
-\usepackage{amsmath}
-\usepackage{amssymb}
- 
 \usepackage{pifont}
 %\newcommand{\tick}{\ding{52}}
 \newcommand{\tick}{\checkmark}
 \newcommand{\tickNo}{\hspace{1pt}\ding{55}}
 
 \begin{document}
-%\firstpage{1}
+\firstpage{1}
 
-\title{Semantic integration of physiology phenotypes: an application
-  to the cellular phenotype ontology}
+\title[Cell Phenotype Ontology]{Semantic integration of physiology
+  phenotypes: an application to the cellular phenotype ontology}
 
-\author{Robert Hoehndorf$^{1,*}$ and Midori
-  A. Harris$^2$ and\\Heinrich Herre$^3$ and Gabriella Rustici$^4$ and
+\author[Hoehndorf \textit{et~al}]{Robert Hoehndorf$^{1}$\footnote{to
+    whom correspondence should be addressed}, Midori
+  A. Harris$^2$, Heinrich Herre$^3$, Gabriella Rustici$^4$ and
   Georgios V. Gkoutos$^{1}$}
 
-\date{$^{1}$Department of Genetics, University of Cambridge,
+\address{$^{1}$Department of Genetics, University of Cambridge,
   Downing Street, Cambridge, Cambridge CB2 3EH, UK\\
   $^{2}$Department of Biochemistry; University of Cambridge, 80 Tennis
   Court Road, Cambridge CB2 1GA, UK\\
@@ -46,34 +30,43 @@
   $^{4}$European Bioinformatics Institute, Wellcome Trust Genome
   Campus, Hinxton, Cambridge, Cambridge CB10 1SD, UK}
 
+\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+\editor{Associate Editor: XXXXXXX}
+
 \maketitle
  
 \begin{abstract}
-  The systematic observation of phenotypes has become a crucial tool
-  of functional genomics, and several large international projects are
-  currently underway to identify and characterize the phenotypes that
-  are associated with genotypes in several species. To integrate
-  phenotype descriptions within and across species, phenotype
-  ontologies have been developed. Applying ontologies to unify
-  phenotype descriptions in the domain of physiology has been a
-  particular challenge due to the high complexity of the underlying
-  domain.  Here, we present the outline of a theory for an ontology of
-  physiology-related phenotypes. We provide a formal description of
-  process attributes and relate them to the attributes of their parts
-  and participants. We apply our theory to create the Cellular
-  Phenotype Ontology (CPO). The CPO is an ontology of morphological
-  and physiological phenotypic abnormalities of cells, cell components
-  and cellular processes. Its prime application is the unification of
-  cellular phenotype descriptions across species by providing terms
-  and uniform definition patterns. The CPO can further be used for the
-  annotation of observed abnormalities in domains, such as systems
-  microscopy, in which cellular abnormalities are observed and for
-  which no phenotype ontology has been created.  The CPO and the
-  source code we generated to create the CPO are available on
-  \url{http://cell-phenotype.googlecode.com}.
-\end{abstract}
+\section{Motivation:}
+The systematic observation of phenotypes has become a crucial tool of
+functional genomics, and several large international projects are
+currently underway to identify and characterize the phenotypes that
+are associated with genotypes in several species. To integrate
+phenotype descriptions within and across species, phenotype ontologies
+have been developed. Applying ontologies to unify phenotype
+descriptions in the domain of physiology has been a particular
+challenge due to the high complexity of the underlying domain.
 
-{\bf Keywords:} cell phenotype, process, ontology, Semantic Web
+\section{Results:}
+Here, we present the outline of a theory for an ontology of
+physiology-related phenotypes. We provide a formal description of
+process attributes and relate them to the attributes of their parts
+and participants. We apply our theory to create the Cellular Phenotype
+Ontology (CPO). The CPO is an ontology of morphological and
+physiological phenotypic abnormalities of cells, cell components and
+cellular processes. Its prime application is the unification of
+cellular phenotype descriptions across species by providing terms and
+uniform definition patterns. The CPO can further be used for the
+annotation of observed abnormalities in domains, such as systems
+microscopy, in which cellular abnormalities are observed and for which
+no phenotype ontology has been created.  
+
+\section{Availability and implementation:} 
+The CPO and the source code we generated to create the CPO are freely
+available on \url{http://cell-phenotype.googlecode.com}.
+
+\section{Contact:} \href{rh497@cam.ac.uk}{rh497@cam.ac.uk}
+\end{abstract}
 
 \section{Introduction}
 Phenotype studies on all scales and levels of granularity are now an
@@ -183,7 +176,9 @@ its prime application is the unification of phenotypes on the cellular
 level across different species as well as for annotation of cellular
 phenotypes in domains in which no such ontology exists.
 
-\section{Materials and Methods}
+
+\begin{methods}
+\section{System and methods}
 \subsection{Formal ontology}
 The ontology as an approach to semantic standardisation was proposed
 more than a decade ago and since then has become the dominant
@@ -371,6 +366,8 @@ existed in a pre-composed ontology (for example the {\tt MP:0009007}
 term from the Mammalian Phenotype) it could be used to provide an
 equivalence statement between that class and the above PATO-based
 description.
+
+\end{methods}
 
 \section{Results}
 \subsection{Attributes of processes}
@@ -601,9 +598,9 @@ convention, we call an abnormality of multiple occurrences of $X$ {\em
 
 \begin{table*}
   \centering
-  \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{4cm}}
-    & Increased cytoplasmic flow rate & Normal cytoplasmic flow rate & Decreased
-    cytoplasmic flow rate \\
+  \begin{tabular}{p{2.8cm}|p{4cm}|p{4cm}|p{4cm}}
+    & Increased flow rate & Normal flow rate & Decreased
+    flow rate \\
     \hline
     Increased frequency &increased total flow rate &increased total
     flow rate &?\\
@@ -734,40 +731,40 @@ long as the GO maintains its identifier for the {\em Apoptosis} class,
 the identifiers in the CPO will remain stable even when it is
 regenerated.
 
-\begin{table*}
-  \centering
-  \begin{tabular}{|p{7cm}|l|p{4cm}|}
-    Neumann et al.\cite{Neumann2010}&Schmitz et
-    al.\cite{Schmitz2010}&Fuchs et al.\cite{Fuchs2010}\\
-    \hline
-    binuclear & normal mitotic exit & actin fiver cells\\
-    cell death & prolonged mitotic exit & big cells \\
-    cell migration & & bright and large cells phenotype \\
-    condensation followed by decondensation without completion of
-    mitosis & & bright nuclei\\
-    condensation without mitosis/collapse of nucleus & & cells with protrusions\\
-    dynamic changes & & elongated cells\\
-    failure in decondensation & & elongated cells with protrusions\\
-    grape& & high actin ratio cells \\
-    increased proliferation& & lamellipodia + high actin ratio cells\\
-    large& & lamellipodia cells\\
-    large nucleus& & large cells\\
-    metaphase alignment problems/including no metaphase& & large nuclei\\
-    metaphase delay/arrest& & low eccentricity cells\\
-    migration (distance)& & metaphase cells\\
-    migration (speed)& & proliferating cells\\
-    mitotic delay/arrest& & small cells\\
-    nuclei stay close together& & small cells with an enrichment of mitotic cells\\
-    polylobed& &\\
-    pulsating nuclei& &\\
-    segregation problems/chromatin bridges/lagging chromosomes/multiple DNA masses&&\\
-    small nucleus&&\\
-    strange nuclear shape&&\\
-    \hline
-  \end{tabular}
-  \caption{\label{tbl:studies}The table summarizes cellular phenotype
-    terms used in three recent systems microscopy studies.}
-\end{table*}
+% \begin{table*}
+%   \centering
+%   \begin{tabular}{|p{7cm}|l|p{4cm}|}
+%     Neumann et al.\cite{Neumann2010}&Schmitz et
+%     al.\cite{Schmitz2010}&Fuchs et al.\cite{Fuchs2010}\\
+%     \hline
+%     binuclear & normal mitotic exit & actin fiver cells\\
+%     cell death & prolonged mitotic exit & big cells \\
+%     cell migration & & bright and large cells phenotype \\
+%     condensation followed by decondensation without completion of
+%     mitosis & & bright nuclei\\
+%     condensation without mitosis/collapse of nucleus & & cells with protrusions\\
+%     dynamic changes & & elongated cells\\
+%     failure in decondensation & & elongated cells with protrusions\\
+%     grape& & high actin ratio cells \\
+%     increased proliferation& & lamellipodia + high actin ratio cells\\
+%     large& & lamellipodia cells\\
+%     large nucleus& & large cells\\
+%     metaphase alignment problems/including no metaphase& & large nuclei\\
+%     metaphase delay/arrest& & low eccentricity cells\\
+%     migration (distance)& & metaphase cells\\
+%     migration (speed)& & proliferating cells\\
+%     mitotic delay/arrest& & small cells\\
+%     nuclei stay close together& & small cells with an enrichment of mitotic cells\\
+%     polylobed& &\\
+%     pulsating nuclei& &\\
+%     segregation problems/chromatin bridges/lagging chromosomes/multiple DNA masses&&\\
+%     small nucleus&&\\
+%     strange nuclear shape&&\\
+%     \hline
+%   \end{tabular}
+%   \caption{\label{tbl:studies}The table summarizes cellular phenotype
+%     terms used in three recent systems microscopy studies.}
+% \end{table*}
 
 We use the labels of GO classes to automatically generate class labels
 for phenotype classes as well as textual definitions for classes in
@@ -786,8 +783,7 @@ the ontology and the source code that is used to generate it freely
 available on \url{http://cell-phenotype.googlecode.com}.
 
 \section{Discussion}
-
-%\subsection{Applications of the CPO}
+\subsection{Applications of the CPO}
 The Fission Yeast Phenotype Ontology (FYPO), a new ontology developed
 to support annotation of phenotypes in {\em Schizosaccharomyces
   pombe}, consists of pre-composed terms describing normal or abnormal
@@ -839,7 +835,7 @@ existing datasets and will then become an integrated part of the data
 processing pipeline and used to annotate the data as it gets generated
 \cite{Conrad2011}.
 
-%\subsection{Future research}
+\subsection{Future research}
 We implemented the CPO using a pattern-based approach to formulating
 phenotypes involving processes. The patterns we identify are based on
 pre-existing ontologies, in particular the PATO ontology and the
@@ -863,56 +859,9 @@ phenotypic descriptions of processes and enable its integration in
 well-developed formal ontologies of processes \cite{Herre2006,
   Gruninger2010}.
 
-\section{Acknowledgements}
-Funding for RH is provided by the European Commission's 7th Framework
-Programme, RICORDO project, grant number 248502. MAH is supported by
-Wellcome Trust, grant WT090548MA. HH is supported by the Institute for
-Medical Informatics, Statistics and Epidemiology, University of
-Leipzig.  Funding for GR is provided by the European Union's Seventh
-Framework Programme (FP7/2007-2013) under grant agreement number
-258068, EU-FP7-Systems Microscopy NoE. 
-%GVG is funded by NIH grant number R01 HG004838-02.
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section*{Authors contributions}
-
-    
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% The authors declare that they have no competing interests.
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section*{Acknowledgements}
-% \ifthenelse{\boolean{publ}}{\small}{}
-
-% The research work in its first unrevised form was presented at the
-% SMBM 2010, Hinxton, Cambridge, U.K.
-
-
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The Bibliography %%
-%%                                                         %%
-%% Bmc_article.bst will be used to %%
-%% create a .BBL file for submission, which includes %%
-%% XML structured for BMC.  %%
-%%                                                         %%
-%%                                                         %%
-%% Note that the displayed Bibliography will not %%
-%% necessarily be rendered by Latex exactly as specified %%
-%% in the online Instructions for Authors.  %%
-%%                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\bibliographystyle{natbib} % Style BST file
-\bibliography{lc}
-
-\clearpage
-
-\section*{Figure legends}
 \begin{figure}
   \centering
-%  \includegraphics[width=1\textwidth]{onto.pdf}
+  \includegraphics[width=1\textwidth]{onto.pdf}
   \caption{Overview over basic top-level categories. Physical objects
     are entities that are wholly present at time points. Qualities are
     attributes of entities. Functions are capabilities that arise from
@@ -923,7 +872,7 @@ Framework Programme (FP7/2007-2013) under grant agreement number
 
 \begin{figure}
   \centering
-%  \includegraphics[width=1\textwidth]{processpatterns.pdf}
+  \includegraphics[width=1\textwidth]{processpatterns.pdf}
   
   \caption{\label{fig:patterns}Six examples of processes with
     non-comparative and comparative process attributes.  We assume
@@ -949,10 +898,23 @@ Framework Programme (FP7/2007-2013) under grant agreement number
 
 \begin{figure*}
   \centering
-%  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
+  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
   \caption{Overview over the taxonomic structure of CPO. The structure
     is based on a cellular component class $X$ and the cellular
     processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
 \end{figure*}
+
+
+\section{Acknowledgement}
+Funding for RH is provided by the European Commission's 7th Framework
+Programme, RICORDO project, grant number 248502. MAH is supported by
+Wellcome Trust, grant WT090548MA. HH is supported by the Institute for
+Medical Informatics, Statistics and Epidemiology, University of
+Leipzig.  Funding for GR is provided by the European Union's Seventh
+Framework Programme (FP7/2007-2013) under grant agreement number
+258068, EU-FP7-Systems Microscopy NoE. 
+
+\bibliographystyle{plain}
+\bibliography{lc}
 
 \end{document}
