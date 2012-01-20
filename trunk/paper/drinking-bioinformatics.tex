@@ -12,8 +12,8 @@
 \begin{document}
 \firstpage{1}
 
-\title[Cell Phenotype Ontology]{Semantic integration of physiology
-  phenotypes: an application to the cellular phenotype ontology}
+\title[Physiology phenotypes]{Semantic integration of physiology
+  phenotypes with an application to the Cellular Phenotype Ontology}
 
 \author[Hoehndorf \textit{et~al}]{Robert Hoehndorf$^{1}$\footnote{to
     whom correspondence should be addressed}, Midori
@@ -48,18 +48,18 @@ descriptions in the domain of physiology has been a particular
 challenge due to the high complexity of the underlying domain.
 
 \section{Results:}
-Here, we present the outline of a theory for an ontology of
-physiology-related phenotypes. We provide a formal description of
-process attributes and relate them to the attributes of their parts
-and participants. We apply our theory to create the Cellular Phenotype
-Ontology (CPO). The CPO is an ontology of morphological and
-physiological phenotypic abnormalities of cells, cell components and
-cellular processes. Its prime application is the unification of
-cellular phenotype descriptions across species by providing terms and
-uniform definition patterns. The CPO can further be used for the
-annotation of observed abnormalities in domains, such as systems
-microscopy, in which cellular abnormalities are observed and for which
-no phenotype ontology has been created.  
+Here, we present the outline of a theory and its implementation for an
+ontology of physiology-related phenotypes. We provide a formal
+description of process attributes and relate them to the attributes of
+their temporal parts and participants. We apply our theory to create
+the Cellular Phenotype Ontology (CPO). The CPO is an ontology of
+morphological and physiological phenotypic characteristics of cells,
+cell components and cellular processes. Its prime application is the
+unification of cellular phenotype descriptions across species by
+providing terms and uniform definition patterns. The CPO can further
+be used for the annotation of observed abnormalities in domains, such
+as systems microscopy, in which cellular abnormalities are observed
+and for which no phenotype ontology has been created.
 
 \section{Availability and implementation:} 
 The CPO and the source code we generated to create the CPO are freely
@@ -112,26 +112,26 @@ developed. In particular, ontologies to characterize mammalian
 \cite{wpo} phenotypes are now available, while several more phenotype
 ontologies are under development. To benefit from automated reasoning,
 integrate phenotypes across species and reuse the content of anatomy
-and process ontologies, classes in phenotype ontologies were defined
-using the framework of the Phenotypic Attribute and Trait (PATO)
-ontology \cite{Gkoutos2005}. According to the PATO framework, a
-phenotype can be decomposed, using an Entity-Quality model, into an
-affected entity and a quality that characterizes {\em how} the entity
-is affected \cite{Gkoutos2005}. Such decompositions have been created
-for several widely used phenotype ontologies \cite{Mungall2010,
-  Gkoutos2009b, obml2011h1}, and are being applied together with
-methods for reusing knowledge contained in anatomy ontologies
-\cite{Mungall2010, Hoehndorf2010phene}.
+and process ontologies, we have defined process classes using the
+framework of the Phenotypic Attribute and Trait (PATO) ontology
+\cite{Gkoutos2005}. According to the PATO framework, a phenotype can
+be decomposed, using an Entity-Quality model, into an affected entity
+and a quality that characterizes {\em how} the entity is affected
+\cite{Gkoutos2005}. Such decompositions have been created for several
+widely used phenotype ontologies \cite{Mungall2010, Gkoutos2009b,
+  obml2011h1}, and are being applied together with methods for reusing
+knowledge contained in anatomy ontologies \cite{Mungall2010,
+  Hoehndorf2010phene}.
 
 While the PATO framework is now successfully being applied to
 semantically integrate phenotypes across species, the diversity and
 complexity of phenotypes in which biological processes and functions
 are impaired continues to limit the interoperability between phenotype
-ontologies. Major challenges for representing and integrating
-process-based phenotypes include establishing the link to the
-components of biological systems that have the capabilities to exhibit
-such a behaviour, and that attributes of processes are often measured
-{\em indirectly} and inferred from other attributes.
+ontologies. Major challenges for representing and integrating process
+phenotypes include establishing the link to the components of
+biological systems that have the capabilities to exhibit such a
+behaviour, and that attributes of processes are often measured {\em
+  indirectly} and inferred from other attributes.
 
 To illustrate these challenges, consider physiological processes of
 the heart. One of the heart's functions is {\em Heart beating}, i.e.,
@@ -179,125 +179,125 @@ phenotypes in domains in which no such ontology exists.
 
 \begin{methods}
 \section{System and methods}
-\subsection{Formal ontology}
-The ontology as an approach to semantic standardisation was proposed
-more than a decade ago and since then has become the dominant
-methodology used to semantically categorise phenodeviance.  The
-biomedical research community has invested considerable effort and
-resources in the development and establishment of ontologies that are
-becoming increasingly successful as information management and
-integration tools in many disparate scientific fields allowing
-interoperability and semantic information processing between diverse
-biomedical resources and domains.
+% \subsection{Formal ontology}
+% The ontology as an approach to semantic standardisation was proposed
+% more than a decade ago and since then has become the dominant
+% methodology used to semantically categorise phenodeviance.  The
+% biomedical research community has invested considerable effort and
+% resources in the development and establishment of ontologies that are
+% becoming increasingly successful as information management and
+% integration tools in many disparate scientific fields allowing
+% interoperability and semantic information processing between diverse
+% biomedical resources and domains.
 
-In computer science, an ontology is a specification of a
-conceptualization of a domain of knowledge \cite{Gruber1995,
-  Guarino1998}.  Ontologies commonly distinguish between {\em classes}
-(also called {\em concepts}, {\em categories} or {\em universals}) and
-{\em individuals} within a domain of knowledge. A class is an entity
-that can have {\em instances}, while individuals are entities that
-cannot be instantiated \cite{Herre2006}. Examples of individuals
-include the Eiffel tower or the 2009 Ironman Triathlon in Hawaii,
-while examples of classes include {\em Tower} or {\em Triathlon}. The
-Eiffel tower can be an instance of the class {\em Tower}, and the 2009
-Ironman Triathlon an instance of {\em Triathlon}.  The meaning of
-classes is specified by stating what must be true of their instances.
+% In computer science, an ontology is a specification of a
+% conceptualization of a domain of knowledge \cite{Gruber1995,
+%   Guarino1998}.  Ontologies commonly distinguish between {\em classes}
+% (also called {\em concepts}, {\em categories} or {\em universals}) and
+% {\em individuals} within a domain of knowledge. A class is an entity
+% that can have {\em instances}, while individuals are entities that
+% cannot be instantiated \cite{Herre2006}. Examples of individuals
+% include the Eiffel tower or the 2009 Ironman Triathlon in Hawaii,
+% while examples of classes include {\em Tower} or {\em Triathlon}. The
+% Eiffel tower can be an instance of the class {\em Tower}, and the 2009
+% Ironman Triathlon an instance of {\em Triathlon}.  The meaning of
+% classes is specified by stating what must be true of their instances.
 
-In addition to classes and individuals, ontologies often include {\em
-  relations}. Relations hold between entities, they are the ``the glue
-that holds things together, the primary constituents of the facts that
-go to make up reality'' \cite{Barwise1989}.
+% In addition to classes and individuals, ontologies often include {\em
+%   relations}. Relations hold between entities, they are the ``the glue
+% that holds things together, the primary constituents of the facts that
+% go to make up reality'' \cite{Barwise1989}.
 
-In {\em formal} ontologies, the specification of classes and relations
-follows the axiomatic-deductive method. Given a set of terms that are
-used within a domain and whose meaning we wish to specify, we begin by
-providing {\em explicit definitions} for some terms, potentially
-introducing new terms. An explicit definition of a term $t$ is a
-statement that can replace every occurrence of $t$ in any sentence.
+% In {\em formal} ontologies, the specification of classes and relations
+% follows the axiomatic-deductive method. Given a set of terms that are
+% used within a domain and whose meaning we wish to specify, we begin by
+% providing {\em explicit definitions} for some terms, potentially
+% introducing new terms. An explicit definition of a term $t$ is a
+% statement that can replace every occurrence of $t$ in any sentence.
 
-Eventually, a set of {\em primitive terms} remains that are not
-further defined. Following the axiomatic method \cite{Hilbert1918},
-using only the primitive terms, we can construct complex
-sentences. Based on the intended meaning of the primitive terms, we
-consider some of these sentences true and some of them false in our
-domain. We select some of the true sentences as {\em axioms} which
-provide the core of our ontology. Ideally, the axioms are chosen so
-that all true sentences in the domain we intend to represent follow by
-means of logical deduction from the axioms. More commonly, however,
-only {\em some aspects} of the intended meaning are formally
-represented while other aspects are omitted either due to limitations
-in language expressivity or due to their irrelevance to the problem
-for which an ontology is developed.
+% Eventually, a set of {\em primitive terms} remains that are not
+% further defined. Following the axiomatic method \cite{Hilbert1918},
+% using only the primitive terms, we can construct complex
+% sentences. Based on the intended meaning of the primitive terms, we
+% consider some of these sentences true and some of them false in our
+% domain. We select some of the true sentences as {\em axioms} which
+% provide the core of our ontology. Ideally, the axioms are chosen so
+% that all true sentences in the domain we intend to represent follow by
+% means of logical deduction from the axioms. More commonly, however,
+% only {\em some aspects} of the intended meaning are formally
+% represented while other aspects are omitted either due to limitations
+% in language expressivity or due to their irrelevance to the problem
+% for which an ontology is developed.
 
-Based on the axioms and definitions, we can use deduction to infer
-statements that logically follow from the axioms.  The process of
-automatically deducing sentences from axioms is called {\em automated
-  reasoning}. Automated reasoning allows users of an ontology to carry
-out key activities: verifying the ontology's consistency, inferring
-hidden knowledge and thereby performing powerful queries.  An ontology
-is formally inconsistent if there is a statement $\phi$ such that
-$\phi$ and its negation $\neg \phi$ can be inferred from the
-ontology's axioms.  If an ontology is formally inconsistent, {\em
-  every} statement can be inferred from the ontology.  
+% Based on the axioms and definitions, we can use deduction to infer
+% statements that logically follow from the axioms.  The process of
+% automatically deducing sentences from axioms is called {\em automated
+%   reasoning}. Automated reasoning allows users of an ontology to carry
+% out key activities: verifying the ontology's consistency, inferring
+% hidden knowledge and thereby performing powerful queries.  An ontology
+% is formally inconsistent if there is a statement $\phi$ such that
+% $\phi$ and its negation $\neg \phi$ can be inferred from the
+% ontology's axioms.  If an ontology is formally inconsistent, {\em
+%   every} statement can be inferred from the ontology.  
 
-Automated reasoning can further determine whether classes in an
-ontology are unsatisfiable: a class $C$ is unsatisfiable, if it is
-impossible for the class to have any instances. Unsatisfiable classes
-in an ontology are commonly the result of a contradictory class
-definition. % That a class is unsatisfiable is often a special kind of
-% unintended consequence that can be drawn from an ontology.
+% Automated reasoning can further determine whether classes in an
+% ontology are unsatisfiable: a class $C$ is unsatisfiable, if it is
+% impossible for the class to have any instances. Unsatisfiable classes
+% in an ontology are commonly the result of a contradictory class
+% definition. % That a class is unsatisfiable is often a special kind of
+% % unintended consequence that can be drawn from an ontology.
 
-Automated reasoning in the Web Ontology Language (OWL) can be employed
-to automatically compute the generalization hierarchy underlying an
-ontology as well as for verification of data consistency and complex
-queries \cite{Hoehndorf2011incon, Hoehndorf2011models}. Highly
-efficient automated reasoners are available to process OWL ontologies
-\cite{Sirin2004, Tsarkov2006, Motik2009a}. OWL profiles were developed
-to support even large ontologies by further reducing the expressivity
-of OWL in order to enable polynomial-time inferences. In particular
-the OWL EL profile was found to provide the expressivity required for
-most biomedical ontologies \cite{el4, elvira}, and highly optimized
-OWL EL reasoners are available or under development to support
-reasoning over very large ontologies \cite{el4, cbreasoner}.
+% Automated reasoning in the Web Ontology Language (OWL) can be employed
+% to automatically compute the generalization hierarchy underlying an
+% ontology as well as for verification of data consistency and complex
+% queries \cite{Hoehndorf2011incon, Hoehndorf2011models}. Highly
+% efficient automated reasoners are available to process OWL ontologies
+% \cite{Sirin2004, Tsarkov2006, Motik2009a}. OWL profiles were developed
+% to support even large ontologies by further reducing the expressivity
+% of OWL in order to enable polynomial-time inferences. In particular
+% the OWL EL profile was found to provide the expressivity required for
+% most biomedical ontologies \cite{el4, elvira}, and highly optimized
+% OWL EL reasoners are available or under development to support
+% reasoning over very large ontologies \cite{el4, cbreasoner}.
 
-A high expressivity is required to accurately specify complex axioms
-that constrain the domain under investigation, and languages with
-higher expressivity than OWL are often required in the biomedical
-domain to achieve this goal \cite{Hoehndorf2009sequences, rnao}. On
-the other hand, automated reasoning over large ontologies and
-associated datasets benefits from languages with a low complexity of
-inferences in which complex axioms cannot be formulated. Therefore, a
-possible solution is to use a layered approach: to specify the meaning
-of terms using an expressive language, and derive the axioms that
-must obtain in a weaker language using deductive inferences.
+% A high expressivity is required to accurately specify complex axioms
+% that constrain the domain under investigation, and languages with
+% higher expressivity than OWL are often required in the biomedical
+% domain to achieve this goal \cite{Hoehndorf2009sequences, rnao}. On
+% the other hand, automated reasoning over large ontologies and
+% associated datasets benefits from languages with a low complexity of
+% inferences in which complex axioms cannot be formulated. Therefore, a
+% possible solution is to use a layered approach: to specify the meaning
+% of terms using an expressive language, and derive the axioms that
+% must obtain in a weaker language using deductive inferences.
 
-\subsection{Processes and their participants}
-Most biomedical ontologies share common distinctions between different
-kinds of entities: physical objects, qualities, functions and
-processes. A physical object is an entity that is present as a whole
-at a time point, i.e., an entity that has no temporal parts. A quality
-is an attribute or feature of an entity. Physical objects together
-with their qualities give rise to functions, which are capabilities or
-potentials of physical objects. These functions can then be realized
-by processes, which are temporally extended entities
-\cite{Burek2006}. Examples of classes that may have processes as
-instances include {\em Drinking}, {\em Triathlon} or {\em Apoptosis}.
-Figure \ref{fig:onto} illustrates these basic categories of being.
+% \subsection{Processes and their participants}
+% Most biomedical ontologies share common distinctions between different
+% kinds of entities: physical objects, qualities, functions and
+% processes. A physical object is an entity that is present as a whole
+% at a time point, i.e., an entity that has no temporal parts. A quality
+% is an attribute or feature of an entity. Physical objects together
+% with their qualities give rise to functions, which are capabilities or
+% potentials of physical objects. These functions can then be realized
+% by processes, which are temporally extended entities
+% \cite{Burek2006}. Examples of classes that may have processes as
+% instances include {\em Drinking}, {\em Triathlon} or {\em Apoptosis}.
+% Figure \ref{fig:onto} illustrates these basic categories of being.
 
-Processes commonly have physical objects as participants. Physical
-objects are entities that are present as a whole at time points (i.e.,
-they have no temporal parts) and may persist through time, i.e., they
-may undergo changes during the process \cite{Herre2006, Herre2010}.
-We can further distinguish different {\em roles} of participation in a
-process \cite{Loebe2007}. For example, a runner may participate in a
-{\em Triathlon} process as a {\em Runner (role)}, while another person
-can participate in the same process but in a different role (such as
-{\em Referee}).
+% Processes commonly have physical objects as participants. Physical
+% objects are entities that are present as a whole at time points (i.e.,
+% they have no temporal parts) and may persist through time, i.e., they
+% may undergo changes during the process \cite{Herre2006, Herre2010}.
+% We can further distinguish different {\em roles} of participation in a
+% process \cite{Loebe2007}. For example, a runner may participate in a
+% {\em Triathlon} process as a {\em Runner (role)}, while another person
+% can participate in the same process but in a different role (such as
+% {\em Referee}).
 
-% Amongst the participants of some processes, we will distinguish
-% between {\em inputs} and {\em outputs} of processes. Chemical
-% reactions, for example, are processes with definite inputs (the {\em
-%   reactants}) and outputs ({\em the products}).
+% % Amongst the participants of some processes, we will distinguish
+% % between {\em inputs} and {\em outputs} of processes. Chemical
+% % reactions, for example, are processes with definite inputs (the {\em
+% %   reactants}) and outputs ({\em the products}).
 
 \subsection{Gene Ontology}
 The Gene Ontology provides a set of ontologies for molecular and
@@ -307,8 +307,8 @@ molecular function (MF), biological process (BP) and cellular
 component (CC). MF and BP both describe processes, but at different
 spatiotemporal scales; in particular, BP includes processes that
 unfold within cells and within tissues and organs of multicellular
-organisms. Gene product annotations identify participants in the
-processes.
+organisms. Gene product annotations can be interpreted as identifying
+participants in the processes.
 
 Over time, GO development has increasingly emphasized a normalized
 approach that includes supplementing existing human-readable text
@@ -366,7 +366,6 @@ existed in a pre-composed ontology (for example the {\tt MP:0009007}
 term from the Mammalian Phenotype) it could be used to provide an
 equivalence statement between that class and the above PATO-based
 description.
-
 \end{methods}
 
 \section{Results}
@@ -415,6 +414,30 @@ depend on types of processes with regard to a reference process are
 a particular type are distributed within a reference process. For
 example, the heart may beat {\em rhythmically} or {\em arrhythmically}
 within a period of time (see Figure \ref{fig:patterns}).
+\begin{figure}
+  \centering
+  \includegraphics[width=.5\textwidth]{processpatterns.pdf}
+  \caption{\label{fig:patterns}Six examples of processes with
+    non-comparative and comparative process attributes.  We assume
+    that the processes labelled $a$, $b$, $c$ and $d$ are all
+    instances of the class of processes $P$.  On the left side, three
+    regulation (of $P$) processes are illustrated which exhibit
+    non-comparative attributes. The first process has an attribute of
+    {\em rhythmic} occurrence of $P$ because the instances of $P$ are
+    temporally equidistantly distributed. The second example shows an
+    {\em arrhythmic} occurrence of $P$, and the third examples shows
+    an {\em increasing frequency} (of $P$). A regulation process with
+    an increasing frequency (of $P$) is a process in which the
+    frequency of occurrences of $P$ is lower in the first half of the
+    process than in the second half. The right side of the figure
+    illustrates comparative phenotypic descriptions of processes. On
+    the upper right, the {\em normal} reference is shown. The second
+    example illustrates a {\em late onset} of $P$, i.e., the attribute
+    that $P$ processes begin later than {\em normal}. Finally, the
+    lower right illustrates a {\em decreased frequency} (of $P$),
+    since fewer processes of the type $P$ occur within the reference
+    process than {\em normal}.}
+\end{figure}
 
 Related to distribution patterns are {\em changing qualities} of
 processes. For example, the rate of heart beating may change ({\em
@@ -588,6 +611,15 @@ generate {\em Abnormality of $I(P)$ in $P$} as well as {\em
   Abnormality of $O(P)$ in $P$}.  The left side of Figure
 \ref{fig:overview} illustrates the schema of classes we generate for
 single process abnormalities.
+\begin{figure*}
+  \centering
+%  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
+  \includegraphics[width=1.1\textwidth]{overview.pdf}
+  \caption{Overview over the taxonomic structure of CPO. The structure
+    is based on a cellular component class $X$ and the cellular
+    processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
+\end{figure*}
+
 
 The second type of abnormality in the CPO relate to abnormalities of
 {\em multiple} occurrences of some process $X$. According to the GO,
@@ -800,9 +832,6 @@ across species that the CPO can provide. {\em Schizosaccharomyces
 specific, well-supported data to be integrated with data from other
 species.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 A further domain that will greatly benefit from the CPO is {\em
   systems microscopy}, which aims to understand complex and dynamic
 cellular systems by combining automated fluorescence microscopy, cell
@@ -810,18 +839,19 @@ microarray platforms, quantitative image analysis and data mining
 \cite{Lock2010}.  If we consider some of the studies, which have been
 published in this field in the last few years \cite{Neumann2010,
   Schmitz2010, Fuchs2010}, the need for CPO becomes evident.  In the
-three studies illustrated in Table \ref{tbl:studies}, live-cell
-imaging assays and RNAi knockdown were used to generate phenotypic
-profiles that quantify the cellular response to a given siRNA thus
-allowing identification of hundreds of genes involved in diverse
-biological functions including cell division, migration and survival.
-In each study, several phenotypes were detected and described by the
-authors without the use of ontologies (see Table \ref{tbl:studies}),
-making the integration between datasets extremely difficult. For
-example, it is evident that cell division phenotypes were observed in
-all three datasets (e.g. {\em Mitotic delay/arrest} and {\em Prolonged
-  mitotic exit} or {\em Methaphase delay} and {\em Methaphase cells})
-but the overlap between such phenotypes is unclear.
+three studies, live-cell imaging assays and RNAi knockdown were used
+to generate phenotypic profiles that quantify the cellular response to
+a given siRNA thus allowing identification of hundreds of genes
+involved in diverse biological functions including cell division,
+migration and survival.  In each study, several phenotypes were
+detected and described by the authors without the use of ontologies or
+controlled vocabularies, making the integration between datasets
+extremely difficult. For example, it is evident that cell division
+phenotypes were observed in all three datasets and referred to by
+terms such as {\em Mitotic delay/arrest}, {\em Prolonged mitotic
+  exit}, {\em Methaphase delay} and {\em Methaphase cells}). Without a
+controlled vocabulary of cellular phenotypes, the overlap between such
+phenotype descriptions is unclear.
 
 Data integration is also complicated by the lack of standardization at
 the level of data production and processing; all these issues are
@@ -836,6 +866,17 @@ processing pipeline and used to annotate the data as it gets generated
 \cite{Conrad2011}.
 
 \subsection{Future research}
+Our main contribution is an analysis of process phenotypes that are
+used across multiple domains and scales and which are crucial for
+understanding and representing physiology of living systems. The
+Ontology of Physics in Biology (OPB) \cite{opb} is an ontology that
+has recently been proposed to characterize physiological processes and
+the physical qualities of biological entities based on a theory of
+fluid dynamics. It is an important goal for future research to
+incorporate the OPB in phenotypic descriptions and make our theory of
+process phenotypes compatible with the physical descriptions of
+processes and their attributes as outlined by the OPB.
+
 We implemented the CPO using a pattern-based approach to formulating
 phenotypes involving processes. The patterns we identify are based on
 pre-existing ontologies, in particular the PATO ontology and the
@@ -859,52 +900,6 @@ phenotypic descriptions of processes and enable its integration in
 well-developed formal ontologies of processes \cite{Herre2006,
   Gruninger2010}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{onto.pdf}
-  \caption{Overview over basic top-level categories. Physical objects
-    are entities that are wholly present at time points. Qualities are
-    attributes of entities. Functions are capabilities that arise from
-    physical objects with their qualities, and processes are
-    temporally extended entities that may be realizations of a
-    function.\label{fig:onto}}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=1\textwidth]{processpatterns.pdf}
-  
-  \caption{\label{fig:patterns}Six examples of processes with
-    non-comparative and comparative process attributes.  We assume
-    that the processes labelled $a$, $b$, $c$ and $d$ are all
-    instances of the class of processes $P$.  On the left side, three
-    regulation (of $P$) processes are illustrated which exhibit
-    non-comparative attributes. The first process has an attribute of
-    {\em rhythmic} occurrence of $P$ because the instances of $P$ are
-    temporally equidistantly distributed. The second example shows an
-    {\em arrhythmic} occurrence of $P$, and the third examples shows
-    an {\em increasing frequency} (of $P$). A regulation process with
-    an increasing frequency (of $P$) is a process in which the
-    frequency of occurrences of $P$ is lower in the first half of the
-    process than in the second half. The right side of the figure
-    illustrates comparative phenotypic descriptions of processes. On
-    the upper right, the {\em normal} reference is shown. The second
-    example illustrates a {\em late onset} of $P$, i.e., the attribute
-    that $P$ processes begin later than {\em normal}. Finally, the
-    lower right illustrates a {\em decreased frequency} (of $P$),
-    since fewer processes of the type $P$ occur within the reference
-    process than {\em normal}.}
-\end{figure}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
-  \caption{Overview over the taxonomic structure of CPO. The structure
-    is based on a cellular component class $X$ and the cellular
-    processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
-\end{figure*}
-
-
 \section{Acknowledgement}
 Funding for RH is provided by the European Commission's 7th Framework
 Programme, RICORDO project, grant number 248502. MAH is supported by
@@ -915,6 +910,6 @@ Framework Programme (FP7/2007-2013) under grant agreement number
 258068, EU-FP7-Systems Microscopy NoE. 
 
 \bibliographystyle{plain}
-\bibliography{lc}
+\bibliography{/home/leechuck/Documents/papers/bibtex/lc}
 
 \end{document}
