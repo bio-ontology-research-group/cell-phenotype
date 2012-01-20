@@ -4,10 +4,7 @@
 \usepackage{url}
 \usepackage[normalem]{ulem}
 \usepackage{multirow}
-\usepackage{pifont}
-%\newcommand{\tick}{\ding{52}}
-\newcommand{\tick}{\checkmark}
-\newcommand{\tickNo}{\hspace{1pt}\ding{55}}
+\renewcommand{\cite}{\citep}
 
 \begin{document}
 \firstpage{1}
@@ -614,7 +611,7 @@ single process abnormalities.
 \begin{figure*}
   \centering
 %  \includegraphics[width=1.2\textwidth, height=.4\textheight, angle=270]{overview.pdf}
-  \includegraphics[width=1.1\textwidth]{overview.pdf}
+  \includegraphics[width=1\textwidth]{overview.pdf}
   \caption{Overview over the taxonomic structure of CPO. The structure
     is based on a cellular component class $X$ and the cellular
     processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
@@ -909,7 +906,7 @@ Leipzig.  Funding for GR is provided by the European Union's Seventh
 Framework Programme (FP7/2007-2013) under grant agreement number
 258068, EU-FP7-Systems Microscopy NoE. 
 
-\bibliographystyle{plain}
+\bibliographystyle{natbib}
 \bibliography{/home/leechuck/Documents/papers/bibtex/lc}
 
 \end{document}
