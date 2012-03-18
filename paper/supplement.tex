@@ -1,0 +1,185 @@
+\documentclass{bioinfo}
+\copyrightyear{2005}
+\pubyear{2005}
+\usepackage{url}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+\renewcommand{\cite}{\citep}
+
+\begin{document}
+\firstpage{1}
+
+\title[Physiology phenotypes]{Semantic integration of physiology
+  phenotypes with an application to the Cellular Phenotype Ontology:
+  Supplement 1}
+
+\author[Hoehndorf \textit{et~al}]{Robert Hoehndorf$^{1}$\footnote{to
+    whom correspondence should be addressed}, Midori
+  A. Harris$^2$, Heinrich Herre$^3$, Gabriella Rustici$^4$ and
+  Georgios V. Gkoutos$^{1}$}
+
+\address{$^{1}$Department of Genetics, University of Cambridge,
+  Downing Street, Cambridge, Cambridge CB2 3EH, UK\\
+  $^{2}$Department of Biochemistry; University of Cambridge, 80 Tennis
+  Court Road, Cambridge CB2 1GA, UK\\
+  $^{3}$Institute for Medical Informatics, Statistics and
+  Epidemiology, University of Leipzig, Haertelstrasse 16-18, 04107
+  Leipzig, Germany\\
+  $^{4}$European Bioinformatics Institute, Wellcome Trust Genome
+  Campus, Hinxton, Cambridge, Cambridge CB10 1SD, UK}
+
+\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
+
+\editor{Associate Editor: XXXXXXX}
+
+\maketitle
+
+\section{Axiom patterns}
+
+\subsection{Basic pattern}
+Our basic pattern for formalizing phenotypes is derived from previous
+work \cite{Hoehndorf2010phene}. We use the relation {\bf phenotype-of}
+as a relation between a phenotype and some entity (the bearer of the
+phenotype). We assume that the bearer of the phenotype is an
+organism. Using the {\bf phenotype-of} relation, we further specify
+the bearer's properties axiomatically. For example, a phenotype {\em
+  Broad forehead} is a phenotype of an entity (the organism) that has
+a nose as part which has a quality of being {\em Broad}:
+\begin{verbatim}
+'Broad forehead' EquivalentTo:
+  phenotype-of some (has-part some
+    Nose and has-quality some Broad)
+\end{verbatim}
+
+\subsection{Comparison to normal}
+Phenotypes are often comparative to some reference that is considered
+as {\em normal} within a context, while the phenotypes specify
+deviations from this normality. One possibility to express deviation
+from normality is to explicitly contextualize the classes that
+represent the reference entity and either explicitly state or infer
+that entities with abnormal phenotypes are distinct from the reference
+entities \cite{Hoehndorf2010phene}. Being abnormal is then equivalent
+to ``not being normal''. Through the explicit use of the {\bf
+  has-part} relation, it becomes possible to formally include {\em
+  absence} as a type of abnormality: an {\em Abnormality of X} would
+be equivalent to {\em not having a normal X as part}, while the {\em
+  Absence of X} is equivalent to {\em not having X as part}. The
+resulting inference, that {\em Absence of X} is a subclass of {\em
+  Abnormality of X}, is widely implemented in phenotype ontologies
+and should be accommodated by our axiom patterns. 
+
+However, the explicit contextualization of classes with {\em normal}
+and {\em abnormal} qualifiers requires the use of disjunction, and the
+formalization of {\em Abnormality of X} as {\em not having a normal X
+  as part} requires the use of negation. Neither operation is
+supported in the OWL EL profile \cite{owlprofiles}, and since we limit
+ourselves to the OWL EL profile due to its low computational
+complexity, we cannot implement these patterns.  As an alternative, we
+chose to implement abnormality and absence following formalization
+patterns already implemented in phenotype ontologies
+\cite{Mungall2010, Hoehndorf2011phenome}, since these patterns can be
+expressed in OWL EL. As results, we can perform automated reasoning
+over our formalizaton and benefit from interoperability with previous
+work on formalizing phenotype ontologies. On the other hand, the use
+of these patterns may lead to unintended consequences for some queries
+\cite{Boeker2011}.  Furthermore, although we could distinguish between
+{\em normal} and {\em abnormal} properties of entities using the PATO
+framework, we can also omit this distinction when we build an ontology
+that is solely composed of abnormal phenotypes or in which entities
+only have abnormal attributes.  Based on these considerations, an
+example formalization for {\em Abnormality of cell cycle} is
+\begin{verbatim}
+'Abnormality of X' EquivalentTo:
+  phenotype-of some ( has-part some
+    ( part-of some 'Cell cycle' and
+      has-quality some Quality))
+\end{verbatim}
+The use of the class {\tt part-of some 'Cell cycle'} instead of {\tt
+  'Cell cycle'} allows us to reuse the {\bf part-of} relation to infer
+that abnormalities of parts of the cell cycle become subclasses of
+abnormalities of the cell cycle.
+
+\subsection{Definition of complex properties and classes}
+We use several relations in order to construct complex classes. In
+particular, we use the {\bf regulates} relation from the GO to define
+classes of regulation processes, and we use the {\bf towards} to
+specify a required second argument in some qualities. 
+For example, we define the class {\em Decreased frequency of DNA
+  ligation} as:
+\begin{verbatim}
+'Decreased frequency of DNA ligation' EquivalentTo:
+  phenotype-of some (has-part some (participates-in some 
+    ((has-quality some 
+        ('decreased frequency'
+         and (towards some 'DNA ligation')))
+     and (regulates some 'DNA ligation'))))
+\end{verbatim}
+This definition states that a {\em Decreased frequency of DNA
+  ligation} is a phenotype of organisms that have a part that
+participates in a {\em Regulation of DNA ligation} process which has a
+{\em Decreased frequency of DNA ligation} ({\tt 'decreased frequency'
+  and (towards some 'DNA ligation')}) as quality. In this definition,
+we refer to the class {\em Regulation of DNA ligation} based on its
+definition {\tt regulates some 'DNA ligation'}, and to the class {\em
+  Decreased frequency of DNA ligation} using the class description
+{\tt 'decreased frequency' and towards some 'DNA ligation'}. Although
+the use of the {\bf towards} relation in combination with a quality
+such as {\em Decreased frequency} has several problems
+\cite{obml2011h3}, it will lead to interoperability with the large
+number of phenotype ontologies that follow a similar pattern
+\cite{Mungall2010}.
+
+\subsection{Chemical substances}
+We use the ChEBI ontology \cite{Degtyarenko2007} to refer to classes
+that represent chemical entities or substances. In ChEBI, no
+distinction is made explicit between chemical entities, in the sense
+of individual molecules, and substances composed of these entities.
+In some applications, it can be necessary to distinguish between both
+in ontology-based information systems or tasks that react differently
+to both types (e.g., that distinguish between molecular weights and
+melting points) \cite{}. However, we reuse GO axioms that utilize
+ChEBI, and the GO does not make a distinction between the molecular
+entity and the substance composed of it. Similarly, we do not require
+such a distinction to achieve the aims of our
+axiomatization. Therefore, we implicitly treat classes in ChEBI as either
+molecular entities or substances composed thereof. If this distinction
+is made explicit, we can define each class that we currently use from
+ChEBI as a disjunction of the class representing a molecular entity
+and the substance composed of the entity.
+
+\subsection{Detailed axiom patterns}
+
+Phenotype of $X$
+\begin{verbatim}
+'X phenotype' EquivalentTo:
+  phenotype-of some (has-part some
+    (part-of some X))
+\end{verbatim}
+
+Abnormality of $X$
+\begin{verbatim}
+'X phenotype' EquivalentTo:
+  phenotype-of some (has-part some
+    (part-of some (X and has-quality some Quality)))
+\end{verbatim}
+
+Abnormal $X$ morphology:
+\begin{verbatim}
+'X phenotype' EquivalentTo:
+  phenotype-of some (has-part some
+    (X and has-quality some Morphology))
+\end{verbatim}
+
+Abnormal $X$ physiology:
+\begin{verbatim}
+'X phenotype' EquivalentTo:
+  phenotype-of some (has-part some
+    (part-of some (X and has-quality some Functionality)))
+\end{verbatim}
+
+
+
+\bibliographystyle{plain}
+\bibliography{/home/leechuck/Documents/papers/bibtex/lc}
+
+\end{document}
