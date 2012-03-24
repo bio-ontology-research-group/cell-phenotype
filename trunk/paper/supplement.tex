@@ -1,24 +1,14 @@
-\documentclass{bioinfo}
-\copyrightyear{2005}
-\pubyear{2005}
-\usepackage{url}
-\usepackage[normalem]{ulem}
-\usepackage{multirow}
-\renewcommand{\cite}{\citep}
-
+\documentclass{article}
 \begin{document}
-\firstpage{1}
 
-\title[Physiology phenotypes]{Semantic integration of physiology
-  phenotypes with an application to the Cellular Phenotype Ontology:
-  Supplement 1}
+\title{Supplement to Semantic integration of physiology phenotypes with an
+  application to the Cellular Phenotype Ontology}
 
-\author[Hoehndorf \textit{et~al}]{Robert Hoehndorf$^{1}$\footnote{to
-    whom correspondence should be addressed}, Midori
-  A. Harris$^2$, Heinrich Herre$^3$, Gabriella Rustici$^4$ and
-  Georgios V. Gkoutos$^{1}$}
+\author{Robert Hoehndorf$^{1}$\footnote{to whom correspondence should
+    be addressed}, Midori A. Harris$^2$, Heinrich Herre$^3$, \\Gabriella
+  Rustici$^4$ and Georgios V. Gkoutos$^{1}$}
 
-\address{$^{1}$Department of Genetics, University of Cambridge,
+\date{$^{1}$Department of Genetics, University of Cambridge,
   Downing Street, Cambridge, Cambridge CB2 3EH, UK\\
   $^{2}$Department of Biochemistry; University of Cambridge, 80 Tennis
   Court Road, Cambridge CB2 1GA, UK\\
@@ -27,10 +17,6 @@
   Leipzig, Germany\\
   $^{4}$European Bioinformatics Institute, Wellcome Trust Genome
   Campus, Hinxton, Cambridge, Cambridge CB10 1SD, UK}
-
-\history{Received on XXXXX; revised on XXXXX; accepted on XXXXX}
-
-\editor{Associate Editor: XXXXXXX}
 
 \maketitle
 
@@ -148,21 +134,41 @@ ChEBI as a disjunction of the class representing a molecular entity
 and the substance composed of the entity.
 
 \subsection{Detailed axiom patterns}
+Here, we present the precise formulation of axiom patterns. We use $X$
+and $A$ as variables in these patterns that are replaced with specific
+classes from the GO or ChEBI ontologies.
 
-Phenotype of $X$
+\paragraph{Phenotype of X:}
+If $X$ is a material object, we assert:
 \begin{verbatim}
 'X phenotype' EquivalentTo:
   phenotype-of some (has-part some
     (part-of some X))
 \end{verbatim}
 
-Abnormality of $X$
+If $X$ is a cellular biological process, we assert:
+\begin{verbatim}
+'X phenotype' EquivalentTo:
+  phenotype-of some (has-part some
+    (participates-in some (part-of some X)))
+\end{verbatim}
+
+\paragraph{Abnormality of X:}
+If $X$ is a material object:
 \begin{verbatim}
 'X phenotype' EquivalentTo:
   phenotype-of some (has-part some
     (part-of some (X and has-quality some Quality)))
 \end{verbatim}
 
+If $X$ is a process, we create a class that does not have any formal
+constraints. In CPO, abnormalities of $X$ processes include both
+abnormalities of $X$ and abnormality of regulation of $X$. A
+formulation of this constraint requires the use of disjunction. Since
+we limit ourselves to the use of OWL EL and disjunction is not a valid
+logical operator in OWL EL, we do not add any axiom to CPO in this case.
+
+\paragraph{Abnormal morphology and physiology, and absence:}
 Abnormal $X$ morphology:
 \begin{verbatim}
 'X phenotype' EquivalentTo:
@@ -177,7 +183,114 @@ Abnormal $X$ physiology:
     (part-of some (X and has-quality some Functionality)))
 \end{verbatim}
 
+Formalizing absence of $X$ requires the use of negation. Since
+negation is not allowed in OWL EL, we create a class for absence that
+we directly assert to be a subclass of {\em Abnormality of X}, without
+adding further axioms.
 
+\paragraph{Single occurrence abnormalities:}
+Abnormality of single occurrence of $X$:
+\begin{verbatim}
+'Abnormality of single occurrence of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (part-of some X and
+has-quality some Quality)))
+\end{verbatim}
+
+Increased duration of X:
+\begin{verbatim}
+'Increased duration of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (X and
+has-quality some 'Increased duration')))
+\end{verbatim}
+
+Decreased duration of X:
+\begin{verbatim}
+'Decreased duration of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (X and
+has-quality some 'Decreased duration')))
+\end{verbatim}
+
+\paragraph{Abnormalities of X regulation:}
+Abnormality of regulation of $X$:
+\begin{verbatim}
+'Abnormality of regulation of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-quality some (Quality and towards some X))))
+\end{verbatim}
+
+Increased frequency of $X$:
+\begin{verbatim}
+'Increased frequency of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-quality some ('Increased frequency' and towards some X))))
+\end{verbatim}
+
+Decreased frequency of $X$:
+\begin{verbatim}
+'Decreased frequency of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-quality some ('Decreased frequency' and towards some X))))
+\end{verbatim}
+
+Late onset of $X$:
+\begin{verbatim}
+'Late onset of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-quality some (Delayed and towards some X))))
+\end{verbatim}
+
+Early onset of $X$:
+\begin{verbatim}
+'Early onset of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-quality some (Premature and towards some X))))
+\end{verbatim}
+
+\paragraph{Abnormality of inputs and outputs (rates):}
+If, by virtue of GO-XP definitions, we are able to identify inputs and
+outputs of $X$, we define the following classes:
+
+Increased mass of $A$ as output in regulation of $X$:
+\begin{verbatim}
+'Decreased mass of A as output in regulation of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-output some (A and has-quality some 'Increased mass'))))
+\end{verbatim}
+
+Decreased mass of $A$ as output in regulation of $X$:
+\begin{verbatim}
+'Decreased mass of A as output in regulation of X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (regulates some X and
+has-output some (A and has-quality some 'Decreased mass'))))
+\end{verbatim}
+
+Increased mass of $A$ as output in $X$:
+\begin{verbatim}
+'Increased mass of A as output in X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (X and
+has-output some (A and has-quality some 'Increased mass'))))
+\end{verbatim}
+
+Decreased mass of $A$ as output in $X$:
+\begin{verbatim}
+'Decreased mass of A as output in X' EquivalentTo:
+phenotype-of some (has-part some (
+participates-in some (X and
+has-output some (A and has-quality some 'Decreased mass'))))
+\end{verbatim}
+
+We assert similar axioms for the inputs of $X$.
 
 \bibliographystyle{plain}
 \bibliography{/home/leechuck/Documents/papers/bibtex/lc}
