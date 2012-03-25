@@ -51,12 +51,12 @@ description of process attributes and relate them to the attributes of
 their temporal parts and participants. We apply our theory to create
 the Cellular Phenotype Ontology (CPO). The CPO is an ontology of
 morphological and physiological phenotypic characteristics of cells,
-cell components and cellular processes. Its prime application is the
-unification of cellular phenotype descriptions across species by
-providing terms and uniform definition patterns. The CPO can further
-be used for the annotation of observed abnormalities in domains, such
-as systems microscopy, in which cellular abnormalities are observed
-and for which no phenotype ontology has been created.
+cell components and cellular processes. Its prime application is to
+provide terms and uniform definition patterns for the annotation of
+cellular phenotypes. The CPO can be used for the annotation of
+observed abnormalities in domains, such as systems microscopy, in
+which cellular abnormalities are observed and for which no phenotype
+ontology has been created.
 
 \section{Availability and implementation:} 
 The CPO and the source code we generated to create the CPO are freely
@@ -356,9 +356,9 @@ so called post-composed (post-coordinated) manner or for providing
 formal (logical) definitions (equivalence axioms) to ontologies
 containing a set of precomposed (pre-coordinated) phenotype terms. For
 instance, to describe the decrease in the length of the sexual cycle
-of female animals, we can combine the PATO term \textit{decreased
+of female animals, we can combine the PATO term \textit{Decreased
   duration} ({\tt PATO:0000499}) with the Gene Ontology term
-\textit{estrous cycle} ({\tt GO:0042698}), whilst if such a term
+\textit{Estrous cycle} ({\tt GO:0042698}), whilst if such a term
 existed in a pre-composed ontology (for example the {\tt MP:0009007}
 term from the Mammalian Phenotype) it could be used to provide an
 equivalence statement between that class and the above PATO-based
@@ -388,9 +388,9 @@ high computational complexity (reasoning in OWL 2.0 is
 worst-case time complexity for automated reasoning in OWL, we would
 not be guaranteed to achieve our aims once we consider more than very
 few phenotype classes. In particular, using an ontology of the size of
-GO, with more than XX,XXX classes for processes, as a foundation for
+GO, with more than 22,000 classes for processes, as a foundation for
 constructing an ontology of physiology phenotypes would not allow us
-to achieve our aims through automated reasoning. 
+to achieve our aims through automated reasoning.
 
 The OWL EL profile is a subset of OWL that significantly decreases the
 expressivity of OWL and the resulting time complexity of automated
@@ -670,7 +670,6 @@ single process abnormalities.
     is based on a cellular component class $X$ and the cellular
     processes $P(X)$ in which $X$ is involved.\label{fig:overview}}
 \end{figure*}
-
 
 The second type of abnormality in the CPO relate to abnormalities of
 {\em multiple} occurrences of some process $X$. According to the GO,
