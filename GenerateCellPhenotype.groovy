@@ -304,6 +304,38 @@ bps.each { bp ->
 							      r("part-of"), bp),
 							    fac.getOWLObjectSomeValuesFrom(
 							      r("has-quality"), id2class["PATO:0000001"])))))))
+
+    def cla = c("C3PO:55$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cla, cl3))
+    addAnno(cla,OWLRDFVocabulary.RDFS_LABEL,"Increased duration of $name")
+    addAnno(cla,OWLRDFVocabulary.RDF_DESCRIPTION,"The duration of $name is increased compared to normal.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+		       cla,
+		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						      fac.getOWLObjectSomeValuesFrom(
+							r("has-part"), 
+							fac.getOWLObjectSomeValuesFrom(
+							  r("participates-in"), 
+							  fac.getOWLObjectIntersectionOf(
+							    bp,
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-quality"), id2class["PATO:0000498"])))))))
+  
+    cla = c("C3PO:56$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cla, cl3))
+    addAnno(cla,OWLRDFVocabulary.RDFS_LABEL,"Decreased duration of $name")
+    addAnno(cla,OWLRDFVocabulary.RDF_DESCRIPTION,"The duration of $name is decreased compared to normal.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+		       cla,
+		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+						      fac.getOWLObjectSomeValuesFrom(
+							r("has-part"), 
+							fac.getOWLObjectSomeValuesFrom(
+							  r("participates-in"), 
+							  fac.getOWLObjectIntersectionOf(
+							    bp,
+							    fac.getOWLObjectSomeValuesFrom(
+							      r("has-quality"), id2class["PATO:0000499"])))))))
   
     def cl6 = c("C3PO:15$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl6, cl3))
@@ -607,6 +639,8 @@ manager.addAxiom(outont, fac.getOWLReflexiveObjectPropertyAxiom(r("regulates")))
 OWLImportsDeclaration importDecl1 = fac.getOWLImportsDeclaration(IRI.create("http://purl.obolibrary.org/obo/go.owl"))
 manager.applyChange(new AddImport(outont, importDecl1))
 importDecl1 = fac.getOWLImportsDeclaration(IRI.create("http://purl.obolibrary.org/obo/pato.owl"))
+manager.applyChange(new AddImport(outont, importDecl1))
+importDecl1 = fac.getOWLImportsDeclaration(IRI.create("http://purl.obolibrary.org/obo/chebi.owl"))
 manager.applyChange(new AddImport(outont, importDecl1))
 
 manager.saveOntology(outont, IRI.create("file:"+opt.o))
