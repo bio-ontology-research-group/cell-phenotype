@@ -110,5 +110,53 @@ characterization has and an evaluation of the practical value of the
 approach has to be delivered.
 
 Response:
-We agree, and have added a detailed formal presentation of our axioms
-as supplementary material.
+We have now added a detailed formal presentation of our axioms as
+supplementary material. An evaluation of the practical utility depends
+on data that is being annotated with physiology phenotypes. Currently,
+no comprehensive ontology of physiology phenotypes is available. Our
+work brings the immediate benefit that the availability of CPO enables
+annotation of cellular phenotypes in the systems microscropy
+community, and our method can be applied to physiology phenotypes in
+other domains, in particular computational modelling. 
+
+Reviewer 2:
+Minor revision (page 2 line 27): You introduce a Heart beating example
+to illustrate the challenges in modeling processes and their
+regulation. [...] The Heart example is illustrative but limited with
+respect to your ontology. There, both the the function of the single
+entity can be impaired and the regulation of multiple occurences of
+processes (where the example ends due to the single heartedness of
+many animals).
+
+Response: 
+In response to this comment and reviewer 1's comment, we have removed
+the Heart beating example from the introduction and focus on the
+detailed presentation of the processes involved in the Results section
+of our manuscript.
+
+Reviewer 2:
+Minor revision (page 3 second column line 33) see as above on the
+phases of a single Heart action. The heart has no phase of
+“inactivity” (that would be death), only a number of phases of which
+the filling/ ejection phases are the least granular.
+
+Response: We have changed our manuscript
+
+Reviewer 2:
+Minor revision (page 5 Table 1): make it clear that you refer to the
+product of row and column quantitites in the cells. I find it
+difficult to understand this easy relation from your legend. Do you
+really need this table?
+
+Response:
+We have removed the table from our manuscript, and discuss the
+content of the table now in the main text.
+
+Reviewer 2:
+Class names should be consistently written italic and uppercase
+throughout the manuscript (e.g. Heart beating and Rate of heart
+beating)
+
+Response:
+We have made this change throughout our manuscript.
+
