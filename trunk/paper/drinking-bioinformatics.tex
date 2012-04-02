@@ -420,11 +420,11 @@ We develop a model of process attributes that is applicable for
 representations of physiology and related phenotypes. In principle, we
 distinguish between three different kinds of process attributes: the
 first are process attributes that arise directly from processes and
-include {\em duration} and {\em temporal location}; the second are
+include {\em Duration} and {\em Temporal location}; the second are
 attributes that arise from processes and their temporal parts and
-include {\em frequency} and {\em onset}; and the third are attributes
+include {\em Frequency} and {\em Onset}; and the third are attributes
 that arise from processes and qualities of their participants, and
-include {\em flow rates}.
+include {\em Flow rate}s.
 
 Attributes that can be directly linked to a process arise from
 processes' temporal extension. For example, a duration is an attribute
@@ -437,29 +437,29 @@ to a reference coordinate system.
 However, the majority of attributes that characterize processes are
 not based on these types of process attributes alone, but rather
 relate attributes of process participants with the duration of a
-process. In particular, a {\em rate} typically refers to an attribute
+process. In particular, a {\em Rate} typically refers to an attribute
 of some entity {\em with respect to an attribute of another entity},
 and in the context of processes, rates often refer to attributes of a
 process participant with respect to the duration of the process. For
-example, a {\em mass flow rate} refers to the {\em Mass} of a process
-participant with respect to the duration of the process, i.e., how
-much matter is moved (from one point to another) through the process.
-As a more complex example, a {\em rate of change of position} refers
-to the {\em distance} that an object is moved with respect to the
-duration of the process.
+example, a {\em Mass flow rate} refers to the {\em Mass} of a process
+participant with respect to the {\em Duration} of the process, i.e.,
+how much matter is moved (from one point to another) through the
+process.  As a more complex example, a {\em Rate of change of
+  position} refers to the {\em Distance} that an object is moved with
+respect to the {\em Duration} of the process.
 
 However, not all rates of a process depend on attributes of the
-process participants. In particular, a {\em frequency of occurrence}
-or {\em event rate} refers to the number of occurrences of a type of
-process during a reference process. For example, a {\em rate of heart
+process participants. In particular, a {\em Frequency of occurrence}
+or {\em Event rate} refers to the number of occurrences of a type of
+process during a reference process. For example, a {\em Rate of heart
   beating} refers to the number of {\em Heart beating} processes that
 occur within a reference process (e.g., a process in which the heart
 participates with a duration of one minute). Further attributes that
 depend on types of processes with regard to a reference process are
 {\em distribution patterns}, i.e., how the occurrences of processes of
 a particular type are distributed within a reference process. For
-example, the heart may beat {\em rhythmically} or {\em arrhythmically}
-within a period of time (see Figure \ref{fig:patterns}).
+example, the heart may beat rhythmically or arrhythmically within a
+period of time (see Figure \ref{fig:patterns}).
 \begin{figure}
   \centering
   \includegraphics[width=.5\textwidth]{processpatterns.eps}
@@ -469,20 +469,21 @@ within a period of time (see Figure \ref{fig:patterns}).
     instances of the class of processes $P$.  On the left side, three
     regulation (of $P$) processes are illustrated which exhibit
     non-comparative attributes. The first process has an attribute of
-    {\em rhythmic} occurrence of $P$ because the instances of $P$ are
+    {\em Rhythmic occurrence of P} because the instances of $P$ are
     temporally equidistantly distributed. The second example shows an
-    {\em arrhythmic} occurrence of $P$, and the third examples shows
-    an {\em increasing frequency} (of $P$). A regulation process with
-    an increasing frequency (of $P$) is a process in which the
-    frequency of occurrences of $P$ is lower in the first half of the
-    process than in the second half. The right side of the figure
-    illustrates comparative phenotypic descriptions of processes. On
-    the upper right, the {\em normal} reference is shown. The second
-    example illustrates a {\em late onset} of $P$, i.e., the attribute
-    that $P$ processes begin later than {\em normal}. Finally, the
-    lower right illustrates a {\em decreased frequency} (of $P$),
-    since fewer processes of the type $P$ occur within the reference
-    process than {\em normal}.}
+    {\em Arrhythmic occurrence of P}, and the third examples shows an
+    {\em Increasing frequency of P}. A regulation process with an {\em
+      Increasing frequency of P} attribute is a process in which the
+    value of the {\em Frequency of occurrences of P} attribute is
+    lower in the first half of the process than in the second
+    half. The right side of the figure illustrates comparative
+    phenotypic descriptions of processes. On the upper right, the {\em
+      normal} reference process is shown. The second example
+    illustrates a {\em Late onset of P}, i.e., the attribute that $P$
+    processes begin later than {\em normal} processes. Finally, the
+    lower right illustrates a {\em Decreased frequency of P}, since
+    fewer processes of the type $P$ occur within the reference process
+    than {\em normal}.}
 \end{figure}
 
 Related to distribution patterns are {\em changing qualities} of
@@ -501,35 +502,37 @@ certain kinds of attributes, others cannot.
 % A class $C$ of {\em continuous
 %   processes} is a class that has processes $p$ as instance such that
 % all temporal parts of $p$ are also instances of $C$. 
-Examples of processes that can be divided include {\em continuous
-  movements} or {\em mass flow} processes, for which all parts have a
-{\em speed} or {\em flow rate} attribute. On the other hand, some
+Examples of processes that can be divided include {\em Continuous
+  movement} or {\em Mass flow} processes, for which all parts have a
+{\em Speed} or {\em Flow rate} attribute. On the other hand, some
 processes can be subdivided into stages of activity and stages of
-inactivity and cannot arbitrarily be divided. For example, a process
-of {\em heart beating} has periods of activity (a single heart beat)
-and inactivity. Consequently, not all parts of the process have a {\em
-  heart rate} attribute.
+inactivity (with respect to a particular process type) and cannot
+arbitrarily be divided. For example, a process of {\em Heart beating}
+has periods of activity in which a heart beat occurs and periods in
+which no heart beat process occurs. Consequently, not all parts of the
+process have a {\em Heart rate} ({\em Rate of heart beating})
+attribute.
 
-We may further attribute a {\em frequency} or {\em rate} to an object
+We may further attribute a {\em Frequency} or {\em Rate} to an object
 instead of a process. For example, a heart that beats {\em now} with a
 frequency of 80 beats per minute, or a car that is moving at a speed
 of 180 kilometres per hour {\em at a particular point in time} (e.g.,
 as observed with a speed camera) can be considered attributes of the
-objects (the heart or the car), not attributes of the processes in
+objects (the heart, or the car), not attributes of the processes in
 which the objects participate. However, these are {\em different}
 kinds of attributes. Rates, when considered as attributes of objects,
 may be explicitly defined using rates of processes. For example, the
 heart beating frequency of a particular heart $h$ at a time point $t$
 is the frequency of a reference heart beating process in which $h$
 participates. Such a reference process is necessary in order to obtain
-a value for a frequency even when no {\em heart beating} process is
+a value for a frequency even when no {\em Heart beating} process is
 occurring. However, the frequency is only an attribute of the heart in
-virtue of such a reference process in which {\em heart beating} is
+virtue of such a reference process in which {\em Heart beating} is
 actually occurring.  This reference process can be uniquely determined
-for processes such as {\em continuous movement}, where the rate of an
+for processes such as {\em Continuous movement}, where the rate of an
 object at a time $t$ is the rate of the infinitesimally small process
 that occurs around $t$. The reference process is ambiguous for
-processes such as {\em heart beating}, and the reference process must
+processes such as {\em Heart beating}, and the reference process must
 be explicitly stated.
 
 % Figure \ref{fig:patterns} illustrates some examples of
@@ -572,14 +575,14 @@ $C$ as part, while a {\em Normal phenotype of $C$} represents the
 state in which an organism has a {\em normal $C$} as part.
 
 Amongst the abnormal phenotypes that we include for all cell
-components listed in GO-CC, we distinguish {\em abnormal morphology}
-and {\em abnormal physiology} phenotypes. An {\em Abnormal morphology
+components listed in GO-CC, we distinguish {\em Abnormal morphology}
+and {\em Abnormal physiology} phenotypes. An {\em Abnormal morphology
   of $C$} is either the (abnormal) absence of required parts of $C$,
 the (abnormal) presence of additional parts, or abnormal qualities of
-$C$ \cite{Hoehndorf2010phene}. For example, an absence of caveolae
-({\tt MP:0004150}) would be a subclass of {\em Abnormal morphology of
-  plasma membrane} in virtue of caveolae necessarily being part of the
-{\em Plasma membrane} ({\tt GO:0005886}).
+$C$ \cite{Hoehndorf2010phene}. For example, an {\em Absence of
+  caveolae} ({\tt MP:0004150}) would be a subclass of {\em Abnormal
+  morphology of plasma membrane} in virtue of caveolae necessarily
+being part of the {\em Plasma membrane} ({\tt GO:0005886}).
 
 Abnormal physiology of a cell component refers to abnormal {\em
   functionality} of a cell component. We assume that a functionality
@@ -618,7 +621,7 @@ we assign the attribute of {\em Increased rate of cell division} to
 Single occurrences of processes can be abnormal in multiple ways,
 depending on the type of process.
 %
-First, common to all processes is the quality of {\em duration} and
+First, common to all processes is the quality of {\em Duration} and
 consequently, each process can have an {\em abnormal} (increased or
 decreased) duration. For example, a part of an organism may
 participate in an {\em Inflammatory response} ({\tt GO:0006954}) that
@@ -631,8 +634,8 @@ participates in {\em Inflammatory response}, and this {\em
 
 The second common type of abnormality are abnormalities based on
 process participants in relation to the duration of the process. These
-include all kinds of {\em rates} such as {\em mass flow rate}, {\em
-  energy flow rate} and {\em velocity} (the rate of change of
+include all kinds of {\em rates} such as {\em Mass flow rate}, {\em
+  Energy flow rate} and {\em Velocity} (the rate of change of
 position). In each of these cases, an object participates in a process
 and a quality (or change of quality) of that object throughout the
 duration of the process is considered to form a new quality. If the
@@ -641,7 +644,7 @@ process has participants that are distinguished into {\em inputs} and
 or outputs that participate in the process can be {\em increased} or
 {\em decreased}. For example, an {\em Increased rate of cytoplasmic
   streaming} can be defined as an increased amount of inputs or an
-increased amount of outputs of a {\em cytoplasmic streaming} process.
+increased amount of outputs of a {\em Cytoplasmic streaming} process.
 
 Finally, some objects may be divided into stages during which
 particular states of affairs obtain, and a process may be abnormal in
@@ -676,33 +679,33 @@ The second type of abnormality in the CPO relate to abnormalities of
 {\em regulation} processes are processes that maintain or modify the
 occurrence of processes of a particular type. Following this
 convention, we call an abnormality of multiple occurrences of $X$ {\em
-  abnormality of the regulation of $X$}.
+  Abnormality of the regulation of $X$}.
 
-\begin{table*}
-  \centering
-  \begin{tabular}{p{2.8cm}|p{4cm}|p{4cm}|p{4cm}}
-    & Increased flow rate & Normal flow rate & Decreased
-    flow rate \\
-    \hline
-    Increased frequency &increased total flow rate &increased total
-    flow rate &?\\
-    Normal frequency &increased total flow rate &normal total flow
-    rate &decreased total flow rate\\
-    Decreased frequency &?&decreased total flow rate &decreased total
-    flow rate\\
-    \hline
-  \end{tabular}
-  \caption{\label{tbl:flow}Interdependency for the attribute {\em
-      Total cytoplasmic flow rate}. A {\em Total cytoplasmic flow
-      rate} is an attribute of {\em Regulation of cytoplasmic
-      streaming} processes, while {\em Cytoplasmic flow rate} is an
-    attribute of individual {\em cytoplasmic streaming}
-    processes. Depending both on whether the cytoplasmic flow rate in
-    individual {\em cytoplasmic streaming} processes is increased or
-    decreased and whether the frequency of occurrence of {\em
-      cytoplasmic streaming} is increased or decreased, the total
-    cytoplasmic flow rate can be increased or decreased.}
-\end{table*}
+% \begin{table*}
+%   \centering
+%   \begin{tabular}{p{2.8cm}|p{4cm}|p{4cm}|p{4cm}}
+%     & Increased flow rate & Normal flow rate & Decreased
+%     flow rate \\
+%     \hline
+%     Increased frequency &increased total flow rate &increased total
+%     flow rate &?\\
+%     Normal frequency &increased total flow rate &normal total flow
+%     rate &decreased total flow rate\\
+%     Decreased frequency &?&decreased total flow rate &decreased total
+%     flow rate\\
+%     \hline
+%   \end{tabular}
+%   \caption{\label{tbl:flow}Interdependency for the attribute {\em
+%       Total cytoplasmic flow rate}. A {\em Total cytoplasmic flow
+%       rate} is an attribute of {\em Regulation of cytoplasmic
+%       streaming} processes, while {\em Cytoplasmic flow rate} is an
+%     attribute of individual {\em cytoplasmic streaming}
+%     processes. Depending both on whether the cytoplasmic flow rate in
+%     individual {\em cytoplasmic streaming} processes is increased or
+%     decreased and whether the frequency of occurrence of {\em
+%       cytoplasmic streaming} is increased or decreased, the total
+%     cytoplasmic flow rate can be increased or decreased.}
+% \end{table*}
 
 A first kind of abnormality of regulatory processes are {\em abnormal
   temporal distribution patterns} of a process. In these
@@ -717,7 +720,7 @@ use PATO's {\em frequency} class to define {\em Abnormal frequency of
 % \end{verbatim}
 For example, an {\em Abnormal frequency of occurrence of apoptosis} is
 defined as an abnormality of {\em Regulation of apoptosis} ({\tt
-  GO:0042981}) with respect to the {\em frequency} ({\tt
+  GO:0042981}) with respect to the {\em Frequency} ({\tt
   PATO:0000044}) of {\em Apoptosis} ({\tt GO:0006915}) occurrences.
 
 There are further types of deviation from a distribution pattern. For
@@ -736,26 +739,26 @@ patterns.
 
 A second kind of regulatory abnormalities is related to the {\em
   onset} of a process. With respect to a reference process, a
-particular kind of process may be {\em delayed} ({\tt PATO:0000502})
-or {\em premature} ({\tt PATO:0000694}). For example, {\em Delayed
+particular kind of process may be {\em Delayed} ({\tt PATO:0000502})
+or {\em Premature} ({\tt PATO:0000694}). For example, {\em Delayed
   apoptosis} refers to an abnormality of the {\em Regulation of
   apoptosis} in which apoptosis is induced later than normal.  We use
-the PATO quality {\em onset} ({\tt PATO:0002325}) and its children
-{\em delayed} and {\em premature} to define these types of regulatory
-abnormality. Similarly, we use PATO's {\em offset} ({\tt
+the PATO quality {\em Onset} ({\tt PATO:0002325}) and its children
+{\em Delayed} and {\em Premature} to define these types of regulatory
+abnormality. Similarly, we use PATO's {\em Offset} ({\tt
   PATO:0002324}) quality and its children to characterize regulatory
 abnormalities in which a process ends prematurely or too late.
 
 Finally, a third kind of regulatory abnormality refers to abnormal
 rates with respect to a participant of the process that is being
 regulated. For example, a cytoplasmic flow rate can be increased or
-decreased not within a single {\em cytoplasmic streaming} process but
+decreased not within a single {\em Cytoplasmic streaming} process but
 rather the total cytoplasmic flow rate, as a summation over all
 cytoplasmic streaming processes that occur within an organism (or a
 particular anatomical location), is increased or decreased. While a
-flow rate of a single {\em cytoplasmic streaming} process is a quality
+flow rate of a single {\em Cytoplasmic streaming} process is a quality
 of that process, an increased {\em total} cytoplasmic flow rate is a
-quality of the regulation of {\em cytoplasmic streaming}. In
+quality of the regulation of {\em Cytoplasmic streaming}. In
 particular, it is possible for an organism to have a normal --- or
 even a decreased --- cytoplasmic flow rate in each individual
 cytoplasmic streaming process while at the same time having an
@@ -764,13 +767,19 @@ frequency of occurrence of cytoplasmic streaming processes. Similarly,
 the frequency of occurrence of cytoplasmic streaming may be normal or
 decreased while the total cytoplasmic flow rate is increased due to an
 increased cytoplasmic flow rate in each individual cytoplasmic
-streaming process. Table \ref{tbl:flow} illustrates the dependencies
-between rates of individual processes, their frequency of occurrence
-and the total rate of these processes. We include total rates as
-regulatory abnormalities in the CPO since these are the attributes of
-processes that are often measured or observed, while the rates of
-individual processes are inferred following a schema such as Table
-\ref{tbl:flow}.
+streaming process. 
+% A {\em Total cytoplasmic flow rate} is an attribute of {\em Regulation
+%   of cytoplasmic streaming} processes, while {\em Cytoplasmic flow
+%   rate} is an attribute of individual {\em cytoplasmic streaming}
+% processes. Depending both on whether the cytoplasmic flow rate in
+% individual {\em cytoplasmic streaming} processes is increased or
+% decreased and whether the frequency of occurrence of {\em cytoplasmic
+%   streaming} is increased or decreased, the total cytoplasmic flow
+% rate can be increased or decreased.
+We include total rates as subclasses of regulatory abnormalities in
+the CPO since these are the attributes of processes that are often
+measured or observed, while the rates of individual processes are
+inferred.
 
 \subsection{Implementation}
 We were faced with two choices for implementing the CPO: we could
@@ -873,8 +882,8 @@ cellular phenotypes. Over 80\% of FYPO definitions reference
 descendants of GO-BP's {\em Cellular process} as the entity; a further
 11\% reference GO-CC terms. All FYPO explicit definitions reference
 qualities in PATO, including {\em normal}, {\em abnormal}, and several
-process qualities including {\em increased duration} and {\em
-  decreased occurrence}. FYPO will thus fit neatly under the CPO
+process qualities including {\em Increased duration} and {\em
+  Decreased occurrence}. FYPO will thus fit neatly under the CPO
 umbrella, and stands to benefit from the automated synchronization
 between CPO and GO, as well as the integration of cellular phenotypes
 across species that the CPO can provide. {\em Schizosaccharomyces
@@ -909,7 +918,6 @@ currently being address by the different groups involved in the
 Systems Microscopy Network of Excellence
 (http://www.systemsmicroscopy.eu/) and the first step towards data
 integration can be achieved by further developing CPO.
-
 This ontology will be used to integrate phenotypes' definitions across
 existing datasets and will then become an integrated part of the data
 processing pipeline and used to annotate the data as it gets generated
@@ -952,7 +960,8 @@ well-developed formal ontologies of processes \cite{Herre2006,
 
 \section{Acknowledgement}
 We thank Michel Dumontier for valuable discussions about the formal
-representation of the axioms.
+representation of the axioms and the different possible
+interpretations of the {\bf regulates} relation.
 
 Funding for RH is provided by the European Commission's 7th Framework
 Programme, RICORDO project, grant number 248502. MAH is supported by
