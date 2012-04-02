@@ -1,0 +1,114 @@
+Dear Dr. Bateman,
+
+Thank you for providing us with the opportunity to revise our
+manuscript. We have now prepared a revision in which we have addressed
+all reviewers' comments. In response to both reviewers, we have
+removed the discussion of the heart beating example from the
+introduction and now provide a discussion of the axioms in the
+manuscript as well as a detailed presentation of the axioms as
+supplementary material. We have included a response to the individual
+points raised by the reviewers below.  We would like to thank the
+reviewers for their valuable comments which allowed us to improve our
+manuscript.
+
+Please do not hesitate to contact us if you require any further
+information.
+
+With best wishes,
+Robert.
+
+
+Responses to reviewers
+----------------------
+
+Reviewer 1:
+"Introduction: I find the heart beating example difficult to follow,
+primarily because it lacks simple easy-to-understand definitions - so
+either this section is removed or needs to be rewritten (the result
+section, however, is much clearer)."
+
+Response: We have removed the section on heart beating from the
+introduction, as recommended by the reviewer.
+
+Reviewer 1:
+p4 - On the one hand, I agree with "abnormalities in cell division
+resulting in Aneuploidy refer to abnormalities of cell division
+processes, while an increased rate of cell division refers to an
+abnormality in the pattern of occurrence of multiple cell division
+processes". However, you then state "an increased rate of cell
+division is not an attribute of cell division processes, but rather an
+attribute of the regulation of cell division"
+two questions: 
+1. is the regulation of a process(es) not different from that
+collection of processes?
+2. is it not the case that a collection of processes has attributes
+based on its parts?
+
+Response:
+We agree with the reviewer that "regulation" processes do not always
+(or commonly) include the processes that are being regulated as
+parts, and we have modified our manuscript in this regard, providing
+more details on regulation processes in GO and their relation to
+collection processes.
+
+Reviewer 1:
+This paper needs to discuss the axiom patterns that generates the ontology.
+
+Response:
+We agree with the reviewer, and now provide information about the
+axioms both in the manuscript (new section 2.3 "Axioms for physiology
+phenotypes") and full details as supplementary material.
+
+Reviewer 1:
+abstract: suggests that its application is in the unification of
+cellular phenotypes across species; but it's not clear where
+species-specific differentiation would come into play. it also
+suggests (and is further outlined in the discussion) that it could be
+ussed for systems microscopy, but no evidence is provided to support
+the claim. And the latter, really must be further developed, to
+demonstrate that the ontology can be used for some application.
+
+Response: 
+The Cell Phenotype Ontology, which we have built by applying our
+ontology-patterns for representing physiology phenotypes, is currently
+being applied for the annotation of cellular observations in systems
+microscopy. For this purpose, CPO provides the necessary terms (in the
+sense of a controlled vocabulary) as well as a taxonomic structure
+that is used for basic retrieval operations.
+
+We agree with the reviewers that an application of our work in a
+bioinformatics analysis would be highly beneficial. For example, once
+sufficient data is annotated with the CPO, we can use its taxonomic
+structure for enrichment analyses. Similarly, once more cellular
+phenotypes are being annotated in various model organism databases, we
+can utilize CPO for integrative phenotype analyses across
+species. However, at the moment, no comprehensive ontology of
+physiology phenotypes is available, partly due to the complexity of
+the domain and partly due to limitations in available ontology
+frameworks. We see our main contribution in the development of a
+theory that allows to capture physiology phenotypes; we applied this
+theory to construct (largely automatically) the CPO, which is now
+being used to annotate cellular phenotypes in the systems microscopy
+domain. Based on our contributions, it is now possible to annotate
+and eventually integrate (through the use of a controlled vocabulary
+of physiology phenotypes, of which the CPO provides a first example)
+data in the domain of physiology. At the same time, we maintain
+compatibility with GO (on which a majority of physiology phenotypes
+are based) and other PATO-based phenotype ontologies, thereby filling
+a gap that has limited data integration in the physiology domain so
+far.
+
+
+Reviewer 2:
+A theory of physiology related phenotypes and an implementation based
+on GO, GO cross-products and PATO is presented. An outline of a theory
+of phenotypes is introduced which participate-in a set of pathological
+processes which can be qualified by a small set of PATO qualities. At
+least, for a majority of heterogeneous phenotype descriptions this can
+be an approach for unification. In future work a sound formal
+characterization has and an evaluation of the practical value of the
+approach has to be delivered.
+
+Response:
+We agree, and have added a detailed formal presentation of our axioms
+as supplementary material.
