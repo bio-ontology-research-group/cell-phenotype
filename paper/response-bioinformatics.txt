@@ -1,6 +1,6 @@
 Dear Dr. Bateman,
 
-Thank you for providing us with the opportunity to revise our
+Thank you very much for providing us with the opportunity to revise our
 manuscript. We have now prepared a revision in which we have addressed
 all reviewers' comments. In response to both reviewers, we have
 removed the discussion of the heart beating example from the
@@ -15,7 +15,7 @@ Please do not hesitate to contact us if you require any further
 information.
 
 With kind regards,
-Robert.
+Robert
 
 
 Responses to reviewers
@@ -47,7 +47,7 @@ based on its parts?
 Response:
 We agree with the reviewer that "regulation" processes do not always
 (or commonly) include the processes that are being regulated as
-parts, and we have modified our manuscript in this regard, providing
+parts. We have modified our manuscript in this regard and we now provide
 more details on regulation processes in GO and their relation to
 collection processes.
 
@@ -55,9 +55,9 @@ Reviewer 1:
 This paper needs to discuss the axiom patterns that generates the ontology.
 
 Response:
-We agree with the reviewer, and now provide information about the
+We agree with the reviewer and in response we now provide information about the
 axioms both in the manuscript (new section 2.3 "Axioms for physiology
-phenotypes") and full details as supplementary material.
+phenotypes"). We also provide the full details of all axioms as supplementary material.
 
 Reviewer 1:
 abstract: suggests that its application is in the unification of
@@ -76,7 +76,7 @@ microscopy. For this purpose, CPO provides the necessary terms (in the
 sense of a controlled vocabulary) as well as a taxonomic structure
 that is used for basic retrieval operations.
 
-We agree with the reviewers that an application of our work in a
+We agree with the reviewer that an application of our work in a
 bioinformatics analysis would be highly beneficial. For example, once
 sufficient data is annotated with the CPO, we can use its taxonomic
 structure for enrichment analyses. Similarly, once more cellular
@@ -95,7 +95,7 @@ of physiology phenotypes, of which the CPO provides a first example)
 data in the domain of physiology. At the same time, we maintain
 compatibility with GO (on which a majority of physiology phenotypes
 are based) and other PATO-based phenotype ontologies, thereby filling
-a gap that has limited data integration in the physiology domain so
+a gap that has limited data integration in the cellular physiology domain so
 far.
 
 
@@ -129,7 +129,7 @@ processes (where the example ends due to the single heartedness of
 many animals).
 
 Response: 
-In response to this comment and reviewer 1's comment, we have removed
+In response to this comment as well as the similar comment reviewer 1 made, we have removed
 the Heart beating example from the introduction and focus on the
 detailed presentation of the processes involved in the Results section
 of our manuscript.
@@ -140,7 +140,7 @@ phases of a single Heart action. The heart has no phase of
 “inactivity” (that would be death), only a number of phases of which
 the filling/ ejection phases are the least granular.
 
-Response: We have changed our manuscript, according to the reviewer's
+Response: We agree with the reviewer and we have changed our manuscript, according to his/her
 suggestion.
 
 Reviewer 2:
@@ -150,8 +150,8 @@ difficult to understand this easy relation from your legend. Do you
 really need this table?
 
 Response:
-We have removed the table from our manuscript, and discuss the
-content of the table now in the main text.
+We thank the reviewer for pointing this out and in response, we have removed the table from our manuscript. In the revised manuscript, we discuss the
+content of the table in the main text.
 
 Reviewer 2:
 Class names should be consistently written italic and uppercase
