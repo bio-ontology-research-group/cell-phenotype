@@ -140,7 +140,8 @@ phases of a single Heart action. The heart has no phase of
 “inactivity” (that would be death), only a number of phases of which
 the filling/ ejection phases are the least granular.
 
-Response: We have changed our manuscript
+Response: We have changed our manuscript, according to the reviewer's
+suggestion.
 
 Reviewer 2:
 Minor revision (page 5 Table 1): make it clear that you refer to the
@@ -159,4 +160,3 @@ beating)
 
 Response:
 We have made this change throughout our manuscript.
-
