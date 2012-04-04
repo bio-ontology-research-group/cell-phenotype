@@ -1,9 +1,9 @@
 Dear Dr. Bateman,
 
-Thank you very much for providing us with the opportunity to revise our
-manuscript. We have now prepared a revision in which we have addressed
-all reviewers' comments. In response to both reviewers, we have
-removed the discussion of the heart beating example from the
+Thank you very much for providing us with the opportunity to revise
+our manuscript. We have now prepared a revision in which we have
+addressed all reviewers' comments. In response to both reviewers, we
+have removed the discussion of the heart beating example from the
 introduction and now provide a discussion of the axioms in the
 manuscript as well as a detailed presentation of the axioms as
 supplementary material. We have included a response to the individual
@@ -47,17 +47,19 @@ based on its parts?
 Response:
 We agree with the reviewer that "regulation" processes do not always
 (or commonly) include the processes that are being regulated as
-parts. We have modified our manuscript in this regard and we now provide
-more details on regulation processes in GO and their relation to
-collection processes.
+parts. We have modified our manuscript in this regard and we now
+provide more details on regulation processes in GO and their relation
+to collection processes.
 
 Reviewer 1:
-This paper needs to discuss the axiom patterns that generates the ontology.
+This paper needs to discuss the axiom patterns that generates the
+ontology.
 
 Response:
-We agree with the reviewer and in response we now provide information about the
-axioms both in the manuscript (new section 2.3 "Axioms for physiology
-phenotypes"). We also provide the full details of all axioms as supplementary material.
+We agree with the reviewer and in response we now provide information
+about the axioms both in the manuscript (new section 2.3 "Axioms for
+physiology phenotypes"). We also provide the full details of all
+axioms as supplementary material.
 
 Reviewer 1:
 abstract: suggests that its application is in the unification of
@@ -89,14 +91,14 @@ frameworks. We see our main contribution in the development of a
 theory that allows to capture physiology phenotypes; we applied this
 theory to construct (largely automatically) the CPO, which is now
 being used to annotate cellular phenotypes in the systems microscopy
-domain. Based on our contributions, it is now possible to annotate
-and eventually integrate (through the use of a controlled vocabulary
-of physiology phenotypes, of which the CPO provides a first example)
-data in the domain of physiology. At the same time, we maintain
+domain. Based on our contributions, it is now possible to annotate and
+eventually integrate (through the use of a controlled vocabulary of
+physiology phenotypes, of which the CPO provides a first example) data
+in the domain of physiology. At the same time, we maintain
 compatibility with GO (on which a majority of physiology phenotypes
 are based) and other PATO-based phenotype ontologies, thereby filling
-a gap that has limited data integration in the cellular physiology domain so
-far.
+a gap that has limited data integration in the cellular physiology
+domain so far.
 
 
 Reviewer 2:
@@ -129,10 +131,10 @@ processes (where the example ends due to the single heartedness of
 many animals).
 
 Response: 
-In response to this comment as well as the similar comment reviewer 1 made, we have removed
-the Heart beating example from the introduction and focus on the
-detailed presentation of the processes involved in the Results section
-of our manuscript.
+In response to this comment as well as the similar comment reviewer 1
+made, we have removed the Heart beating example from the introduction
+and focus on the detailed presentation of the processes involved in
+the Results section of our manuscript.
 
 Reviewer 2:
 Minor revision (page 3 second column line 33) see as above on the
@@ -140,8 +142,8 @@ phases of a single Heart action. The heart has no phase of
 “inactivity” (that would be death), only a number of phases of which
 the filling/ ejection phases are the least granular.
 
-Response: We agree with the reviewer and we have changed our manuscript, according to his/her
-suggestion.
+Response: We agree with the reviewer and we have changed our
+manuscript according to his/her suggestion.
 
 Reviewer 2:
 Minor revision (page 5 Table 1): make it clear that you refer to the
@@ -150,8 +152,9 @@ difficult to understand this easy relation from your legend. Do you
 really need this table?
 
 Response:
-We thank the reviewer for pointing this out and in response, we have removed the table from our manuscript. In the revised manuscript, we discuss the
-content of the table in the main text.
+We thank the reviewer for pointing this out and in response, we have
+removed the table from our manuscript. In the revised manuscript, we
+discuss the content of the table in the main text.
 
 Reviewer 2:
 Class names should be consistently written italic and uppercase
