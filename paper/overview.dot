@@ -1,4 +1,5 @@
 digraph overview {
+	graph [ dpi = 600 ];
 	"X phenotype" -> "Normal X phenotype";
 	"X phenotype" -> "Abnormal X phenotype";
 	"Abnormal X phenotype" -> "Abnormal X morphology";
