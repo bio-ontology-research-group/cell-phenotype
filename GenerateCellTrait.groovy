@@ -214,7 +214,8 @@ ccs.each { cc ->
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
 						      fac.getOWLObjectSomeValuesFrom(
 							r("has-part"), fac.getOWLObjectIntersectionOf(
-							  cc, fac.getOWLObjectSomeValuesFrom(
+							  fac.getOWLObjectSomeValuesFrom(r("part-of"), cc), 
+							  fac.getOWLObjectSomeValuesFrom(
 							    r("has-quality"), id2class["PATO:0000051"]))))))
 
     def cl6 = c("C3PO:55$id") 
@@ -283,10 +284,10 @@ bps.each { bp ->
       }
     }
 
-    def cl4 = c("C3PO:13$id") 
-    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl4, cl))
-    addAnno(cl4,OWLRDFVocabulary.RDFS_LABEL,"Absence of $name")
-    addAnno(cl4,OWLRDFVocabulary.RDF_DESCRIPTION,"The complete absence of $name processes.")
+    // def cl4 = c("C3PO:13$id") 
+    // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl4, cl))
+    // addAnno(cl4,OWLRDFVocabulary.RDFS_LABEL,"Absence of $name")
+    // addAnno(cl4,OWLRDFVocabulary.RDF_DESCRIPTION,"The complete absence of $name processes.")
 
     def cl5 = c("C3PO:14$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl5, cl))
@@ -627,7 +628,12 @@ manager.addAxiom(
 
 manager.addAxiom(
   outont, fac.getOWLEquivalentObjectPropertiesAxiom(
+    r("part-of"), fac.getOWLObjectProperty(IRI.create("http://purl.obolibrary.org/obo/BFO_0000050"))))
+
+manager.addAxiom(
+  outont, fac.getOWLEquivalentObjectPropertiesAxiom(
     r("regulates"), fac.getOWLObjectProperty(IRI.create("http://purl.obolibrary.org/obo/GENE_ONTOLOGY_regulates"))))
+
 
 manager.addAxiom(outont, fac.getOWLTransitiveObjectPropertyAxiom(r("has-part")))
 manager.addAxiom(outont, fac.getOWLTransitiveObjectPropertyAxiom(r("part-of")))
