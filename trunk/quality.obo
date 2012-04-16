@@ -1,6 +1,6 @@
 format-version: 1.2
-date: 23:11:2011 12:21
-saved-by: George Gkoutos
+date: 12:04:2012 11:37
+saved-by: gkoutos
 auto-generated-by: OBO-Edit 2.1-beta13
 subsetdef: abnormal_slim "Abnormal/normal slim"
 subsetdef: absent_slim "Absent/present slim"
@@ -2612,17 +2612,19 @@ is_a: PATO:0000057 ! occurrence quality
 id: PATO:0000442
 name: insomnia
 def: "A sleep pattern quality inhering in a bearer by virtue of the bearer's inability to sleep." [WordNet:WordNet "http://wordnet.princeton.edu/"]
+comment: Consider NBO:0000422.
 subset: disposition_slim
 subset: value_slim
-is_a: PATO:0000062 ! sleep pattern
+is_obsolete: true
 
 [Term]
 id: PATO:0000443
 name: narcolepsy
-def: "A sleep pattern quality inhering in a bearer by virtue of the bearer's disrupted sleep during normal sleeping period; often accompanied by cataplexy, sleep paralysis." [MP:MP "OBO"]
+def: "A sleep pattern quality inhering in a bearer by virtue of the bearer's disrupted sleep during normal sleeping period; often accompanied by cataplexy, sleep paralysis." []
+comment: Consider NBO:0000423
 subset: disposition_slim
 subset: value_slim
-is_a: PATO:0000062 ! sleep pattern
+is_obsolete: true
 
 [Term]
 id: PATO:0000444
@@ -8838,7 +8840,7 @@ subset: disposition_slim
 subset: relational_slim
 synonym: "adhesiveness" EXACT []
 synonym: "stickiness" RELATED []
-is_a: PATO:0001396 ! cellular quality
+is_a: PATO:0001018 ! physical quality
 
 [Term]
 id: PATO:0001432
@@ -9634,6 +9636,7 @@ def: "A cellular quality that exists by virtue of the disposition of the cell to
 subset: attribute_slim
 subset: disposition_slim
 subset: relational_slim
+is_a: PATO:0001396 ! cellular quality
 is_a: PATO:0001431 ! adhesivity
 
 [Term]
@@ -12621,7 +12624,7 @@ is_a: PATO:0002006 ! 2-D shape
 [Term]
 id: PATO:0001876
 name: dumbbell-shaped
-def: "A concave 3-D shape quality inhering in a bearer by virtue of the bearer's having two parts, roughly spherical, connected by a bar." [PATOC:cjm]
+def: "A concave 3-D shape quality inhering in a bearer by virtue of the bearer's having two parts, roughly spherical and of equal size, connected by a bar." [PATOC:GVG]
 subset: cell_quality
 subset: value_slim
 is_a: PATO:0002008 ! concave 3-D shape
@@ -13106,6 +13109,7 @@ id: PATO:0001936
 name: obovate
 def: "A spheroid quality inhering in a bearer by virtue of the bearer's being egg-shaped and flat, with the narrow end attached to the base." [wordreference:wordreference "http://www.wordreference.com/"]
 subset: value_slim
+synonym: "obovoid" RELATED []
 is_a: PATO:0001891 ! ovate
 
 [Term]
@@ -16759,6 +16763,332 @@ intersection_of: PATO:0002326 ! angle
 intersection_of: decreased_in_magnitude_relative_to PATO:0000461 ! normal
 created_by: George Gkoutos
 creation_date: 2011-11-23T12:06:54Z
+
+[Term]
+id: PATO:0002329
+name: hyponastic
+def: "A shape quality inhering in a bearer by virtue of the bearer's exhibiting a upward bending of its leaves or other plant parts." [PATOC:DS]
+subset: value_slim
+is_a: PATO:0000052 ! shape
+created_by: gkoutos
+creation_date: 2012-01-31T11:40:23Z
+
+[Term]
+id: PATO:0002330
+name: oblanceolate
+def: "A quality inhering in a bearer by virtue of the bearer's being extended along a straight line, and is shaped like a reversed lance-point, with the tapering point attached to the leafstalk." [PATOC:PG]
+subset: value_slim
+is_a: PATO:0001199 ! linear
+created_by: gkoutos
+creation_date: 2012-01-31T11:57:54Z
+
+[Term]
+id: PATO:0002331
+name: adhesive
+def: "A physical quality inhering in a bearer by virtue of the bearer exhibiting molecular attraction to another entity in contact." [PATOC:GVG]
+subset: value_slim
+synonym: "resinous" RELATED []
+is_a: PATO:0001431 ! adhesivity
+created_by: gkoutos
+creation_date: 2012-01-31T12:28:16Z
+
+[Term]
+id: PATO:0002332
+name: non-adhesive
+def: "A physical quality inhering in a bearer by virtue of the bearer not exhibiting molecular attraction to another entity in contact." [PATOC:GVG]
+subset: value_slim
+synonym: "non-resinous" RELATED []
+is_a: PATO:0001431 ! adhesivity
+created_by: gkoutos
+creation_date: 2012-01-31T12:28:57Z
+
+[Term]
+id: PATO:0002333
+name: increased adhesivity
+def: "A adhesivity which is relatively high." [PATOC:GVG]
+subset: value_slim
+is_a: PATO:0002305 ! implied link automatically realized ! increased object quality
+is_a: PATO:0002331 ! adhesive
+intersection_of: PATO:0002331 ! adhesive
+intersection_of: increased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: gkoutos
+creation_date: 2012-01-31T12:32:43Z
+
+[Term]
+id: PATO:0002334
+name: decreased adhesivity
+def: "A adhesivity which is relatively low." [PATOC:GVG]
+is_a: PATO:0002303 ! implied link automatically realized ! decreased object quality
+is_a: PATO:0002331 ! adhesive
+intersection_of: PATO:0002331 ! adhesive
+intersection_of: decreased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: gkoutos
+creation_date: 2012-01-31T12:42:22Z
+
+[Term]
+id: PATO:0002335
+name: tholiform
+def: "A shape quality inhering in a bearer by virtue of the bearer's being dome-shaped." [PATOC:dd]
+subset: value_slim
+is_a: PATO:0000052 ! shape
+created_by: gkoutos
+creation_date: 2012-01-31T02:32:14Z
+
+[Term]
+id: PATO:0002336
+name: pyramidal
+def: "A shape quality inhering in a bearer by virtue of the bearer's having triangular faces that meet at a common point and containing a polygonal shaped base." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0000052 ! shape
+created_by: gkoutos
+creation_date: 2012-01-31T02:35:02Z
+
+[Term]
+id: PATO:0002337
+name: lance-ovate
+def: "A spheroid quality inhering in a bearer by virtue of the bearer's exhibiting a continuous convex surface with an axis of symmetry and one axis longer than the other; characterized with an egg-shaped form crossed with a lance-head shaped form." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0001877 ! lanceolate
+created_by: gkoutos
+creation_date: 2012-01-31T02:43:15Z
+
+[Term]
+id: PATO:0002338
+name: lanceolate-triangular
+def: "A shape quality inhering in a bearer by virtue of the bearer's being shaped like a lance-head, considerably longer than wide, tapering towards the tip from below the middle together forming three angles; attached at the broad end." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0001877 ! lanceolate
+created_by: gkoutos
+creation_date: 2012-01-31T02:46:43Z
+
+[Term]
+id: PATO:0002339
+name: hispid
+def: "A quality of being covered with stiff or rough hairs." [PATOC:GVG]
+subset: value_slim
+is_a: PATO:0000454 ! hairy
+created_by: gkoutos
+creation_date: 2012-01-31T02:51:37Z
+
+[Term]
+id: PATO:0002340
+name: hispidulous
+def: "A quality of being minutely hispid." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0002339 ! hispid
+created_by: gkoutos
+creation_date: 2012-01-31T02:53:21Z
+
+[Term]
+id: PATO:0002341
+name: tomentose
+def: "A quality of being covered with short, dense, matted hairs." [thefreedictionary:www.thefreedictionary.com]
+subset: value_slim
+is_a: PATO:0000454 ! hairy
+created_by: gkoutos
+creation_date: 2012-01-31T02:55:56Z
+
+[Term]
+id: PATO:0002342
+name: cupulate
+def: "A quality inhering in a bearer by virtue of the bearer's being a cupule, with a structure similar to a cup that also encloses the ovule in partiality." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0002227 ! cup-shaped
+created_by: gkoutos
+creation_date: 2012-01-31T02:59:07Z
+
+[Term]
+id: PATO:0002343
+name: decumbent
+def: "A positional quality inhering in a bearer by virtue of the bearer's lying or growing on the ground but with erect or rising tips." [thefreedictionary:www.thefreedictionary.com]
+subset: value_slim
+is_a: PATO:0000631 ! prostrate
+created_by: gkoutos
+creation_date: 2012-01-31T03:13:12Z
+
+[Term]
+id: PATO:0002344
+name: arachnose
+def: "A quality inhering in a bearer by virtue of the bearer's being characterized by fine, entangled hairs giving the appearance of cobweb." [PATOC:DD]
+subset: value_slim
+is_a: PATO:0000454 ! hairy
+created_by: gkoutos
+creation_date: 2012-01-31T03:49:00Z
+
+[Term]
+id: PATO:0002345
+name: lemon-shaped
+def: "A convex 3-D shape quality inhering in a bearer by virtue of the bearer's having a quadric surface in three dimensions obtained by rotating less than half of a circular arc about an axis passing through the endpoints of the arc" [PATOC:MH]
+subset: value_slim
+is_a: PATO:0002007 ! convex 3-D shape
+created_by: gkoutos
+creation_date: 2012-01-31T03:55:16Z
+
+[Term]
+id: PATO:0002346
+name: snowman-shaped
+def: "A concave 3-D shape quality inhering in a bearer by virtue of the bearer's having two connected parts, roughly spherical, of different sizes." [PATOC:MH]
+subset: value_slim
+is_a: PATO:0002008 ! concave 3-D shape
+created_by: gkoutos
+creation_date: 2012-01-31T03:58:10Z
+
+[Term]
+id: PATO:0002347
+name: obconical
+def: "A conical quality inhering in a bearer by virtue of the bearer's resembling a cone, with the pointed end attached to an organism." [wiktionary:http\://en.wiktionary.org/wiki/obconical]
+subset: value_slim
+is_a: PATO:0002021 ! conical
+created_by: gkoutos
+creation_date: 2012-01-31T04:05:28Z
+
+[Term]
+id: PATO:0002348
+name: ligneous
+def: "A structural quality inhering in a bearer by virtue of the bearer resembling wood." [merriam-webster:http\://www.merriam-webster.com/dictionary/ligneous]
+subset: value_slim
+is_a: PATO:0000141 ! structure
+created_by: gkoutos
+creation_date: 2012-01-31T04:06:50Z
+
+[Term]
+id: PATO:0002349
+name: basal to
+def: "A spatial quality inhering in a bearer by virtue of the bearer's being located toward the base of an organism relative to another entity." [merriam-webster:http\://www.merriam-webster.com/dictionary/basal]
+subset: value_slim
+is_a: PATO:0000140 ! position
+created_by: gkoutos
+creation_date: 2012-01-31T04:12:25Z
+
+[Term]
+id: PATO:0002350
+name: cauline to
+def: "A spatial quality inhering in a bearer by virtue of the bearer's being located toward the stalk of an organism relative to another entity." [merriam-webster:http\://www.merriam-webster.com/dictionary/cauline]
+subset: value_slim
+is_a: PATO:0000140 ! position
+created_by: gkoutos
+creation_date: 2012-01-31T04:13:06Z
+
+[Term]
+id: PATO:0002351
+name: fleshy
+def: "A structural quality inhering in a bearer by virtue of the bearer resembling or containing flesh." [wiktionary:http\://en.wiktionary.org/wiki/fleshy]
+subset: value_slim
+is_a: PATO:0000025 ! composition
+created_by: gkoutos
+creation_date: 2012-01-31T04:15:30Z
+
+[Term]
+id: PATO:0002352
+name: herbaceous
+def: "A quality inhering in a bearer by virtue of the bearer's upper parts die back to the rootstock at the end of the growing season." [PATOC:PG]
+subset: scalar_slim
+is_a: PATO:0001729 ! shedability
+created_by: gkoutos
+creation_date: 2012-01-31T04:29:36Z
+
+[Term]
+id: PATO:0002353
+name: activation quality
+def: "A quality that inheres in a bearer in virtue of its realizing one of its functions." [PATOC:RH]
+subset: attribute_slim
+is_a: PATO:0001509 ! functionality
+created_by: gkoutos
+creation_date: 2012-01-31T04:51:42Z
+
+[Term]
+id: PATO:0002354
+name: active
+def: "A quality of an physical object that is currently realizing one of its functions." [PATOC:RH]
+subset: attribute_slim
+is_a: PATO:0002353 ! activation quality
+created_by: gkoutos
+creation_date: 2012-01-31T04:52:04Z
+
+[Term]
+id: PATO:0002355
+name: inactive
+def: "A quality of a physical object that is currently realizing none of its functions." [PATOC:RH]
+subset: attribute_slim
+is_a: PATO:0002353 ! activation quality
+created_by: gkoutos
+creation_date: 2012-01-31T04:52:14Z
+
+[Term]
+id: PATO:0002356
+name: constitutively active
+def: "A quality of a physical object that has been constantly realizing some of its functions." [PATOC:RH]
+subset: attribute_slim
+is_a: PATO:0002354 ! active
+created_by: gkoutos
+creation_date: 2012-01-31T04:52:24Z
+
+[Term]
+id: PATO:0002357
+name: D-shaped
+def: "A shape quality inhering in a bearer by virtue of the bearer's having a strait side and an arched side giving the bearer the form of the letter D." [PATOC:AE]
+subset: value_slim
+is_a: PATO:0002007 ! convex 3-D shape
+created_by: gkoutos
+creation_date: 2012-02-21T11:46:51Z
+
+[Term]
+id: PATO:0002358
+name: ridged
+def: "An elongated raised margin or border." [PATOC:GVG]
+subset: value_slim
+synonym: "ridge-like" EXACT []
+is_a: PATO:0000052 ! shape
+created_by: gkoutos
+creation_date: 2012-02-21T12:27:39Z
+
+[Term]
+id: PATO:0002359
+name: broad
+def: "A quality inhering in a bearer by virtue of the bearer's width being notably higher than its length." [PATOC:GVG]
+subset: value_slim
+is_a: PATO:0000052 ! shape
+created_by: gkoutos
+creation_date: 2012-03-13T06:04:00Z
+
+[Term]
+id: PATO:0002360
+name: tendency
+def: "A disposition that can be compared on a linear scale - that is that it can be increased or decreased." [PATOC:RH]
+subset: attribute_slim
+subset: disposition_slim
+subset: relational_slim
+is_a: PATO:0001727 ! disposition
+created_by: gkoutos
+creation_date: 2012-03-16T06:31:50Z
+
+[Term]
+id: PATO:0002361
+name: increased tendency
+def: "A tendency which is relatively high." [PATOC:GVG]
+subset: disposition_slim
+subset: relational_slim
+subset: value_slim
+is_a: PATO:0002305 ! implied link automatically realized ! increased object quality
+is_a: PATO:0002360 ! tendency
+intersection_of: PATO:0002360 ! tendency
+intersection_of: increased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: gkoutos
+creation_date: 2012-03-16T06:31:57Z
+
+[Term]
+id: PATO:0002362
+name: decreased tendency
+def: "A tendency which is relatively low." [PATOC:GVG]
+subset: disposition_slim
+subset: relational_slim
+subset: value_slim
+is_a: PATO:0002303 ! implied link automatically realized ! decreased object quality
+is_a: PATO:0002360 ! tendency
+intersection_of: PATO:0002360 ! tendency
+intersection_of: decreased_in_magnitude_relative_to PATO:0000461 ! normal
+created_by: gkoutos
+creation_date: 2012-03-16T06:32:57Z
 
 [Typedef]
 id: correlates_with
