@@ -165,12 +165,16 @@ goxpfile.eachLine { line ->
   }  
 }
 
+addAnno(c("C3PO:000000000"),OWLRDFVocabulary.RDFS_LABEL,"Cellular component phenotype")
+addAnno(c("C3PO:999999999"),OWLRDFVocabulary.RDFS_LABEL,"Cellular process phenotype")
+
 /* Start with Cell Components */
 ccs.each { cc ->
   def id = formatClassNames(cc.toString()).substring(3) // id of GO class
   if (! id.startsWith(":")) {
     def nid = "C3PO:00$id" // create new C3PO class with prefix "00"
     def cl = c(nid)
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl, c("C3PO:000000000")))
     def name = null // label of GO Class
     cc.getAnnotations(ont, label).each { name = it.getValue().getLiteral() }
     addAnno(cl,OWLRDFVocabulary.RDFS_LABEL,"$name phenotype")
@@ -238,6 +242,7 @@ bps.each { bp ->
   if (! id.startsWith(":")) {
     def nid = "C3PO:10$id" // create new C3PO class with prefix "00"
     def cl = c(nid)
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl, c("C3PO:999999999")))
     def name = null // label of GO Class
     bp.getAnnotations(ont, label).each { name = it.getValue().getLiteral() }
     addAnno(cl,OWLRDFVocabulary.RDFS_LABEL,"$name phenotype")
