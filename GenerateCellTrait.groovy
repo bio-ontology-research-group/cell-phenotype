@@ -56,8 +56,8 @@ ont = manager.loadOntologyFromOntologyDocument(chebifile)
 ontset.add(ont)
 ont = manager.createOntology(IRI.create("http://lc2.eu/temp.owl"), ontset)
 
-OWLOntology outont = manager.createOntology(IRI.create("http://bioonto.gen.cam.ac.uk/cellphenotype.owl"))
-def onturi = "http://bioonto.gen.cam.ac.uk/cellphenotype.owl#"
+OWLOntology outont = manager.createOntology(IRI.create("http://phenomebrowser.net/cellphenotype.owl"))
+def onturi = "http://phenomebrowser.net/cellphenotype.owl#"
 
 OWLReasonerFactory reasonerFactory = null
 
@@ -72,7 +72,7 @@ OWLAnnotationProperty label = fac.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS
 reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY)
 
 def r = { String s ->
-  factory.getOWLObjectProperty(IRI.create("http://bioonto.de/ro2.owl#"+s))
+  factory.getOWLObjectProperty(IRI.create("http://phenomebrowser.net/ro2.owl#"+s))
 }
 
 def c = { String s ->
