@@ -83,6 +83,30 @@
         <Class IRI="#C3PO_990000559"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#C3PO_990000574"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000603"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000619"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000645"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000685"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000724"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000770"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C3PO_990000794"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#C3PO_990000103"/>
     </Declaration>
     <EquivalentClasses>
@@ -466,6 +490,70 @@
             <Class IRI="#C3PO_990000448"/>
         </ObjectIntersectionOf>
     </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#C3PO_990000574"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#phenotype-of"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-part"/>
+                <ObjectIntersectionOf>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-quality"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/PATO_0001154"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#part-of"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/GO_0005623"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#C3PO_990000603"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#phenotype-of"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-part"/>
+                <ObjectIntersectionOf>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-quality"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/PATO_0000052"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#part-of"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/GO_0005623"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#C3PO_990000619"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#phenotype-of"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-part"/>
+                <ObjectIntersectionOf>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#has-quality"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/PATO_0001646"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="http://phenomebrowser.net/ro2.owl#part-of"/>
+                        <Class IRI="http://purl.obolibrary.org/obo/GO_0005623"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#C3PO_990000645"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#C3PO_990000574"/>
+            <Class IRI="#C3PO_990000619"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#C3PO_990000070"/>
         <Class IRI="http://phenomebrowser.net/cellphenotype.owl#C3PO:540005634"/>
@@ -545,6 +633,38 @@
     <SubClassOf>
         <Class IRI="#C3PO_990000559"/>
         <Class IRI="#C3PO_990000448"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000574"/>
+        <Class IRI="#C3PO_990000437"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000603"/>
+        <Class IRI="http://phenomebrowser.net/cellphenotype.owl#C3PO:540005623"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000619"/>
+        <Class IRI="#C3PO_990000603"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000645"/>
+        <Class IRI="#C3PO_990000574"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000685"/>
+        <Class IRI="#C3PO_990000724"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000724"/>
+        <Class IRI="#C3PO_990000437"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000770"/>
+        <Class IRI="http://phenomebrowser.net/cellphenotype.owl#C3PO:140016477"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C3PO_990000794"/>
+        <Class IRI="http://phenomebrowser.net/cellphenotype.owl#C3PO:140016477"/>
     </SubClassOf>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -650,6 +770,46 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#C3PO_990000559</IRI>
         <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">large cell with bright nucleus</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000574</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">elongated cell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000603</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">cell shape phenotype</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000619</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">protruding cell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000645</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">protruding elongated cell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000685</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">shortened cell with mitotic arrest</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000724</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">shortened cell</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000770</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">cell migration speed</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#C3PO_990000794</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">cell migration distance</Literal>
     </AnnotationAssertion>
 </Ontology>
 
