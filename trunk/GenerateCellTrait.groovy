@@ -165,8 +165,8 @@ goxpfile.eachLine { line ->
   }  
 }
 
-addAnno(c("C3PO:000000000"),OWLRDFVocabulary.RDFS_LABEL,"Cellular component phenotype")
-addAnno(c("C3PO:999999999"),OWLRDFVocabulary.RDFS_LABEL,"Cellular process phenotype")
+addAnno(c("C3PO:000000000"),OWLRDFVocabulary.RDFS_LABEL,"cellular component phenotype")
+addAnno(c("C3PO:999999999"),OWLRDFVocabulary.RDFS_LABEL,"cellular process phenotype")
 
 /* Start with Cell Components */
 ccs.each { cc ->
@@ -178,6 +178,7 @@ ccs.each { cc ->
     def name = null // label of GO Class
     cc.getAnnotations(ont, label).each { name = it.getValue().getLiteral() }
     addAnno(cl,OWLRDFVocabulary.RDFS_LABEL,"$name phenotype")
+    addAnno(cl,OWLRDFVocabulary.RDF_DESCRIPTION,"Any observable characteristic of $name.")
     manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		       cl,
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
@@ -212,7 +213,7 @@ ccs.each { cc ->
     def cl5 = c("C3PO:54$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl5, cl))
     addAnno(cl5,OWLRDFVocabulary.RDFS_LABEL,"$name morphology phenotype")
-    addAnno(cl5,OWLRDFVocabulary.RDF_DESCRIPTION,"The morphology of $name is abnormal.")
+    addAnno(cl5,OWLRDFVocabulary.RDF_DESCRIPTION,"Morphology phenotype of $name.")
     manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		       cl5,
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
@@ -225,7 +226,7 @@ ccs.each { cc ->
     def cl6 = c("C3PO:55$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl6, cl))
     addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"$name physiology phenotype")
-    addAnno(cl6,OWLRDFVocabulary.RDF_DESCRIPTION,"Abnormal physiology of $name. The physiology of $name includes $name's functions and functionings.")
+    addAnno(cl6,OWLRDFVocabulary.RDF_DESCRIPTION,"Physiology phenotype of $name. The physiology of $name includes $name's functions and functionings.")
     manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		       cl6,
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
@@ -233,7 +234,6 @@ ccs.each { cc ->
 							r("has-part"), fac.getOWLObjectIntersectionOf(
 							  cc, fac.getOWLObjectSomeValuesFrom(
 							    r("has-quality"), id2class["PATO:0001509"]))))))
-  
   }
 }
 
@@ -296,8 +296,8 @@ bps.each { bp ->
 
     def cl5 = c("C3PO:14$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl5, cl))
-    addAnno(cl5,OWLRDFVocabulary.RDFS_LABEL,"Phenotype of single occurrence of $name")
-    addAnno(cl5,OWLRDFVocabulary.RDF_DESCRIPTION,"Single occurrences of $name processes are abnormal. Examples include extended durations, abnormal course of the process, or abnormalities of process participants.")
+    addAnno(cl5,OWLRDFVocabulary.RDFS_LABEL,"phenotype of single occurrence of $name")
+    addAnno(cl5,OWLRDFVocabulary.RDF_DESCRIPTION,"Phenotype of single $name occurrences. Examples include (extended) durations, (abnormal) course of the process, or abnormalities of process participants.")
     manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		       cl5,
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
@@ -311,21 +311,21 @@ bps.each { bp ->
 							    fac.getOWLObjectSomeValuesFrom(
 							      r("has-quality"), id2class["PATO:0000001"])))))))
 
-    // def cla = c("C3PO:55$id") 
-    // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cla, cl3))
-    // addAnno(cla,OWLRDFVocabulary.RDFS_LABEL,"Increased duration of $name")
-    // addAnno(cla,OWLRDFVocabulary.RDF_DESCRIPTION,"The duration of $name is increased compared to normal.")
-    // manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
-    // 		       cla,
-    // 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
-    // 						      fac.getOWLObjectSomeValuesFrom(
-    // 							r("has-part"), 
-    // 							fac.getOWLObjectSomeValuesFrom(
-    // 							  r("participates-in"), 
-    // 							  fac.getOWLObjectIntersectionOf(
-    // 							    bp,
-    // 							    fac.getOWLObjectSomeValuesFrom(
-    // 							      r("has-quality"), id2class["PATO:0000498"])))))))
+    def cla = c("C3PO:55$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cla, cl5))
+    addAnno(cla,OWLRDFVocabulary.RDFS_LABEL,"duration phenotype of $name")
+    addAnno(cla,OWLRDFVocabulary.RDF_DESCRIPTION,"The duration of $name. Duration can have a value, or be increased or decreased.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+    		       cla,
+    		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+    						      fac.getOWLObjectSomeValuesFrom(
+    							r("has-part"), 
+    							fac.getOWLObjectSomeValuesFrom(
+    							  r("participates-in"), 
+    							  fac.getOWLObjectIntersectionOf(
+    							    bp,
+    							    fac.getOWLObjectSomeValuesFrom(
+    							      r("has-quality"), id2class["PATO:0001309"])))))))
   
     // cla = c("C3PO:56$id") 
     // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cla, cl3))
@@ -345,8 +345,8 @@ bps.each { bp ->
   
     def cl6 = c("C3PO:15$id") 
     manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl6, cl))
-    addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"Phenotype of $name regulation")
-    addAnno(cl6,OWLRDFVocabulary.RDF_DESCRIPTION,"Processes which regulate occurrences of $name are abnormal. Examples include increased frequency, late onset, or abnormalities of process participants throughout the total course of the regulation process.")
+    addAnno(cl6,OWLRDFVocabulary.RDFS_LABEL,"phenotype of $name regulation")
+    addAnno(cl6,OWLRDFVocabulary.RDF_DESCRIPTION,"Phenotype of processes which regulate occurrences of $name. Examples include (increased) frequency of occurrence, (late, early) onset, or abnormalities of process participants throughout the total course of the regulation process.")
     manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
 		       cl6,
 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
@@ -362,24 +362,24 @@ bps.each { bp ->
 							      fac.getOWLObjectIntersectionOf(
 								id2class["PATO:0000001"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 		   
-    // def cl7 = c("C3PO:16$id") 
-    // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl7, cl6))
-    // addAnno(cl7,OWLRDFVocabulary.RDFS_LABEL,"Increased frequency of $name")
-    // addAnno(cl7,OWLRDFVocabulary.RDF_DESCRIPTION,"A regulatory abnormality in which the frequency of occurrences of $name is increased.")
-    // manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
-    // 		       cl7,
-    // 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
-    // 						      fac.getOWLObjectSomeValuesFrom(
-    // 							r("has-part"), 
-    // 							fac.getOWLObjectSomeValuesFrom(
-    // 							  r("participates-in"), 
-    // 							  fac.getOWLObjectIntersectionOf(
-    // 							    fac.getOWLObjectSomeValuesFrom(
-    // 							      r("regulates"), bp),
-    // 							    fac.getOWLObjectSomeValuesFrom(
-    // 							      r("has-quality"), 
-    // 							      fac.getOWLObjectIntersectionOf(
-    // 								id2class["PATO:0000380"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+    def cl7 = c("C3PO:16$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl7, cl6))
+    addAnno(cl7,OWLRDFVocabulary.RDFS_LABEL,"frequency of $name occurrences")
+    addAnno(cl7,OWLRDFVocabulary.RDF_DESCRIPTION,"The frequency of occurrences of $name.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+    		       cl7,
+    		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+    						      fac.getOWLObjectSomeValuesFrom(
+    							r("has-part"), 
+    							fac.getOWLObjectSomeValuesFrom(
+    							  r("participates-in"), 
+    							  fac.getOWLObjectIntersectionOf(
+    							    fac.getOWLObjectSomeValuesFrom(
+    							      r("regulates"), bp),
+    							    fac.getOWLObjectSomeValuesFrom(
+    							      r("has-quality"), 
+    							      fac.getOWLObjectIntersectionOf(
+    								id2class["PATO:0000044"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 
     // def cl8 = c("C3PO:17$id") 
     // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cl8, cl6))
@@ -400,24 +400,24 @@ bps.each { bp ->
     // 							      fac.getOWLObjectIntersectionOf(
     // 								id2class["PATO:0000381"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 
-    // def clx = c("C3PO:90$id") 
-    // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(clx, cl6))
-    // addAnno(clx,OWLRDFVocabulary.RDFS_LABEL,"Late onset of $name")
-    // addAnno(clx,OWLRDFVocabulary.RDF_DESCRIPTION,"A regulatory abnormality in which $name starts later than normal.")
-    // manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
-    // 		       clx,
-    // 		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
-    // 						      fac.getOWLObjectSomeValuesFrom(
-    // 							r("has-part"), 
-    // 							fac.getOWLObjectSomeValuesFrom(
-    // 							  r("participates-in"), 
-    // 							  fac.getOWLObjectIntersectionOf(
-    // 							    fac.getOWLObjectSomeValuesFrom(
-    // 							      r("regulates"), bp),
-    // 							    fac.getOWLObjectSomeValuesFrom(
-    // 							      r("has-quality"), 
-    // 							      fac.getOWLObjectIntersectionOf(
-    // 								id2class["PATO:0000502"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
+    def clx = c("C3PO:90$id") 
+    manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(clx, cl6))
+    addAnno(clx,OWLRDFVocabulary.RDFS_LABEL,"onset phenotype of $name")
+    addAnno(clx,OWLRDFVocabulary.RDF_DESCRIPTION,"The onset of $name.")
+    manager.addAxiom(outont, fac.getOWLEquivalentClassesAxiom(
+    		       clx,
+    		       fac.getOWLObjectSomeValuesFrom(r("phenotype-of"),
+    						      fac.getOWLObjectSomeValuesFrom(
+    							r("has-part"), 
+    							fac.getOWLObjectSomeValuesFrom(
+    							  r("participates-in"), 
+    							  fac.getOWLObjectIntersectionOf(
+    							    fac.getOWLObjectSomeValuesFrom(
+    							      r("regulates"), bp),
+    							    fac.getOWLObjectSomeValuesFrom(
+    							      r("has-quality"), 
+    							      fac.getOWLObjectIntersectionOf(
+    								id2class["PATO:0002325"], fac.getOWLObjectSomeValuesFrom(r("towards"), bp)))))))))
 
     // def cly = c("C3PO:91$id") 
     // manager.addAxiom(outont, factory.getOWLSubClassOfAxiom(cly, cl6))
